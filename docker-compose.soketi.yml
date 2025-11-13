@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  soketi:
+    image: soketi/soketi:latest
+    restart: unless-stopped
+    ports:
+      - "6001:6001"
+    environment:
+      # Basic example settings; we use a simple app id/key pair for local testing
+      - SOKETI_APP_ID=laravel
+      - SOKETI_APP_KEY=laravel
+      - SOKETI_APP_SECRET=secret
+      - SOKETI_WORKER_COUNT=1
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
