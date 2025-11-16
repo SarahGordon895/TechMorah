@@ -38,12 +38,12 @@
             <div class="text-white-50 small">
                 <i class="fas fa-map-marker-alt text-secondary me-2"></i> 23 Rankin Street, New York
                 <span class="mx-3">|</span>
-                <i class="fas fa-envelope text-secondary me-2"></i> support@techmorah.com
+                <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com
             </div>
             <div class="d-flex gap-2">
-                <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
-                <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
-                <a href="#" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-x-twitter text-primary"></i></a>
+                <a href="https://www.facebook.com/share/1JnhuGhcnf/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
+                <a href="https://www.linkedin.com/in/sarah-gordon-0502b335b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
+                <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
             </div>
         </div>
     </div>
@@ -63,6 +63,7 @@
                     <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                     <a href="{{ route('services') }}" class="nav-item nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
                     <a href="{{ route('blog') }}" class="nav-item nav-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Blog Posts</a>
+                    <a href="{{ route('chat.index') }}" class="nav-item nav-link {{ request()->routeIs('chat.index') ? 'active' : '' }}">AI Chatbot</a>
                     <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                 </div>
                 <div class="d-none d-xl-flex flex-shirink-0">
@@ -76,7 +77,7 @@
                     </div>
                     <div class="d-flex flex-column pe-4 border-end">
                         <span class="text-white-50">Have any questions?</span>
-                        <span class="text-secondary">Call: +255 655 139 724</span>
+                        <span class="text-secondary">Call / FaceTime: +255 655 139 724</span>
                     </div>
                     <div class="d-flex align-items-center justify-content-center ms-4">
                         <a href="#" class="search-trigger"><i class="bi bi-search text-white fa-2x"></i></a>
@@ -103,12 +104,18 @@
                         <li><a href="{{ route('about') }}" class="text-white-50 text-decoration-none">About Us</a></li>
                         <li><a href="{{ route('services') }}" class="text-white-50 text-decoration-none">Our Services</a></li>
                         <li><a href="{{ route('contact') }}" class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li><a href="{{ route('chat.index') }}" class="text-white-50 text-decoration-none">AI Chatbot</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
                     <h5 class="text-secondary mb-3">Get In Touch</h5>
-                    <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +1 234 567 890</p>
-                    <p><i class="fas fa-envelope me-2 text-secondary"></i> support@techmorah.com</p>
+                    <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
+                    <p><i class="fas fa-envelope me-2 text-secondary"></i> techmorahsolution@gmail.com</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="https://www.facebook.com/share/1JnhuGhcnf/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/sarah-gordon-0502b335b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
             <hr class="text-secondary">

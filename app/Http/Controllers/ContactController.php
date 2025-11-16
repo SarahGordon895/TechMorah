@@ -21,7 +21,7 @@ class ContactController extends Controller
     // send email to company owner (specified address)
     // NOTE: this will deliver emails to the configured mail transport. In local environments
     // you may need to configure a mail driver or use Mailhog / log driver to inspect messages.
-    Mail::to('gordonsarah2404@gmail.com')->send(new ContactReceived($contact));
+    Mail::to('techmorahsolution@gmail.com')->send(new ContactReceived($contact));
 
         // If the request expects JSON (AJAX), return JSON response so frontend can handle it cleanly.
         if ($request->wantsJson() || $request->ajax()) {

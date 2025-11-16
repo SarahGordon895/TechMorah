@@ -7,7 +7,7 @@ class PageController extends Controller
 {
     public function home() { return view('home'); }
     public function about() { return view('pages.about'); }
-    public function services() { return view('services'); }
+    public function services() { return view('pages.services'); }
     // Return the top-level contacts view (resources/views/contacts.blade.php)
     // The project currently places the contact template at resources/views/contacts.blade.php
     // so return that instead of the non-existent 'pages.contact' view.
@@ -15,9 +15,5 @@ class PageController extends Controller
     public function products() {
         $products = Product::latest()->get();
         return view('pages.products', compact('products'));
-    }
-    
-    public function blog() {
-        return view('blog');
     }
 }

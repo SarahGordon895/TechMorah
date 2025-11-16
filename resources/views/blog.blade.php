@@ -111,11 +111,23 @@
         </div>
 
         <!-- Featured Post -->
-        <div class="group mb-16 bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl">
-            <div class="md:flex">
-                <div class="md:flex-shrink-0 md:w-1/2">
-                    <div class="h-full">
-                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" 
+        <div class="row mb-16">
+            <div class="col-md-6">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80" 
+                     alt="Featured Post" 
+                     class="w-full h-full object-cover">
+            </div>
+            <div class="col-md-6">
+                <div class="uppercase tracking-wide text-sm text-primary font-semibold mb-2">Featured</div>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 hover:text-primary dark:hover:text-secondary transition-colors">
+                    <a href="#">The Future of AI in Modern Web Development</a>
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-6">
+                    Discover how artificial intelligence is revolutionizing the way we build and interact with web applications. Learn about the latest trends and tools that are shaping the future of web development.
+                </p>
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="h-10 w-10 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg" alt="Author">
                              alt="Featured Post" 
                              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                     </div>
@@ -156,8 +168,7 @@
             <!-- Blog Post 1 -->
             <article class="blog-card group">
                 <div class="blog-image group">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1364&q=80" 
-                         alt="Web Development Trends 2023" 
+                    <img src="{{ asset('images/blog-1.jpg') }}" alt="Web Development Trends 2023" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                          class="w-full h-full object-cover">
                     <span class="blog-category">Web Dev</span>
                 </div>
@@ -322,13 +333,6 @@
 @endpush
 
 @endsection
-                        </div>
-                        <a href="#" class="text-primary hover:text-secondary font-medium">Read More →</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blog Post 2 -->
             <div class="blog-card group">
                 <div class="relative overflow-hidden h-64">
                     <img src="{{ asset('images/blog-2.jpg') }}" alt="Cybersecurity Best Practices" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">

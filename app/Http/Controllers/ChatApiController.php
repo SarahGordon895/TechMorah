@@ -86,6 +86,11 @@ class ChatApiController extends Controller
             'body' => $botText,
         ]);
 
-        return response()->json(['status' => 'ok', 'bot' => $botMessage]);
+        return response()->json([
+            'status' => 'ok',
+            'reply' => $botText,
+            'bot' => $botMessage,
+            'session_id' => $session,
+        ]);
     }
 }

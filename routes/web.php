@@ -5,8 +5,33 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ChatApiController;
-use App\Http\Controllers\SmsController;
 use App\Http\Controllers\AiChatController;
+use App\Http\Controllers\SmsController;
+use App\Http\Controllers\VoiceController;
+use App\Http\Controllers\WhatsAppController;
+
+/*
+|--------------------------------------------------------------------------
+| Voice Call Integration
+|--------------------------------------------------------------------------
+*/
+Route::post('/voice/incoming', [VoiceController::class, 'handleIncomingCall'])->name('voice.incoming');
+Route::post('/voice/process/speech', [VoiceController::class, 'processSpeech'])->name('voice.process.speech');
+Route::post('/voice/process/dtmf', [VoiceController::class, 'processDTMF'])->name('voice.process.dtmf');
+Route::post('/voice/status', [VoiceController::class, 'handleCallStatus'])->name('voice.status');
+Route::post('/voice/call', [VoiceController::class, 'initiateCall'])->name('voice.call');
+
+/*
+|--------------------------------------------------------------------------
+| WhatsApp Integration
+|--------------------------------------------------------------------------
+*/
+Route::post('/whatsapp/incoming', [WhatsAppController::class, 'handleIncomingMessage'])->name('whatsapp.incoming');
+Route::post('/whatsapp/send', [WhatsAppController::class, 'sendWhatsAppMessage'])->name('whatsapp.send');
+Route::post('/whatsapp/send-media', [WhatsAppController::class, 'sendWhatsAppMedia'])->name('whatsapp.send.media');
+Route::post('/whatsapp/interactive', [WhatsAppController::class, 'sendInteractiveMessage'])->name('whatsapp.interactive');
+Route::post('/whatsapp/broadcast', [WhatsAppController::class, 'sendBroadcast'])->name('whatsapp.broadcast');
+Route::get('/whatsapp/history', [WhatsAppController::class, 'getConversationHistory'])->name('whatsapp.history');
 
 /*
 |--------------------------------------------------------------------------
