@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to TECHMORAH - AI & IT Solutions Agency')
+@section('title', 'Welcome to TechMorah Solution LTD - AI & IT Solutions Agency')
 @section('content')
 
 <!-- Hero Section -->
@@ -39,7 +39,7 @@
         <h5 class="text-primary mb-2">Who We Are</h5>
         <h2 class="fw-bold mb-4">Empowering Businesses through Smart Technology</h2>
         <p class="text-muted mx-auto" style="max-width:700px;">
-            At TECHMORAH, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
+            At TechMorah Solution LTD, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
         </p>
         <a href="{{ route('about') }}" class="btn btn-primary rounded-pill mt-3 px-4 py-2">Learn More</a>
     </div>
@@ -142,6 +142,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="d-flex align-items-start gap-3 p-4 border rounded-4 h-100 bg-white shadow-sm">
+                    <div class="text-danger fs-2"><i class="fas fa-robot"></i></div>
+                    <div>
+                        <h4 class="fw-semibold">AI Integration & Automation</h4>
+                        <p class="text-muted mb-0">Wire OpenAI, WhatsApp, and Twilio Voice into your internal tools for faster support, insights, and smart workflows.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="text-center mt-4">
@@ -154,7 +164,7 @@
 <section class="py-5 bg-primary text-white text-center">
     <div class="container">
         <h2 class="fw-bold mb-3">Ready to elevate your business?</h2>
-        <p class="mb-4">Let’s discuss how TECHMORAH can transform your digital strategy.</p>
+        <p class="mb-4">Let’s discuss how TechMorah Solution LTD can transform your digital strategy.</p>
         <a href="{{ route('contact') }}" class="btn btn-light rounded-pill px-5 py-3">Contact Us</a>
     </div>
 </section>

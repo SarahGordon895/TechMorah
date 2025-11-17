@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'TECHMORAH - Smart IT & Digital Solutions')</title>
+    <title>@yield('title', 'TechMorah Solution LTD - Smart IT & Digital Solutions')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="@yield('keywords', 'IT solutions, software, web design, TECHMORAH')">
-    <meta name="description" content="@yield('description', 'TECHMORAH - Innovative IT Solutions and AI Integration Agency')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="keywords" content="@yield('keywords', 'IT solutions, software, web design, TechMorah Solution LTD')">
+    <meta name="description" content="@yield('description', 'TechMorah Solution LTD - Innovative IT Solutions and AI Integration Agency')">
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('img/favicon.ico') }}">
@@ -32,60 +33,63 @@
         <div class="spinner-grow text-primary" role="status"></div>
     </div>
 
-    <!-- Topbar -->
-    <div class="container-fluid bg-dark py-2 d-none d-md-flex">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="text-white-50 small">
-                <i class="fas fa-map-marker-alt text-secondary me-2"></i> 23 Rankin Street, New York
-                <span class="mx-3">|</span>
-                <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com
-            </div>
-            <div class="d-flex gap-2">
-                <a href="https://www.facebook.com/share/1JnhuGhcnf/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
-                <a href="https://www.linkedin.com/in/sarah-gordon-0502b335b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
-                <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
+    @hasSection('page_topbar')
+        @yield('page_topbar')
+    @else
+        @unless (request()->routeIs('contact'))
+        <!-- Topbar -->
+        <div class="container-fluid bg-dark py-2 d-none d-md-flex">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="text-white-50 small">
+                    <i class="fas fa-map-marker-alt text-secondary me-2"></i> 23 Rankin Street, New York
+                    <span class="mx-3">|</span>
+                    <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="https://www.facebook.com/share/1JnhuGhcnf/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
+                    <a href="https://www.linkedin.com/in/sarah-gordon-0502b335b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
+                    <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+        @endunless
+    @endif
 
+    @hasSection('page_navbar')
+        @yield('page_navbar')
+    @else
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
             <a href="{{ route('home') }}" class="navbar-brand fw-bold fs-3 text-white">
-                <h1 class="text-white fw-bold d-block m-0">TECH<span class="text-secondary">MORAH</span></h1>
+                <h1 class="text-white fw-bold d-block m-0">Tech<span class="text-secondary">Morah Solution LTD</span></h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
-                <div class="navbar-nav ms-auto mx-xl-auto p-0">
-                    <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
-                    <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
-                    <a href="{{ route('services') }}" class="nav-item nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
-                    <a href="{{ route('blog') }}" class="nav-item nav-link {{ request()->routeIs('blog*') ? 'active' : '' }}">Blog Posts</a>
-                    <a href="{{ route('chat.index') }}" class="nav-item nav-link {{ request()->routeIs('chat.index') ? 'active' : '' }}">AI Chatbot</a>
-                    <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
+                <div class="navbar-nav ms-auto gap-lg-2">
+                    <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
+                    <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
+                    <a href="{{ route('services') }}" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
+                    <a href="{{ route('blog') }}" class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">Blog</a>
+                    <a href="{{ route('chat.index') }}" class="nav-link {{ request()->routeIs('chat.index') ? 'active' : '' }}">AI Chatbot</a>
+                    <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                 </div>
-                <div class="d-none d-xl-flex flex-shirink-0">
-                    <div id="phone-tada" class="d-flex align-items-center justify-content-center me-4">
-                        <a href="tel:+255655139724" class="position-relative animated tada infinite">
-                            <i class="fa fa-phone-alt text-white fa-2x"></i>
-                            <div class="position-absolute" style="top: -7px; left: 20px;">
-                                <span><i class="fa fa-comment-dots text-secondary"></i></span>
-                            </div>
-                        </a>
+                <div class="d-none d-xl-flex align-items-center ms-4">
+                    <div class="d-flex flex-column pe-3 border-end border-secondary">
+                        <small class="text-white-50">Need help?</small>
+                        <span class="text-secondary">Call +255 655 139 724</span>
                     </div>
-                    <div class="d-flex flex-column pe-4 border-end">
-                        <span class="text-white-50">Have any questions?</span>
-                        <span class="text-secondary">Call / FaceTime: +255 655 139 724</span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-center ms-4">
-                        <a href="#" class="search-trigger"><i class="bi bi-search text-white fa-2x"></i></a>
-                    </div>
+                    <a href="tel:+255655139724" class="btn btn-sm btn-secondary ms-3">Call Us</a>
+                </div>
+                <div class="d-flex align-items-center justify-content-center ms-4">
+                    <a href="#" class="search-trigger"><i class="bi bi-search text-white fa-2x"></i></a>
                 </div>
             </div>
         </div>
     </nav>
+    @endif
 
     <!-- Page Content -->
     @yield('content')
@@ -95,7 +99,7 @@
         <div class="container pb-4">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h4 class="text-white">TECH<span class="text-secondary">MORAH</span></h4>
+                    <h4 class="text-white">Tech<span class="text-secondary">Morah Solution LTD</span></h4>
                     <p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations for a smarter tomorrow.</p>
                 </div>
                 <div class="col-md-4">
@@ -107,6 +111,7 @@
                         <li><a href="{{ route('chat.index') }}" class="text-white-50 text-decoration-none">AI Chatbot</a></li>
                     </ul>
                 </div>
+                @unless (request()->routeIs('contact'))
                 <div class="col-md-4">
                     <h5 class="text-secondary mb-3">Get In Touch</h5>
                     <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
@@ -117,9 +122,10 @@
                         <a href="https://www.instagram.com/techmorahsolution_ltd?igsh=MXZqZm80eXkwbjgyZQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="btn btn-sm btn-outline-light rounded-circle"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+                @endunless
             </div>
             <hr class="text-secondary">
-            <p class="text-center small mb-0">© {{ date('Y') }} TECHMORAH. All rights reserved.</p>
+            <p class="text-center small mb-0">© {{ date('Y') }} TechMorah Solution LTD. All rights reserved.</p>
         </div>
     </footer>
 

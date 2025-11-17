@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title', 'About - ' . config('app.name'))
-@section('keywords', 'TechMorah about, AI solutions company, IT support, web development agency')
-@section('description', 'Learn about TechMorah Solution Limited—our mission, expertise, and technology culture powering modern businesses.')
+@section('keywords', 'TechMorah Solution LTD about, AI solutions company, IT support, web development agency')
+@section('description', 'Learn about TechMorah Solution LTD—our mission, expertise, and technology culture powering modern businesses.')
 
 @section('content')
 <!-- Page Header -->
 <section class="container-fluid page-header py-5" style="background: radial-gradient(circle at top, #1f1813, #0c0b0a);">
     <div class="container text-center py-5 text-white">
-        <h1 class="display-4 mb-3 fw-bold">About TechMorah</h1>
+        <h1 class="display-4 mb-3 fw-bold">About TechMorah Solution LTD</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center mb-0">
                 <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
@@ -51,8 +51,8 @@
         </div>
         <div class="col-lg-6">
             <p class="text-primary text-uppercase fw-semibold">Who We Are</p>
-            <h2 class="fw-bold mb-3">TechMorah Solution Limited</h2>
-            <p class="text-muted">We build innovative digital solutions that empower businesses and individuals to thrive. From AI-infused chat experiences to Twilio-powered messaging and enterprise-grade IT support, TechMorah keeps communication and operations seamless.</p>
+            <h2 class="fw-bold mb-3">TechMorah Solution LTD</h2>
+            <p class="text-muted">We build innovative digital solutions that empower businesses and individuals to thrive. From AI-infused chat experiences to Twilio-powered messaging and enterprise-grade IT support, TechMorah Solution LTD keeps communication and operations seamless.</p>
             <p class="text-muted">Our multi-disciplinary team blends strategy, design, engineering, and 24/7 support, ensuring every release feels polished and on-brand—just like our communication flyer.</p>
             <div class="mt-4 d-flex flex-wrap gap-3">
                 <div class="d-flex align-items-center gap-2">
@@ -74,7 +74,7 @@
             <div class="col-md-4">
                 <div class="p-4 bg-white rounded-4 h-100 shadow-sm">
                     <h4 class="text-secondary">Mission</h4>
-                    <p class="text-muted">Deliver reliable digital products and AI experiences that mirror TechMorah’s flyer-grade polish across every channel.</p>
+                    <p class="text-muted">Deliver reliable digital products and AI experiences that mirror TechMorah Solution LTD’s flyer-grade polish across every channel.</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -101,7 +101,7 @@
 <section class="py-5 text-white" style="background:linear-gradient(120deg,#ff750f,#933AFE);">
     <div class="container text-center">
         <p class="text-uppercase small fw-semibold" style="letter-spacing:0.3rem">Let’s Innovate Together</p>
-        <h2 class="fw-bold mb-3">Ready to launch a TechMorah-grade experience?</h2>
+        <h2 class="fw-bold mb-3">Ready to launch a TechMorah Solution LTD-grade experience?</h2>
         <p class="mb-4">WhatsApp +255 655 139 724 or message us via AI chat—we’ll respond faster than the next deploy.</p>
         <a href="https://wa.me/255655139724" target="_blank" class="btn btn-light rounded-pill px-4 me-2">WhatsApp</a>
         <a href="{{ route('contact') }}" class="btn btn-outline-light rounded-pill px-4">Contact Form</a>

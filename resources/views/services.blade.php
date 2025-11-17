@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Services - ' . config('app.name'))
-@section('keywords', 'TechMorah services, web design, system design, UI/UX, IT Support, accounting solutions')
-@section('description', 'Explore TechMorah Solution Limited services — web & system development, UI/UX, IT support, and computerized accounting solutions tailored for modern businesses.')
+@section('keywords', 'TechMorah Solution LTD services, web design, system design, UI/UX, IT Support, accounting solutions')
+@section('description', 'Explore TechMorah Solution LTD services — web & system development, UI/UX, IT support, and computerized accounting solutions tailored for modern businesses.')
 
 @section('content')
 <div class="bg-light">
@@ -88,7 +88,7 @@
     <section class="py-5 text-white" style="background: linear-gradient(120deg, #ff750f, #933AFE);">
         <div class="container text-center">
             <p class="text-uppercase small fw-semibold" style="letter-spacing:0.3rem">Let’s Innovate Together</p>
-            <h2 class="fw-bold mb-3">Ready to unlock the next TechMorah success story?</h2>
+            <h2 class="fw-bold mb-3">Ready to unlock the next TechMorah Solution LTD success story?</h2>
             <p class="mb-4">Message us on WhatsApp +255 655 139 724 or schedule a strategy session today.</p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
                 <a href="https://wa.me/255655139724" target="_blank" class="btn btn-light rounded-pill px-4">WhatsApp Us</a>
