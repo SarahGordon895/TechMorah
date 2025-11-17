@@ -238,12 +238,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row g-5 align-items-stretch">
-                        <div class="col-lg-6">
-                            <div class="p-4 p-md-5 h-100 contact-map">
-                                <iframe class="w-100 h-100" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.111703975866!2d39.23275757502784!3d-6.778866766264675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4bff05c5f56d%3A0x6d7f38d4f6a4225f!2sDar%20es%20Salaam%20Science%20Park!5e0!3m2!1sen!2stz!4v1732114685176!5m2!1sen!2stz" style="border:0;min-height:360px;" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                    
                         <div class="col-lg-6">
                             <div class="p-4 p-md-5 contact-form-card text-white">
                                 <h4 class="mb-4">Send us a direct message</h4>

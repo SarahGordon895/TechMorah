@@ -64,8 +64,10 @@
             <a href="{{ route('home') }}" class="navbar-brand fw-bold fs-3 text-white">
                 <h1 class="text-white fw-bold d-block m-0">Tech<span class="text-secondary">Morah Solution LTD</span></h1>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <div class="collapse navbar-collapse" id="navMenu">
                 <div class="navbar-nav ms-auto gap-lg-2">
@@ -135,6 +137,43 @@
     <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggler = document.querySelector('.menu-toggle');
+            const navMenu = document.getElementById('navMenu');
+
+            if (!toggler || !navMenu || typeof bootstrap === 'undefined') {
+                return;
+            }
+
+            const navCollapse = new bootstrap.Collapse(navMenu, { toggle: false });
+
+            const closeMenu = () => {
+                navCollapse.hide();
+                toggler.classList.remove('is-active');
+                toggler.setAttribute('aria-expanded', 'false');
+            };
+
+            toggler.addEventListener('click', function () {
+                const isOpen = navMenu.classList.contains('show');
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    navCollapse.show();
+                    toggler.classList.add('is-active');
+                    toggler.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            navMenu.querySelectorAll('.nav-link').forEach((link) => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth < 992 && navMenu.classList.contains('show')) {
+                        closeMenu();
+                    }
+                });
+            });
+        });
+    </script>
     <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
     <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
     <script src="{{ asset('lib/waypoints/waypoints.min.js') }}"></script>
