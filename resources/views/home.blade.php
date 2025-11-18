@@ -4,7 +4,7 @@
 @section('content')
 
 <!-- Hero Section -->
-<div class="container-fluid px-0 position-relative">
+<div class="container-fluid px-0 position-relative tm-hero-dark">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -34,14 +34,14 @@
 </div>
 
 <!-- About -->
-<section class="py-5 bg-light">
+<section class="py-5" style="background: linear-gradient(135deg, rgba(4,11,31,0.95), rgba(15,26,58,0.85));">
     <div class="container text-center">
-        <h5 class="text-primary mb-2">Who We Are</h5>
-        <h2 class="fw-bold mb-4">Empowering Businesses through Smart Technology</h2>
-        <p class="text-muted mx-auto" style="max-width:700px;">
-            At TechMorah Solution LTD, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
+        <h5 class="text-secondary mb-2">Who We Are</h5>
+        <h2 class="fw-bold text-white mb-4">Empowering Businesses through Smart Technology</h2>
+        <p class="text-white-50 mx-auto" style="max-width:700px;">
+            At <x-brand-mark size="sm" class="align-middle text-white">TechMorah Solution LTD</x-brand-mark>, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
         </p>
-        <a href="{{ route('about') }}" class="btn btn-primary rounded-pill mt-3 px-4 py-2">Learn More</a>
+        <a href="{{ route('about') }}" class="btn btn-secondary rounded-pill mt-3 px-4 py-2">Learn More</a>
     </div>
 </section>
 
@@ -49,7 +49,7 @@
 <section class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h5 class="text-primary">Connect with TechMorah</h5>
+            <h5 class="text-primary">Connect with <x-brand-mark size="sm" class="align-middle">TechMorah Solution LTD</x-brand-mark></h5>
             <h2 class="fw-bold">Choose the channel that fits your flow</h2>
             <p class="text-muted">Web chat, WhatsApp, and FaceTime are all powered by our OpenAI assistant.</p>
         </div>
@@ -86,7 +86,7 @@
 </section>
 
 <!-- Services / Expertise -->
-<section class="py-5">
+<section class="py-5" style="background: linear-gradient(180deg, #fff 0%, #f5f7ff 50%, rgba(4,11,31,0.04) 100%);">
     <div class="container">
         <div class="text-center mb-5">
             <h5 class="text-primary mb-2">Our Expertise</h5>
@@ -161,10 +161,10 @@
 </section>
 
 <!-- Contact CTA -->
-<section class="py-5 bg-primary text-white text-center">
+<section class="py-5 tm-gradient-bg text-center">
     <div class="container">
         <h2 class="fw-bold mb-3">Ready to elevate your business?</h2>
-        <p class="mb-4">Let’s discuss how TechMorah Solution LTD can transform your digital strategy.</p>
+        <p class="mb-4">Let’s discuss how <x-brand-mark size="sm" class="align-middle">TechMorah Solution LTD</x-brand-mark> can transform your digital strategy.</p>
         <a href="{{ route('contact') }}" class="btn btn-light rounded-pill px-5 py-3">Contact Us</a>
     </div>
 </section>

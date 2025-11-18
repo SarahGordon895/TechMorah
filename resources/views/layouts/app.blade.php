@@ -61,8 +61,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a href="{{ route('home') }}" class="navbar-brand fw-bold fs-3 text-white">
-                <h1 class="text-white fw-bold d-block m-0">Tech<span class="text-secondary">Morah Solution LTD</span></h1>
+            <a href="{{ route('home') }}" class="navbar-brand fw-bold fs-3 text-white text-decoration-none">
+                <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
             </a>
             <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
@@ -101,7 +101,7 @@
         <div class="container pb-4">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h4 class="text-white">Tech<span class="text-secondary">Morah Solution LTD</span></h4>
+                    <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
                     <p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations for a smarter tomorrow.</p>
                 </div>
                 <div class="col-md-4">
@@ -127,7 +127,7 @@
                 @endunless
             </div>
             <hr class="text-secondary">
-            <p class="text-center small mb-0">© {{ date('Y') }} TechMorah Solution LTD. All rights reserved.</p>
+            <p class="text-center small mb-0">© {{ date('Y') }} <x-brand-mark size="sm" class="text-white">TechMorah Solution LTD</x-brand-mark>. All rights reserved.</p>
         </div>
     </footer>
 

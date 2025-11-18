@@ -1,3 +1,129 @@
+/*----------------------------------------------
+| TechMorah palette + global overrides
+----------------------------------------------*/
+:root {
+    --tm-navy: #040b1f;
+    --tm-navy-deep: #020713;
+    --tm-blue: #3c7dff;
+    --tm-purple: #7b3cff;
+    --tm-magenta: #f157ff;
+    --tm-orange: #ff8c24;
+    --tm-gradient: linear-gradient(135deg, #ff8c24, #f157ff 45%, #3c7dff);
+    --tm-gradient-dark: radial-gradient(circle at 12% 15%, rgba(255, 140, 36, 0.25), transparent 45%),
+        radial-gradient(circle at 78% 0%, rgba(60, 125, 255, 0.25), transparent 45%),
+        #040b1f;
+    --bs-primary: var(--tm-blue);
+    --bs-secondary: var(--tm-orange);
+    --bs-dark: var(--tm-navy);
+    --bs-light: #f5f8ff;
+}
+
+body {
+    background-color: #f5f7fb;
+    color: #0d1117;
+}
+
+.bg-dark,
+.navbar-dark,
+.footer,
+.topbar {
+    background-color: var(--tm-navy) !important;
+    background-image: var(--tm-gradient-dark);
+    color: #f5f8ff;
+}
+
+.text-secondary {
+    color: var(--tm-orange) !important;
+}
+
+.border-secondary {
+    border-color: rgba(255, 140, 36, 0.65) !important;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-outline-light:hover,
+.btn-outline-dark:hover {
+    border: 0;
+    color: #fff;
+    background-image: var(--tm-gradient);
+    box-shadow: 0 12px 30px rgba(5, 11, 31, 0.25);
+}
+
+.btn-outline-light,
+.btn-outline-dark,
+.btn-outline-success {
+    border-radius: 999px;
+}
+
+.btn-outline-light,
+.btn-outline-dark {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-outline-light:hover,
+.btn-outline-dark:hover {
+    border-color: transparent;
+}
+
+.navbar .navbar-brand {
+    color: #fff;
+}
+
+.badge.bg-secondary,
+.badge.bg-secondary-subtle {
+    background-image: var(--tm-gradient);
+    color: #fff !important;
+    border: 0;
+}
+
+.tm-chip,
+.quick-reply {
+    border-color: rgba(255, 140, 36, 0.35) !important;
+    color: var(--tm-orange) !important;
+}
+
+.tm-chip:hover,
+.quick-reply:hover {
+    background-color: rgba(255, 140, 36, 0.08) !important;
+}
+
+.tm-gradient-bg {
+    background-image: var(--tm-gradient);
+    color: #fff;
+}
+
+.tm-hero-dark {
+    background-image: var(--tm-gradient-dark);
+    color: #fff;
+}
+
+.brand-mark {
+    gap: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: inherit;
+}
+
+.brand-mark__logo {
+    width: 2.5rem;
+    height: auto;
+    filter: drop-shadow(0 4px 10px rgba(5, 11, 31, 0.4));
+}
+
+.brand-mark__text {
+    color: inherit;
+}
+
+.brand-mark--sm .brand-mark__logo {
+    width: 1.75rem;
+}
+
+.brand-mark--lg .brand-mark__logo {
+    width: 3rem;
+}
+
 /*** Spinner Start ***/
 
 #spinner {
@@ -116,7 +242,7 @@
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-secondary) !important;
+    color: var(--tm-orange) !important;
 }
 
 .navbar .dropdown-toggle::after {
@@ -212,15 +338,15 @@
 }
 
 .carousel-caption .carousel-content a button.carousel-content-btn1 {
-    background: var(--bs-secondary);
-    color: var(--bs-dark);
+    background-image: var(--tm-gradient);
+    color: #fff;
     opacity: 1;
     border: 0;
     border-radius: 20px;
 }
 
 .carousel-caption .carousel-content a button.carousel-content-btn1:hover {
-    background: var(--bs-primary);
+    background: var(--tm-blue);
     color: #ffffff;
     border: 0;
     opacity: 1;
@@ -229,7 +355,7 @@
 }
 
 .carousel-caption .carousel-content a button.carousel-content-btn2 {
-    background: var(--bs-primary);
+    background-image: var(--tm-gradient);
     color: var(--bs-white);
     opacity: 1;
     border: 0;
@@ -237,8 +363,8 @@
 }
 
 .carousel-caption .carousel-content a button.carousel-content-btn2:hover {
-    background: var(--bs-secondary);
-    color: var(--bs-dark);
+    background: var(--tm-blue);
+    color: #fff;
     border: 0;
     opacity: 1;
     transition: 1s;
@@ -248,14 +374,14 @@
 #carouselId .carousel-indicators li {
     width: 30px;
     height: 10px;
-    background: var(--bs-primary);
+    background: var(--tm-blue);
     margin: 10px;
     border-radius: 30px;
     opacity: 1;
 }
 
 #carouselId .carousel-indicators li:hover {
-    background: var(--bs-secondary);
+    background: var(--tm-orange);
     opacity: 1;
 }
 
@@ -335,7 +461,7 @@
     top: 0;
     left: 0;
     border-radius: 10px 10px 0 0;
-    background: rgba(3, 43, 243, 0.8);
+    background: linear-gradient(135deg, rgba(255, 140, 36, 0.92), rgba(60, 125, 255, 0.85));
     transition: .5s;
 }
 
@@ -362,7 +488,7 @@
 }
 
 .services-item:hover .services-content-icon i {
-    color: var(--bs-secondary) !important;
+    color: var(--tm-orange) !important;
 }
 
 .services-item:hover .services-content-icon p {
