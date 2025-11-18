@@ -43,6 +43,7 @@ class ChatApiController extends Controller
         ]);
 
         $session = $data['session_id'] ?? session()->getId();
+        $chat = Chat::firstOrCreate(['session_id' => $session]);
         $chat->loadMissing('messages');
 
         // Save user message so it appears in history
@@ -50,6 +51,10 @@ class ChatApiController extends Controller
             'sender_type' => 'user',
             'body' => $data['body'],
         ]);
+
+        // refresh the relationship so conversationHistory sees the latest entry
+        $chat->unsetRelation('messages');
+        $chat->load('messages');
 
         $provider = strtolower((string) env('AI_PROVIDER', 'openai'));
 
@@ -67,6 +72,10 @@ class ChatApiController extends Controller
 
         if ($provider === 'groq') {
             return $this->respondViaGroq($chat, $session, $data['body']);
+        }
+
+        if ($provider === 'gemini') {
+            return $this->respondViaGemini($chat, $session, $data['body']);
         }
 
         return $this->respondViaOpenAi($chat, $session, $data['body']);
@@ -122,6 +131,64 @@ class ChatApiController extends Controller
         }
 
         return $this->respondWithBot($chat, $session, $botText);
+    }
+
+    protected function respondViaGemini(Chat $chat, string $session, string $prompt)
+    {
+        $apiKey = env('GEMINI_API_KEY');
+        $model = env('GEMINI_MODEL', 'gemini-1.5-flash');
+
+        if (empty($apiKey)) {
+            return $this->respondWithFallback($chat, $session, $prompt, 'Missing Gemini API key');
+        }
+
+        $history = $this->conversationHistory($chat);
+
+        $contents = array_map(function ($message) {
+            return [
+                'role' => $message['role'] === 'assistant' ? 'model' : 'user',
+                'parts' => [
+                    ['text' => $message['content']],
+                ],
+            ];
+        }, $history);
+
+        $payload = [
+            'system_instruction' => [
+                'role' => 'system',
+                'parts' => [
+                    ['text' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.'],
+                ],
+            ],
+            'contents' => $contents,
+            'generationConfig' => [
+                'maxOutputTokens' => 600,
+                'temperature' => 0.7,
+            ],
+        ];
+
+        $endpoint = sprintf('https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s', $model, $apiKey);
+
+        try {
+            $response = Http::timeout(20)->post($endpoint, $payload);
+        } catch (\Throwable $th) {
+            Log::error('Gemini request failed', ['exception' => $th]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Gemini API request exception');
+        }
+
+        if ($response->failed()) {
+            Log::warning('Gemini responded with error', ['body' => $response->json()]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Gemini API response error');
+        }
+
+        $body = $response->json();
+        $botText = $body['candidates'][0]['content']['parts'][0]['text'] ?? null;
+
+        if (!$botText) {
+            return $this->respondWithFallback($chat, $session, $prompt, 'Empty Gemini reply');
+        }
+
+        return $this->respondWithBot($chat, $session, trim($botText));
     }
 
     protected function respondViaGroq(Chat $chat, string $session, string $prompt)
