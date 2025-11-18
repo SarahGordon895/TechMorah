@@ -6,6 +6,7 @@ use App\Mail\ContactReceived;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Arr;
 
 class ContactController extends Controller
 {
@@ -20,7 +21,7 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
-        $contact = new Contact($data);
+        $contact = new Contact(Arr::only($data, ['name', 'email', 'phone', 'message']));
 
         // Try to persist only if the contacts table exists (avoid SQL errors on fresh setups)
         try {

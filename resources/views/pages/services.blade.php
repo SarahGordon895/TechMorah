@@ -285,6 +285,8 @@
                 name: form.name.value.trim() || null,
                 email: form.email.value.trim(),
                 phone: form.phone.value.trim() || null,
+                focus: form.focus.value || null,
+                source: 'consultation',
                 message: `${form.focus.value ? `[Focus: ${form.focus.value}] ` : ''}${form.message.value.trim()}`,
             };
 

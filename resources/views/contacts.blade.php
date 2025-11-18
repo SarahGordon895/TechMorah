@@ -242,8 +242,15 @@
                         <div class="col-lg-6">
                             <div class="p-4 p-md-5 contact-form-card text-white">
                                 <h4 class="mb-4">Send us a direct message</h4>
+                                @if(session('success'))
+                                    <div class="alert alert-success small fw-semibold">{{ session('success') }}</div>
+                                @elseif(session('error'))
+                                    <div class="alert alert-danger small">{{ session('error') }}</div>
+                                @endif
                                 <form id="contactForm" method="POST" action="{{ route('contact.send') }}">
                                     @csrf
+                                    <input type="hidden" name="source" value="contact">
+                                    <input type="hidden" name="focus" value="">
                                     <div class="mb-3">
                                         <input type="text" id="name" name="name" class="form-control" placeholder="Full Name" required>
                                     </div>
@@ -261,7 +268,6 @@
                                         <a id="whatsappQuickChat" href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-whatsapp py-3 px-5 flex-fill text-center fw-semibold"><i class="fab fa-whatsapp me-2"></i>Message via WhatsApp</a>
                                     </div>
                                     <small class="text-white-50 d-block mt-2">We auto-fill your WhatsApp chat with the info above for faster support.</small>
-                                    <div id="formAlert" class="mt-4"></div>
                                 </form>
                             </div>
                         </div>
@@ -313,45 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!form) return;
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const alertBox = document.getElementById('formAlert');
+    form.addEventListener('submit', () => {
         const submitBtn = form.querySelector('button[type="submit"]');
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        alertBox.innerHTML = '<div class="text-info small">📨 Sending your message...</div>';
-
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                },
-                body: JSON.stringify({
-                    name: form.name.value,
-                    email: form.email.value,
-                    phone: form.phone.value,
-                    message: form.message.value,
-                }),
-            });
-
-            const data = await response.json().catch(() => ({}));
-            if (response.ok && data.success) {
-                form.reset();
-                alertBox.innerHTML = `<div class="text-success small fw-semibold">✅ ${data.message}</div>`;
-            } else {
-                alertBox.innerHTML = `<div class="text-danger small">❌ ${data.message || 'Failed to send message. Please try again.'}</div>`;
-            }
-        } catch (error) {
-            console.error('Contact form error', error);
-            alertBox.innerHTML = '<div class="text-danger small">❌ Error sending message. Please try again later.</div>';
-        } finally {
-            submitBtn.textContent = 'Send Message';
-            submitBtn.disabled = false;
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
         }
     });
 
