@@ -15,6 +15,8 @@ class ContactController extends Controller
             'name' => 'nullable|string|max:255',
             'email' => 'required|email',
             'phone' => 'nullable|string|max:50',
+            'focus' => 'nullable|string|max:255',
+            'source' => 'nullable|string|in:contact,consultation',
             'message' => 'required|string',
         ]);
 
@@ -33,7 +35,13 @@ class ContactController extends Controller
         }
 
         try {
-            Mail::to('techmorahsolution@gmail.com')->send(new ContactReceived($contact));
+            $context = $data['source'] === 'consultation' ? 'consult' : 'contact';
+            $meta = [
+                'context' => $context,
+                'focus' => $data['focus'] ?? null,
+            ];
+
+            Mail::to('techmorahsolution@gmail.com')->send(new ContactReceived($contact, $meta));
 
             return $this->respond($request, [
                 'success' => true,

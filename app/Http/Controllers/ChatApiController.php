@@ -61,6 +61,14 @@ class ChatApiController extends Controller
             return $this->respondViaMistral($chat, $session, $data['body']);
         }
 
+        if ($provider === 'ollama') {
+            return $this->respondViaOllama($chat, $session, $data['body']);
+        }
+
+        if ($provider === 'groq') {
+            return $this->respondViaGroq($chat, $session, $data['body']);
+        }
+
         return $this->respondViaOpenAi($chat, $session, $data['body']);
     }
 
@@ -114,6 +122,92 @@ class ChatApiController extends Controller
         }
 
         return $this->respondWithBot($chat, $session, $botText);
+    }
+
+    protected function respondViaGroq(Chat $chat, string $session, string $prompt)
+    {
+        $apiKey = env('GROQ_API_KEY');
+        $model = env('AI_MODEL', 'llama3-8b-8192');
+
+        if (empty($apiKey)) {
+            return $this->respondWithFallback($chat, $session, $prompt, 'Missing Groq API key');
+        }
+
+        $messages = $this->conversationHistory($chat);
+        array_unshift($messages, [
+            'role' => 'system',
+            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+        ]);
+
+        $payload = [
+            'model' => $model,
+            'messages' => $messages,
+            'max_tokens' => 600,
+            'temperature' => 0.7,
+        ];
+
+        try {
+            $response = Http::withToken($apiKey)
+                ->timeout(20)
+                ->post('https://api.groq.com/openai/v1/chat/completions', $payload);
+        } catch (\Throwable $th) {
+            Log::error('Groq request failed', ['exception' => $th]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Groq API request exception');
+        }
+
+        if ($response->failed()) {
+            Log::warning('Groq responded with error', ['body' => $response->json()]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Groq API response error');
+        }
+
+        $body = $response->json();
+        $botText = $body['choices'][0]['message']['content'] ?? null;
+
+        if (!$botText) {
+            return $this->respondWithFallback($chat, $session, $prompt, 'Empty Groq reply');
+        }
+
+        return $this->respondWithBot($chat, $session, $botText);
+    }
+
+    protected function respondViaOllama(Chat $chat, string $session, string $prompt)
+    {
+        $host = rtrim(env('OLLAMA_HOST', 'http://127.0.0.1:11434'), '/');
+        $model = env('AI_MODEL', 'llama3');
+        $endpoint = $host . '/api/chat';
+
+        $messages = $this->conversationHistory($chat);
+        array_unshift($messages, [
+            'role' => 'system',
+            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+        ]);
+
+        $payload = [
+            'model' => $model,
+            'messages' => $messages,
+            'stream' => false,
+        ];
+
+        try {
+            $response = Http::timeout(30)->post($endpoint, $payload);
+        } catch (\Throwable $th) {
+            Log::error('Ollama request failed', ['exception' => $th]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Ollama request exception');
+        }
+
+        if ($response->failed()) {
+            Log::warning('Ollama responded with error', ['body' => $response->json()]);
+            return $this->respondWithFallback($chat, $session, $prompt, 'Ollama response error');
+        }
+
+        $body = $response->json();
+        $botText = $body['message']['content'] ?? ($body['response'] ?? null);
+
+        if (!$botText) {
+            return $this->respondWithFallback($chat, $session, $prompt, 'Empty Ollama reply');
+        }
+
+        return $this->respondWithBot($chat, $session, trim($botText));
     }
 
     protected function respondViaOpenAi(Chat $chat, string $session, string $prompt)

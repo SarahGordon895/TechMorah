@@ -12,13 +12,15 @@ class ContactReceived extends Mailable
     use Queueable, SerializesModels;
 
     public $contact;
+    public $meta;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(Contact $contact)
+    public function __construct(Contact $contact, array $meta = [])
     {
         $this->contact = $contact;
+        $this->meta = $meta;
     }
 
     /**
@@ -26,8 +28,20 @@ class ContactReceived extends Mailable
      */
     public function build()
     {
-        $mail = $this->subject('New Contact Message from ' . ($this->contact->name ?? 'Unknown'))
-                    ->markdown('emails.contact_received');
+        $context = $this->meta['context'] ?? 'contact';
+        $subject = $context === 'consult'
+            ? 'New Consult Booking - ' . ($this->contact->name ?? 'Unknown')
+            : 'New Contact Message from ' . ($this->contact->name ?? 'Unknown');
+
+        $view = $context === 'consult'
+            ? 'emails.contact_consult'
+            : 'emails.contact_received';
+
+        $mail = $this->subject($subject)
+                    ->markdown($view, [
+                        'contact' => $this->contact,
+                        'meta' => $this->meta,
+                    ]);
 
         // If the contact provided an email, set it as Reply-To so the recipient can reply directly
         if (!empty($this->contact->email)) {
