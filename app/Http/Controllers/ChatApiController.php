@@ -153,9 +153,21 @@ class ChatApiController extends Controller
             ];
         }, $history);
 
+        // Ensure the current user prompt is part of the payload (history could be trimmed)
+        $lastEntry = $contents[count($contents) - 1] ?? null;
+        $lastText = $lastEntry['parts'][0]['text'] ?? null;
+
+        if (!$lastEntry || ($lastEntry['role'] ?? null) !== 'user' || $lastText !== $prompt) {
+            $contents[] = [
+                'role' => 'user',
+                'parts' => [
+                    ['text' => $prompt],
+                ],
+            ];
+        }
+
         $payload = [
             'system_instruction' => [
-                'role' => 'system',
                 'parts' => [
                     ['text' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.'],
                 ],
@@ -177,14 +189,27 @@ class ChatApiController extends Controller
         }
 
         if ($response->failed()) {
-            Log::warning('Gemini responded with error', ['body' => $response->json()]);
+            Log::warning('Gemini responded with error', [
+                'status' => $response->status(),
+                'body' => $response->json(),
+            ]);
             return $this->respondWithFallback($chat, $session, $prompt, 'Gemini API response error');
         }
 
         $body = $response->json();
-        $botText = $body['candidates'][0]['content']['parts'][0]['text'] ?? null;
+        $botText = null;
+
+        if (!empty($body['candidates'][0]['content']['parts'])) {
+            foreach ($body['candidates'][0]['content']['parts'] as $part) {
+                if (!empty($part['text'])) {
+                    $botText = trim($part['text']);
+                    break;
+                }
+            }
+        }
 
         if (!$botText) {
+            Log::warning('Gemini returned empty content', ['body' => $body]);
             return $this->respondWithFallback($chat, $session, $prompt, 'Empty Gemini reply');
         }
 
