@@ -116,4 +116,19 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact form notifications
+    |--------------------------------------------------------------------------
+    |
+    | Inbound website messages are delivered to this address. Defaults to the
+    | same address as "from" when unset. Replies in the mail client use
+    | Reply-To from the visitor when they supplied an email.
+    |
+    */
+
+    'contact' => [
+        'address' => env('MAIL_CONTACT_ADDRESS'),
+    ],
+
 ];

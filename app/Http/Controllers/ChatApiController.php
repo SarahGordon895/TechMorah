@@ -93,7 +93,7 @@ class ChatApiController extends Controller
         $messages = $this->conversationHistory($chat);
         array_unshift($messages, [
             'role' => 'system',
-            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+            'content' => $this->techMorahSystemPrompt(),
         ]);
 
         $payload = [
@@ -169,7 +169,7 @@ class ChatApiController extends Controller
         $payload = [
             'system_instruction' => [
                 'parts' => [
-                    ['text' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.'],
+                    ['text' => $this->techMorahSystemPrompt()],
                 ],
             ],
             'contents' => $contents,
@@ -228,7 +228,7 @@ class ChatApiController extends Controller
         $messages = $this->conversationHistory($chat);
         array_unshift($messages, [
             'role' => 'system',
-            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+            'content' => $this->techMorahSystemPrompt(),
         ]);
 
         $payload = [
@@ -271,7 +271,7 @@ class ChatApiController extends Controller
         $messages = $this->conversationHistory($chat);
         array_unshift($messages, [
             'role' => 'system',
-            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+            'content' => $this->techMorahSystemPrompt(),
         ]);
 
         $payload = [
@@ -311,16 +311,23 @@ class ChatApiController extends Controller
             return $this->respondWithFallback($chat, $session, $prompt, 'Missing OpenAI API key');
         }
 
+        $messages = $this->conversationHistory($chat);
+        array_unshift($messages, [
+            'role' => 'system',
+            'content' => $this->techMorahSystemPrompt(),
+        ]);
+
         $payload = [
             'model' => $model,
-            'input' => $this->buildResponseInput($chat),
-            'max_output_tokens' => 600,
+            'messages' => $messages,
+            'max_tokens' => 600,
+            'temperature' => 0.7,
         ];
 
         try {
             $response = Http::withToken($apiKey)
-                ->timeout(20)
-                ->post('https://api.openai.com/v1/responses', $payload);
+                ->timeout(60)
+                ->post('https://api.openai.com/v1/chat/completions', $payload);
         } catch (\Throwable $th) {
             Log::error('OpenAI request failed', ['exception' => $th]);
             return $this->respondWithFallback($chat, $session, $prompt, 'API request exception');
@@ -332,13 +339,18 @@ class ChatApiController extends Controller
         }
 
         $body = $response->json();
-        $botText = $this->extractResponseText($body);
+        $botText = $body['choices'][0]['message']['content'] ?? null;
 
         if (!$botText) {
             return $this->respondWithFallback($chat, $session, $prompt, 'Empty AI reply');
         }
 
-        return $this->respondWithBot($chat, $session, $botText);
+        return $this->respondWithBot($chat, $session, trim($botText));
+    }
+
+    protected function techMorahSystemPrompt(): string
+    {
+        return 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, email techmorahsolution@gmail.com, or the website contact form when relevant.';
     }
 
     protected function respondViaMistral(Chat $chat, string $session, string $prompt)
@@ -353,7 +365,7 @@ class ChatApiController extends Controller
         $messages = $this->conversationHistory($chat);
         array_unshift($messages, [
             'role' => 'system',
-            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
+            'content' => $this->techMorahSystemPrompt(),
         ]);
 
         $payload = [
@@ -388,28 +400,6 @@ class ChatApiController extends Controller
         return $this->respondWithBot($chat, $session, $botText);
     }
 
-    protected function buildResponseInput(Chat $chat): array
-    {
-        $messages = $this->conversationHistory($chat);
-
-        array_unshift($messages, [
-            'role' => 'system',
-            'content' => 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, or the contact route when relevant.',
-        ]);
-
-        return array_map(function ($message) {
-            return [
-                'role' => $message['role'],
-                'content' => [
-                    [
-                        'type' => 'input_text',
-                        'text' => $message['content'],
-                    ],
-                ],
-            ];
-        }, $messages);
-    }
-
     protected function conversationHistory(Chat $chat): array
     {
         return $chat->messages()
@@ -425,40 +415,6 @@ class ChatApiController extends Controller
             })
             ->values()
             ->all();
-    }
-
-    protected function extractResponseText(array $payload): ?string
-    {
-        $output = $payload['output'] ?? $payload['response']['output'] ?? null;
-
-        if (is_array($output)) {
-            foreach ($output as $segment) {
-                // Handle message objects that contain a content array
-                if (($segment['type'] ?? null) === 'message' && isset($segment['content']) && is_array($segment['content'])) {
-                    foreach ($segment['content'] as $content) {
-                        if (($content['type'] ?? null) === 'output_text' && isset($content['text'])) {
-                            return trim($content['text']);
-                        }
-                    }
-                }
-
-                // Handle direct output_text entries
-                if (($segment['type'] ?? null) === 'output_text' && isset($segment['content'][0]['text'])) {
-                    return trim($segment['content'][0]['text']);
-                }
-            }
-        }
-
-        // Fallback to legacy choices array if present
-        if (!empty($payload['choices'][0]['message']['content'])) {
-            return trim($payload['choices'][0]['message']['content']);
-        }
-
-        if (!empty($payload['content'][0]['text'])) {
-            return trim($payload['content'][0]['text']);
-        }
-
-        return null;
     }
 
     protected function extractHuggingFaceText($payload): ?string

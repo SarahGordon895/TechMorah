@@ -114,7 +114,12 @@
     }
     @media (max-width: 991.98px) {
         .chat-shell { border-radius: 20px; }
-        .message-area { height: 360px; }
+        .message-area { height: min(50vh, 360px); min-height: 280px; }
+    }
+    @media (max-width: 575.98px) {
+        .chat-header { padding: 1rem 1.25rem; }
+        .message-area { height: min(45vh, 320px); padding: 1rem; }
+        .chat-input { font-size: 16px; }
     }
 </style>
 @endpush
@@ -288,16 +293,6 @@
             const typingId = showTyping();
 
             try {
-                await fetch('{{ route('chat.send') }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                    },
-                    body: JSON.stringify({ body: text, session_id: sessionId }),
-                });
-
                 const aiResponse = await fetch('{{ route('chat.ai') }}', {
                     method: 'POST',
                     headers: {

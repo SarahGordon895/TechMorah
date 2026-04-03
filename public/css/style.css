@@ -23,10 +23,17 @@ body {
     color: #0d1117;
 }
 
+/* Solid bar for header strip + nav (no blue/orange radial “splashes” at the edges) */
 .bg-dark,
 .navbar-dark,
-.footer,
 .topbar {
+    background-color: var(--tm-navy) !important;
+    background-image: none;
+    color: #f5f8ff;
+}
+
+/* Footer keeps the soft gradient; it loads after .bg-dark so it wins on <footer class="footer bg-dark"> */
+.footer {
     background-color: var(--tm-navy) !important;
     background-image: var(--tm-gradient-dark);
     color: #f5f8ff;
@@ -69,6 +76,57 @@ body {
 
 .navbar .navbar-brand {
     color: #fff;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Keep mark vertically centered with nav links + right-side blocks */
+.navbar.navbar-expand-lg {
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .navbar .navbar-brand {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+
+    .navbar-expand-lg .navbar-collapse {
+        align-items: center;
+    }
+}
+
+/* Footer: icon sits above copy with stable spacing */
+.footer .footer-brand {
+    margin-bottom: 1rem;
+}
+
+.footer .footer-brand .brand-mark {
+    vertical-align: middle;
+}
+
+/* Legal line: icon centered with text baseline */
+.footer .footer-legal {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
+    line-height: 1.5;
+}
+
+.footer .footer-legal .brand-mark {
+    vertical-align: middle;
+}
+
+/* Inline next to headings / sentences (home, etc.) */
+.brand-mark.brand-mark--align-text {
+    vertical-align: middle;
+    position: relative;
+    top: -0.06em;
 }
 
 .badge.bg-secondary,
@@ -100,28 +158,55 @@ body {
 }
 
 .brand-mark {
-    gap: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
     font-weight: 700;
     letter-spacing: 0.01em;
     color: inherit;
+    line-height: 0;
 }
 
-.brand-mark__logo {
-    width: 2.5rem;
-    height: auto;
-    filter: drop-shadow(0 4px 10px rgba(5, 11, 31, 0.4));
+/* Icon slot: square frame; image may be cropped (clip-path) to hide wordmark */
+.brand-mark__icon-slot {
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 14px;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+/* Default / md: balanced for inline body copy */
+.brand-mark .brand-mark__icon-slot {
+    width: 2.35rem;
+    height: 2.35rem;
+}
+
+.brand-mark--sm .brand-mark__icon-slot {
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 11px;
+}
+
+/* Nav + footer column: slightly larger, matches ~nav link cap height */
+.brand-mark--lg .brand-mark__icon-slot {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 15px;
+}
+
+.brand-mark__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: drop-shadow(0 2px 8px rgba(5, 11, 31, 0.35));
 }
 
 .brand-mark__text {
     color: inherit;
-}
-
-.brand-mark--sm .brand-mark__logo {
-    width: 1.75rem;
-}
-
-.brand-mark--lg .brand-mark__logo {
-    width: 3rem;
 }
 
 /*** Spinner Start ***/

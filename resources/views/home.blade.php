@@ -39,7 +39,7 @@
         <h5 class="text-secondary mb-2">Who We Are</h5>
         <h2 class="fw-bold text-white mb-4">Empowering Businesses through Smart Technology</h2>
         <p class="text-white-50 mx-auto" style="max-width:700px;">
-            At <x-brand-mark size="sm" class="align-middle text-white">TechMorah Solution LTD</x-brand-mark>, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
+            At <strong class="text-white fw-semibold">TechMorah Solution ltd</strong>, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
         </p>
         <a href="{{ route('about') }}" class="btn btn-secondary rounded-pill mt-3 px-4 py-2">Learn More</a>
     </div>
@@ -49,7 +49,10 @@
 <section class="py-5 bg-white">
     <div class="container">
         <div class="text-center mb-5">
-            <h5 class="text-primary">Connect with <x-brand-mark size="sm" class="align-middle">TechMorah Solution LTD</x-brand-mark></h5>
+            <h5 class="text-primary d-flex flex-wrap align-items-center justify-content-center gap-2 gap-md-3 mb-3">
+                <span class="mb-0">Connect with</span>
+                <x-brand-mark size="sm" class="brand-mark--align-text">TechMorah Solution LTD</x-brand-mark>
+            </h5>
             <h2 class="fw-bold">Choose the channel that fits your flow</h2>
             <p class="text-muted">Web chat, WhatsApp, and FaceTime are all powered by our OpenAI assistant.</p>
         </div>
@@ -164,7 +167,11 @@
 <section class="py-5 tm-gradient-bg text-center">
     <div class="container">
         <h2 class="fw-bold mb-3">Ready to elevate your business?</h2>
-        <p class="mb-4">Let’s discuss how <x-brand-mark size="sm" class="align-middle">TechMorah Solution LTD</x-brand-mark> can transform your digital strategy.</p>
+        <p class="mb-4 d-flex flex-wrap align-items-center justify-content-center gap-2 text-center px-2">
+            <span>Let’s discuss how</span>
+            <x-brand-mark size="sm" class="brand-mark--align-text flex-shrink-0">TechMorah Solution LTD</x-brand-mark>
+            <span>can transform your digital strategy.</span>
+        </p>
         <a href="{{ route('contact') }}" class="btn btn-light rounded-pill px-5 py-3">Contact Us</a>
     </div>
 </section>

@@ -90,17 +90,17 @@
 
 @section('page_navbar')
 <!-- Contact Page Navbar -->
-<div class="container-fluid bg-primary">
+<div class="container-fluid bg-dark">
     <div class="container">
-        <nav class="navbar navbar-dark navbar-expand-lg py-0">
-            <a href="{{ route('home') }}" class="navbar-brand">
-                <h1 class="text-white fw-bold d-block">TECH<span class="text-secondary">MORAH</span></h1>
+        <nav class="navbar navbar-dark navbar-expand-lg align-items-center py-2">
+            <a href="{{ route('home') }}" class="navbar-brand text-white text-decoration-none d-flex align-items-center me-3 mb-0">
+                <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
             </a>
             <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#contactNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse bg-transparent" id="contactNav">
-                <div class="navbar-nav ms-auto mx-xl-auto p-0">
+            <div class="collapse navbar-collapse bg-transparent align-items-lg-center" id="contactNav">
+                <div class="navbar-nav ms-auto mx-xl-auto py-2 py-lg-0 align-items-lg-center">
                     <a href="{{ route('home') }}" class="nav-item nav-link {{ request()->routeIs('home') ? 'active text-secondary' : '' }}">Home</a>
                     <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active text-secondary' : '' }}">About</a>
                     <a href="{{ route('services') }}" class="nav-item nav-link {{ request()->routeIs('services') ? 'active text-secondary' : '' }}">Services</a>
@@ -109,7 +109,7 @@
                     <a href="{{ route('contact') }}" class="nav-item nav-link active text-secondary">Contact</a>
                 </div>
             </div>
-            <div class="d-none d-xl-flex flex-shrink-0 align-items-center">
+            <div class="d-none d-xl-flex flex-shrink-0 align-items-center ms-lg-2">
                 <div class="d-flex align-items-center justify-content-center me-4">
                     <a href="tel:+255655139724" class="position-relative">
                         <i class="fa fa-phone-alt text-white fa-2x"></i>
@@ -238,8 +238,9 @@
                             </div>
                         </div>
                     </div>
-                    
-                        <div class="col-lg-6">
+
+                    <div class="row g-4 justify-content-center mt-1">
+                        <div class="col-12 col-lg-10 col-xl-8">
                             <div class="p-4 p-md-5 contact-form-card text-white">
                                 <h4 class="mb-4">Send us a direct message</h4>
                                 @if(session('success'))

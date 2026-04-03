@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Mail\ContactReceived;
+use App\Mail\ContactAcknowledgement;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -35,21 +36,18 @@ class ContactController extends Controller
             ]);
         }
 
+        $context = $data['source'] === 'consultation' ? 'consult' : 'contact';
+        $meta = [
+            'context' => $context,
+            'focus' => $data['focus'] ?? null,
+        ];
+
+        $inbox = config('mail.contact.address') ?: config('mail.from.address');
+
         try {
-            $context = $data['source'] === 'consultation' ? 'consult' : 'contact';
-            $meta = [
-                'context' => $context,
-                'focus' => $data['focus'] ?? null,
-            ];
-
-            Mail::to('techmorahsolution@gmail.com')->send(new ContactReceived($contact, $meta));
-
-            return $this->respond($request, [
-                'success' => true,
-                'message' => "✅ Message sent successfully! We'll be in touch soon.",
-            ]);
+            Mail::to($inbox)->send(new ContactReceived($contact, $meta));
         } catch (\Throwable $th) {
-            Log::error('Failed to send contact email', [
+            Log::error('Failed to send contact notification to team', [
                 'exception' => $th,
                 'payload' => $data,
             ]);
@@ -59,6 +57,20 @@ class ContactController extends Controller
                 'message' => '❌ Error sending message. Please try again later.',
             ], 500);
         }
+
+        try {
+            Mail::to($contact->email)->send(new ContactAcknowledgement($contact, $meta));
+        } catch (\Throwable $th) {
+            Log::warning('Contact saved but acknowledgement email failed', [
+                'exception' => $th,
+                'email' => $contact->email,
+            ]);
+        }
+
+        return $this->respond($request, [
+            'success' => true,
+            'message' => "✅ Message sent successfully! We'll be in touch soon. Check your inbox for a copy.",
+        ]);
     }
 
     protected function respond(Request $request, array $payload, int $status = 200)

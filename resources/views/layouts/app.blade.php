@@ -9,7 +9,12 @@
     <meta name="description" content="@yield('description', 'TechMorah Solution LTD - Innovative IT Solutions and AI Integration Agency')">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('img/favicon.ico') }}">
+    @php
+        $faviconPath = config('branding.favicon', 'img/techmorah-logo.svg');
+        $faviconType = str_ends_with(strtolower($faviconPath), '.svg') ? 'image/svg+xml' : 'image/png';
+    @endphp
+    <link rel="icon" type="{{ $faviconType }}" href="{{ asset($faviconPath) }}">
+    <link rel="apple-touch-icon" href="{{ asset($faviconPath) }}">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@600;700&display=swap" rel="stylesheet">
@@ -59,9 +64,9 @@
         @yield('page_navbar')
     @else
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm align-items-center">
         <div class="container">
-            <a href="{{ route('home') }}" class="navbar-brand fw-bold fs-3 text-white text-decoration-none">
+            <a href="{{ route('home') }}" class="navbar-brand text-white text-decoration-none d-flex align-items-center me-3">
                 <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
             </a>
             <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +74,8 @@
                 <span></span>
                 <span></span>
             </button>
-            <div class="collapse navbar-collapse" id="navMenu">
-                <div class="navbar-nav ms-auto gap-lg-2">
+            <div class="collapse navbar-collapse align-items-lg-center" id="navMenu">
+                <div class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
                     <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
                     <a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                     <a href="{{ route('services') }}" class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">Services</a>
@@ -78,14 +83,14 @@
                     <a href="{{ route('chat.index') }}" class="nav-link {{ request()->routeIs('chat.index') ? 'active' : '' }}">AI Chatbot</a>
                     <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>
                 </div>
-                <div class="d-none d-xl-flex align-items-center ms-4">
+                <div class="d-none d-xl-flex align-items-center ms-lg-3 ms-xl-4 flex-shrink-0">
                     <div class="d-flex flex-column pe-3 border-end border-secondary">
                         <small class="text-white-50">Need help?</small>
                         <span class="text-secondary">Call +255 655 139 724</span>
                     </div>
                     <a href="tel:+255655139724" class="btn btn-sm btn-secondary ms-3">Call Us</a>
                 </div>
-                <div class="d-flex align-items-center justify-content-center ms-4">
+                <div class="d-flex align-items-center justify-content-center ms-lg-2 ms-xl-4 flex-shrink-0">
                     <a href="#" class="search-trigger"><i class="bi bi-search text-white fa-2x"></i></a>
                 </div>
             </div>
@@ -101,8 +106,10 @@
         <div class="container pb-4">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
-                    <p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations for a smarter tomorrow.</p>
+                    <div class="footer-brand">
+                        <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
+                    </div>
+                    <p class="text-white-50 small mb-0">Empowering businesses with AI, digital, and IT innovations for a smarter tomorrow.</p>
                 </div>
                 <div class="col-md-4">
                     <h5 class="text-secondary mb-3">Quick Links</h5>
@@ -127,7 +134,11 @@
                 @endunless
             </div>
             <hr class="text-secondary">
-            <p class="text-center small mb-0">© {{ date('Y') }} <x-brand-mark size="sm" class="text-white">TechMorah Solution LTD</x-brand-mark>. All rights reserved.</p>
+            <p class="footer-legal text-center small mb-0 text-white-50">
+                <span>© {{ date('Y') }}</span>
+                <x-brand-mark size="sm" class="text-white">TechMorah Solution LTD</x-brand-mark>
+                <span>. All rights reserved.</span>
+            </p>
         </div>
     </footer>
 

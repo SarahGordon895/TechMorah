@@ -15,13 +15,13 @@ class AiChatController extends Controller
 
         try {
             $response = OpenAI::chat()->create([
-                'model' => 'gpt-3.5-turbo',
+                'model' => env('AI_MODEL', 'gpt-4o-mini'),
                 'messages' => [
                     [
                         'role' => 'system',
-                        'content' => 'You are a helpful assistant for TECHMORAH, an AI & IT Solutions Agency. ' .
-                                    'You provide information about web development, AI solutions, and IT consulting services. ' .
-                                    'Keep responses concise and professional.'
+                        'content' => 'You are TechMorah Solution LTD’s AI copilot. You help with web development, AI solutions, and IT consulting. ' .
+                            'Mention WhatsApp +255 655 139 724, techmorahsolution@gmail.com, or the website contact form when users need a human. ' .
+                            'Keep responses concise and professional.',
                     ],
                     [
                         'role' => 'user',
