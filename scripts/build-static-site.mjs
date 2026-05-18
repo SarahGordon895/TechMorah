@@ -26,20 +26,43 @@ const docs = outArg
     ? path.resolve(root, "../../TechMorah-site")
     : path.join(root, "docs");
 const includePhp = !standalone && !args.includes("--no-php");
+/** GitHub Pages (gh-pages) serves at /TechMorah/ — not /TechMorah/docs/ */
 const baseArg = args.find((a) => a.startsWith("--base="));
-let siteBase = baseArg ? baseArg.slice("--base=".length) : standalone ? "/" : "/TechMorah/docs/";
-if (!siteBase.startsWith("/")) siteBase = `/${siteBase}`;
-if (!siteBase.endsWith("/")) siteBase += "/";
-const baseTag =
-  siteBase === "/"
+const sitePrefix = baseArg
+  ? baseArg.slice("--base=".length).replace(/\/$/, "")
+  : standalone
     ? ""
-    : `  <base href="${siteBase}">\n`;
+    : "/TechMorah";
+
+function asset(p) {
+  if (!p || /^https?:/i.test(p) || p.startsWith("data:")) return p;
+  const clean = p.replace(/^\//, "");
+  return sitePrefix ? `${sitePrefix}/${clean}` : clean;
+}
+
+function applyAssetPaths(html) {
+  if (!sitePrefix) return html;
+  return html
+    .replace(/\bhref="(?!https?:|#|tel:|mailto:|javascript:)([^"]+)"/gi, (_, p) => {
+      if (p.startsWith(sitePrefix)) return `href="${p}"`;
+      return `href="${asset(p)}"`;
+    })
+    .replace(/\bsrc="(?!https?:|data:)([^"]+)"/gi, (_, p) => {
+      if (p.startsWith(sitePrefix)) return `src="${p}"`;
+      return `src="${asset(p)}"`;
+    });
+}
+
 const views = path.join(root, "resources", "views");
 const publicDir = path.join(root, "public");
 const apiTpl = path.join(__dirname, "api-templates");
 
-const BRAND_SM = `<span class="brand-mark brand-mark--sm brand-mark--align-text"><span class="brand-mark__icon-slot"><img src="img/techmorah-icon.png" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
-const BRAND_LG = `<span class="brand-mark brand-mark--lg text-white"><span class="brand-mark__icon-slot"><img src="img/techmorah-icon.png" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
+function brandSm() {
+  return `<span class="brand-mark brand-mark--sm brand-mark--align-text"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
+}
+function brandLg(className = "text-white") {
+  return `<span class="brand-mark brand-mark--lg ${className}"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
+}
 
 const ROUTES = {
   home: "index.html",
@@ -63,7 +86,7 @@ function transform(html) {
     const key = inner.trim().replace(/['"]/g, "");
     return ROUTES[key] || inner.trim();
   });
-  s = s.replace(/<x-brand-mark[\s\S]*?<\/x-brand-mark>/g, BRAND_SM);
+  s = s.replace(/<x-brand-mark[\s\S]*?<\/x-brand-mark>/g, brandSm());
   s = s.replace(/@php\(\$sessionId = session\(\)->getId\(\)\);?/g, "");
   s = s.replace(/@csrf|@php[\s\S]*?@endphp|@foreach[\s\S]*?@endforeach/g, "");
   s = s.replace(/Session substr\(\$sessionId, 0, 6\)…/g, "Session active");
@@ -82,7 +105,7 @@ function transform(html) {
 
 function nav(active) {
   const a = (file, label, key) =>
-    `<a href="${file}" class="nav-link${active === key ? " active" : ""}">${label}</a>`;
+    `<a href="${asset(file)}" class="nav-link${active === key ? " active" : ""}">${label}</a>`;
   return [
     a("index.html", "Home", "home"),
     a("about.html", "About", "about"),
@@ -101,20 +124,20 @@ function shell({ title, active, body, headExtra = "", footExtra = "", hideFooter
           <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
           <p><i class="fas fa-envelope me-2 text-secondary"></i> techmorahsolution@gmail.com</p>
         </div>`;
-  return fixHtml(`<!DOCTYPE html>
+  return applyAssetPaths(fixHtml(`<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-${baseTag}<title>${title}</title>
+<title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TechMorah Solution LTD — AI, IT support, web systems, and digital solutions in Tanzania.">
-<link rel="icon" type="image/svg+xml" href="img/techmorah-logo.svg">
+<link rel="icon" type="image/svg+xml" href="${asset("img/techmorah-logo.svg")}">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="lib/animate/animate.min.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
+<link href="${asset("lib/animate/animate.min.css")}" rel="stylesheet">
+<link href="${asset("css/bootstrap.min.css")}" rel="stylesheet">
+<link href="${asset("css/style.css")}" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -127,7 +150,7 @@ ${headExtra}
 <a href="https://www.instagram.com/techmorahsolution_ltd" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
 </div></div></motion>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"><div class="container">
-<a href="index.html" class="navbar-brand text-white d-flex align-items-center">${BRAND_LG}</a>
+<a href="${asset("index.html")}" class="navbar-brand text-white d-flex align-items-center">${brandLg()}</a>
 <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span></span><span></span><span></span></button>
 <div class="collapse navbar-collapse" id="navMenu"><div class="navbar-nav ms-auto gap-lg-2">
 ${nav(active)}
@@ -136,26 +159,25 @@ ${nav(active)}
 </div></div></nav>
 ${body}
 <footer class="footer bg-dark text-light pt-5"><div class="container pb-4"><div class="row g-4">
-<div class="col-md-4"><motion class="footer-brand">${BRAND_LG}</div><p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations.</p></div>
+<div class="col-md-4"><motion class="footer-brand">${brandLg()}</div><p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations.</p></div>
 <div class="col-md-4"><h5 class="text-secondary mb-3">Quick Links</h5><ul class="list-unstyled">
-<li><a href="about.html" class="text-white-50 text-decoration-none">About</a></li>
-<li><a href="services.html" class="text-white-50 text-decoration-none">Services</a></li>
-<li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
-<li><a href="chat.html" class="text-white-50 text-decoration-none">AI Chatbot</a></li>
+<li><a href="${asset("about.html")}" class="text-white-50 text-decoration-none">About</a></li>
+<li><a href="${asset("services.html")}" class="text-white-50 text-decoration-none">Services</a></li>
+<li><a href="${asset("contact.html")}" class="text-white-50 text-decoration-none">Contact</a></li>
+<li><a href="${asset("chat.html")}" class="text-white-50 text-decoration-none">AI Chatbot</a></li>
 </ul></div>
 ${footerCol}
 </div><hr class="text-secondary"><p class="text-center small text-white-50 mb-0">© ${new Date().getFullYear()} TechMorah Solution LTD. All rights reserved.</p></div></footer>
 <a href="#" class="btn btn-secondary rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/wow/wow.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/site-path.js"></script>
-<script src="js/site.js"></script>
+<script src="${asset("lib/wow/wow.min.js")}"></script>
+<script src="${asset("lib/easing/easing.min.js")}"></script>
+<script src="${asset("lib/waypoints/waypoints.min.js")}"></script>
+<script src="${asset("js/main.js")}"></script>
+<script src="${asset("js/site.js")}"></script>
 ${footExtra}
-</body></html>`);
+</body></html>`));
 }
 
 function fixHtml(html) {
@@ -334,8 +356,8 @@ async function main() {
   const pages = [
     { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — AI & IT Solutions", active: "home" },
     { blade: "pages/about.blade.php", out: "about.html", title: "About | TechMorah Solution LTD", active: "about" },
-    { blade: "contacts.blade.php", out: "contact.html", title: "Contact | TechMorah Solution LTD", active: "contact", foot: '<script src="js/contact-form.js"></script>', hideFooterContact: true, patch: patchContact },
-    { blade: "chat.blade.php", out: "chat.html", title: "AI Copilot | TechMorah", active: "chat", foot: '<script src="js/chat-bot.js"></script>' },
+    { blade: "contacts.blade.php", out: "contact.html", title: "Contact | TechMorah Solution LTD", active: "contact", foot: `<script src="${asset("js/contact-form.js")}"></script>`, hideFooterContact: true, patch: patchContact },
+    { blade: "chat.blade.php", out: "chat.html", title: "AI Copilot | TechMorah", active: "chat", foot: `<script src="${asset("js/chat-bot.js")}"></script>` },
   ];
 
   for (const p of pages) {
@@ -357,7 +379,7 @@ async function main() {
       active: "services",
       body: buildServicesBody(),
       headExtra: servicesStyle,
-      footExtra: '<script src="js/contact-form.js"></script>',
+      footExtra: `<script src="${asset("js/contact-form.js")}"></script>`,
     })
   );
   console.log("✓ services.html");
@@ -370,7 +392,7 @@ async function main() {
       active: "blog",
       body: buildBlogBody(),
       headExtra: blogStyle,
-      footExtra: '<script src="js/blog-newsletter.js"></script>',
+      footExtra: `<script src="${asset("js/blog-newsletter.js")}"></script>`,
     })
   );
   console.log("✓ blog.html");
@@ -383,7 +405,7 @@ async function main() {
   await ensureImages();
   await fs.writeFile(path.join(docs, ".nojekyll"), "");
   const label = standalone ? "TechMorah-site (HTML/CSS/JS)" : "docs/ (GitHub Pages)";
-  console.log(`Done — ${label} at:\n  ${docs}\n  Base URL: ${siteBase}`);
+  console.log(`Done — ${label} at:\n  ${docs}\n  Live prefix: ${sitePrefix || "(relative)"}`);
 }
 
 async function ensureImages() {
