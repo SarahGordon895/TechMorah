@@ -6,63 +6,103 @@
 
 @push('styles')
 <style>
+    /* Override global .page-header carousel + dark overlay */
     .contact-page .page-header {
-        background: linear-gradient(120deg, #0a0a0a, #1a1a1a);
+        background: linear-gradient(135deg, #0f172a 0%, #152238 45%, #0b0f15 100%) !important;
+        background-image: none !important;
         position: relative;
+        overflow: hidden;
     }
-    .contact-page .page-header::after {
+    .contact-page .page-header::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at top, rgba(21,255,153,0.25), rgba(0,0,0,0.8));
+        background: radial-gradient(circle at 15% 0%, rgba(21, 255, 153, 0.2), transparent 50%);
+        pointer-events: none;
+    }
+    .contact-page .page-header::after {
+        display: none;
     }
     .contact-page .page-header > .container {
         position: relative;
         z-index: 2;
     }
+    .contact-page .contact-intro {
+        background: #f5f7fb;
+    }
+    .contact-page .contact-intro h1 {
+        color: #111c2b;
+    }
     .contact-page .contact-detail {
-        background: #0f0f0f;
+        background: linear-gradient(160deg, #111c2b 0%, #0f0f0f 100%);
         border-radius: 1.5rem;
+        box-shadow: 0 24px 60px rgba(9, 14, 20, 0.2);
+    }
+    .contact-page .contact-info-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        height: 100%;
     }
     .contact-page .contact-form-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #ffffff;
+        border: 1px solid rgba(17, 28, 43, 0.08);
         border-radius: 1.5rem;
-        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 40px rgba(9, 14, 20, 0.12);
+    }
+    .contact-page .contact-form-card h4 {
+        color: #111c2b;
     }
     .contact-page .contact-form-card .form-control {
         border-radius: 999px;
-        border: none;
-        background: rgba(255,255,255,0.08);
-        color: #fff;
+        border: 1px solid #dee2e6;
+        background: #f8f9fa;
+        color: #111c2b;
         padding: 0.85rem 1.25rem;
     }
+    .contact-page .contact-form-card .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        background: #fff;
+    }
     .contact-page .contact-form-card textarea.form-control {
-        border-radius: 1.5rem;
+        border-radius: 1.25rem;
         min-height: 160px;
+    }
+    .contact-page .contact-form-card small {
+        color: #6c757d !important;
     }
     .contact-page .contact-map iframe {
         border-radius: 1.5rem;
         min-height: 360px;
         border: none;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
     .contact-page .stat-card {
         border-radius: 1rem;
-        background: rgba(0,0,0,0.25);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
     .contact-page .whatsapp-cta {
-        background: rgba(255,255,255,0.05);
-        border: 1px solid rgba(255,255,255,0.08);
+        background: rgba(37, 211, 102, 0.12);
+        border: 1px solid rgba(37, 211, 102, 0.35);
         border-radius: 1.25rem;
     }
     .contact-page .btn-whatsapp {
         background: #25D366;
         color: #0f0f0f;
+        border: none;
     }
     .contact-page .btn-whatsapp:hover {
-        filter: brightness(1.1);
+        filter: brightness(1.08);
         color: #0f0f0f;
+    }
+    .contact-page .hours-block {
+        background: #fff;
+        border-radius: 1.25rem;
+        padding: 2rem;
+        border: 1px solid rgba(17, 28, 43, 0.08);
+        height: 100%;
     }
 </style>
 @endpush
@@ -180,13 +220,15 @@
         </div>
 
         <!-- Contact Detail + Form -->
-        <div class="container-fluid py-5 mt-5">
-            <div class="container py-5">
-                <div class="text-center mx-auto pb-5" style="max-width: 650px;">
-                    <h5 class="text-primary text-uppercase">Get In Touch</h5>
-                    <h1 class="mb-3">Contact us for any inquiry</h1>
-                    <p class="text-muted">Reach TechMorah Solution Limited via WhatsApp, phone, email, or the contact form. We respond fast across all channels.</p>
-                </div>
+        <section class="contact-intro py-5">
+            <div class="container text-center py-2">
+                <h5 class="text-primary text-uppercase mb-2">Get In Touch</h5>
+                <h1 class="mb-3 fw-bold">Contact us for any inquiry</h1>
+                <p class="text-muted mb-0 mx-auto" style="max-width: 650px;">Reach TechMorah Solution Limited via WhatsApp, phone, email, or the contact form. We respond fast across all channels.</p>
+            </div>
+        </section>
+        <div class="container-fluid pb-5">
+            <div class="container pb-3">
                 <div class="contact-detail position-relative p-4 p-md-5 text-white">
                     <div class="whatsapp-cta d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3 p-4 mb-4">
                         <div class="d-flex align-items-center gap-3">
@@ -204,7 +246,7 @@
                     </div>
                     <div class="row g-4 mb-4 justify-content-center">
                         <div class="col-xl-4 col-lg-6">
-                            <div class="d-flex bg-dark bg-opacity-25 p-3">
+                            <div class="contact-info-card d-flex p-3">
                                 <div class="flex-shrink-0 btn-square bg-secondary rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="fas fa-map-marker-alt text-white"></i>
                                 </div>
@@ -215,7 +257,7 @@
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-6">
-                            <div class="d-flex bg-dark bg-opacity-25 p-3">
+                            <div class="contact-info-card d-flex p-3">
                                 <div class="flex-shrink-0 btn-square bg-secondary rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="fa fa-phone text-white"></i>
                                 </div>
@@ -227,7 +269,7 @@
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-6">
-                            <div class="d-flex bg-dark bg-opacity-25 p-3">
+                            <div class="contact-info-card d-flex p-3">
                                 <div class="flex-shrink-0 btn-square bg-secondary rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="fa fa-envelope text-white"></i>
                                 </div>
@@ -241,7 +283,7 @@
 
                     <div class="row g-4 justify-content-center mt-1">
                         <div class="col-12 col-lg-10 col-xl-8">
-                            <div class="p-4 p-md-5 contact-form-card text-white">
+                            <div class="p-4 p-md-5 contact-form-card">
                                 <h4 class="mb-4">Send us a direct message</h4>
                                 @if(session('success'))
                                     <div class="alert alert-success small fw-semibold">{{ session('success') }}</div>
@@ -279,8 +321,9 @@
 
         <!-- Business Hours & Map -->
         <div class="container py-5">
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-lg-6">
+                    <div class="hours-block">
                     <h2 class="mb-4">Business Hours</h2>
                     <p class="mb-5">Our business hours are as follows:</p>
                     <div class="row">
@@ -295,6 +338,7 @@
                         <div class="col-md-6">
                             <p><span class="fw-semibold">Sunday:</span> Closed</p>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <div class="col-lg-6 contact-map">

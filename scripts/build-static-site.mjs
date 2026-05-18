@@ -116,7 +116,24 @@ function nav(active) {
   ].join("\n          ");
 }
 
-function shell({ title, active, body, headExtra = "", footExtra = "", hideFooterContact = false }) {
+function shell({ title, active, body, headExtra = "", footExtra = "", hideFooterContact = false, skipChrome = false }) {
+  const chrome = skipChrome
+    ? ""
+    : `<motion class="container-fluid bg-dark py-2 d-none d-md-flex"><div class="container d-flex justify-content-between align-items-center">
+<div class="text-white-50 small"><i class="fas fa-map-marker-alt text-secondary me-2"></i> Dar es Salaam Science Park, Tanzania <span class="mx-3">|</span> <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com</div>
+<div class="d-flex gap-2">
+<a href="https://www.facebook.com/share/1JnhuGhcnf/" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
+<a href="https://www.linkedin.com/in/sarah-gordon-0502b335b" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
+<a href="https://www.instagram.com/techmorahsolution_ltd" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
+</div></div></div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"><div class="container">
+<a href="${asset("index.html")}" class="navbar-brand text-white d-flex align-items-center">${brandLg()}</a>
+<button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span></span><span></span><span></span></button>
+<div class="collapse navbar-collapse" id="navMenu"><div class="navbar-nav ms-auto gap-lg-2">
+${nav(active)}
+</motion>
+<a href="tel:+255655139724" class="btn btn-sm btn-secondary d-none d-xl-inline-block ms-3">Call Us</a>
+</div></motion></nav>`;
   const footerCol = hideFooterContact
     ? ""
     : `<div class="col-md-4">
@@ -142,21 +159,7 @@ ${headExtra}
 </head>
 <body>
 <div id="spinner" class="show position-fixed w-100 vh-100 top-50 start-50 d-flex justify-content-center align-items-center bg-white"><div class="spinner-grow text-primary" role="status"></div></div>
-<div class="container-fluid bg-dark py-2 d-none d-md-flex"><div class="container d-flex justify-content-between align-items-center">
-<div class="text-white-50 small"><i class="fas fa-map-marker-alt text-secondary me-2"></i> Dar es Salaam Science Park, Tanzania <span class="mx-3">|</span> <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com</div>
-<div class="d-flex gap-2">
-<a href="https://www.facebook.com/share/1JnhuGhcnf/" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
-<a href="https://www.linkedin.com/in/sarah-gordon-0502b335b" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
-<a href="https://www.instagram.com/techmorahsolution_ltd" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
-</div></div></motion>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"><div class="container">
-<a href="${asset("index.html")}" class="navbar-brand text-white d-flex align-items-center">${brandLg()}</a>
-<button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span></span><span></span><span></span></button>
-<div class="collapse navbar-collapse" id="navMenu"><div class="navbar-nav ms-auto gap-lg-2">
-${nav(active)}
-</div>
-<a href="tel:+255655139724" class="btn btn-sm btn-secondary d-none d-xl-inline-block ms-3">Call Us</a>
-</div></div></nav>
+${chrome}
 ${body}
 <footer class="footer bg-dark text-light pt-5"><div class="container pb-4"><div class="row g-4">
 <div class="col-md-4"><motion class="footer-brand">${brandLg()}</div><p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations.</p></div>
@@ -187,7 +190,9 @@ function fixHtml(html) {
 async function extractStyles(bladePath) {
   const raw = await fs.readFile(path.join(views, bladePath), "utf8");
   const style = raw.match(/@push\('styles'\)([\s\S]*?)@endpush/);
-  return style ? `<style>${transform(style[1])}</style>` : "";
+  if (!style) return "";
+  const css = transform(style[1]).replace(/<\/?style>/gi, "").trim();
+  return `<style>\n${css}\n</style>`;
 }
 
 function buildServicesBody() {
@@ -309,8 +314,11 @@ function stripBlade(raw) {
   const topbar = s.match(/@section\('page_topbar'\)([\s\S]*?)(?=@section)/);
   const navbar = s.match(/@section\('page_navbar'\)([\s\S]*?)(?=@section)/);
   const content = s.match(/@section\('content'\)([\s\S]*?)(?=@endsection|@push|$)/);
+  const cssBlock = style
+    ? `<style>\n${transform(style[1]).replace(/<\/?style>/gi, "").trim()}\n</style>`
+    : "";
   return {
-    style: style ? `<style>${transform(style[1])}</style>` : "",
+    style: cssBlock,
     body: transform((topbar?.[1] || "") + (navbar?.[1] || "") + (content?.[1] || "")),
   };
 }
@@ -356,7 +364,16 @@ async function main() {
   const pages = [
     { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — AI & IT Solutions", active: "home" },
     { blade: "pages/about.blade.php", out: "about.html", title: "About | TechMorah Solution LTD", active: "about" },
-    { blade: "contacts.blade.php", out: "contact.html", title: "Contact | TechMorah Solution LTD", active: "contact", foot: `<script src="${asset("js/contact-form.js")}"></script>`, hideFooterContact: true, patch: patchContact },
+    {
+      blade: "contacts.blade.php",
+      out: "contact.html",
+      title: "Contact | TechMorah Solution LTD",
+      active: "contact",
+      foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>`,
+      hideFooterContact: true,
+      skipChrome: true,
+      patch: patchContact,
+    },
     { blade: "chat.blade.php", out: "chat.html", title: "AI Copilot | TechMorah", active: "chat", foot: `<script src="${asset("js/chat-bot.js")}"></script>` },
   ];
 
@@ -366,7 +383,15 @@ async function main() {
     if (p.patch) body = p.patch(body);
     await fs.writeFile(
       path.join(docs, p.out),
-      shell({ title: p.title, active: p.active, body: fixHtml(body), headExtra: parts.style, footExtra: p.foot || "", hideFooterContact: p.hideFooterContact })
+      shell({
+        title: p.title,
+        active: p.active,
+        body: fixHtml(body),
+        headExtra: parts.style,
+        footExtra: p.foot || "",
+        hideFooterContact: p.hideFooterContact,
+        skipChrome: p.skipChrome,
+      })
     );
     console.log("✓", p.out);
   }
