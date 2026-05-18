@@ -199,14 +199,106 @@ body {
 .brand-mark__logo-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: center;
     display: block;
     filter: drop-shadow(0 2px 8px rgba(5, 11, 31, 0.35));
 }
 
 .brand-mark__text {
     color: inherit;
+}
+
+.brand-mark__wordmark {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: inherit;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.brand-mark__tagline {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.brand-mark--lg {
+    gap: 0.65rem;
+}
+
+/* Client proof & workflow (home) */
+.tm-section-label {
+    color: var(--tm-orange);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.8rem;
+}
+
+.tm-client-card {
+    border: 1px solid rgba(4, 11, 31, 0.08);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    height: 100%;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tm-client-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(4, 11, 31, 0.1);
+}
+
+.tm-client-card .tm-stack-badge {
+    font-size: 0.72rem;
+    margin: 0.15rem;
+}
+
+.tm-workflow-step {
+    position: relative;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background: #fff;
+    border: 1px solid rgba(4, 11, 31, 0.06);
+    height: 100%;
+}
+
+.tm-workflow-step__num {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--tm-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tm-stack-pill {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    margin: 0.2rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(4, 11, 31, 0.06);
+    color: var(--tm-navy, #040b1f);
+}
+
+.tm-capability-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 117, 15, 0.12);
+    color: var(--tm-orange);
+    font-size: 1.25rem;
 }
 
 /*** Spinner Start ***/
