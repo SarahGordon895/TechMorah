@@ -26,6 +26,14 @@ const docs = outArg
     ? path.resolve(root, "../../TechMorah-site")
     : path.join(root, "docs");
 const includePhp = !standalone && !args.includes("--no-php");
+const baseArg = args.find((a) => a.startsWith("--base="));
+let siteBase = baseArg ? baseArg.slice("--base=".length) : standalone ? "/" : "/TechMorah/docs/";
+if (!siteBase.startsWith("/")) siteBase = `/${siteBase}`;
+if (!siteBase.endsWith("/")) siteBase += "/";
+const baseTag =
+  siteBase === "/"
+    ? ""
+    : `  <base href="${siteBase}">\n`;
 const views = path.join(root, "resources", "views");
 const publicDir = path.join(root, "public");
 const apiTpl = path.join(__dirname, "api-templates");
@@ -88,7 +96,7 @@ function nav(active) {
 function shell({ title, active, body, headExtra = "", footExtra = "", hideFooterContact = false }) {
   const footerCol = hideFooterContact
     ? ""
-    : `<motion class="col-md-4">
+    : `<div class="col-md-4">
           <h5 class="text-secondary mb-3">Get In Touch</h5>
           <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
           <p><i class="fas fa-envelope me-2 text-secondary"></i> techmorahsolution@gmail.com</p>
@@ -97,7 +105,7 @@ function shell({ title, active, body, headExtra = "", footExtra = "", hideFooter
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${title}</title>
+${baseTag}<title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TechMorah Solution LTD — AI, IT support, web systems, and digital solutions in Tanzania.">
 <link rel="icon" type="image/svg+xml" href="img/techmorah-logo.svg">
@@ -144,6 +152,7 @@ ${footerCol}
 <script src="lib/easing/easing.min.js"></script>
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/site-path.js"></script>
 <script src="js/site.js"></script>
 ${footExtra}
 </body></html>`);
@@ -367,9 +376,34 @@ async function main() {
   console.log("✓ blog.html");
 
   if (includePhp) await copyApi();
+
+  const indexHtml = await fs.readFile(path.join(docs, "index.html"), "utf8");
+  await fs.writeFile(path.join(docs, "404.html"), indexHtml);
+
+  await ensureImages();
   await fs.writeFile(path.join(docs, ".nojekyll"), "");
   const label = standalone ? "TechMorah-site (HTML/CSS/JS)" : "docs/ (GitHub Pages)";
-  console.log(`Done — ${label} at:\n  ${docs}`);
+  console.log(`Done — ${label} at:\n  ${docs}\n  Base URL: ${siteBase}`);
+}
+
+async function ensureImages() {
+  const imgDir = path.join(docs, "img");
+  const fallback = path.resolve(root, "../../TechMorah-site/img");
+  try {
+    const needed = await fs.readdir(fallback);
+    await fs.mkdir(imgDir, { recursive: true });
+    for (const name of needed) {
+      if (name.startsWith("._")) continue;
+      const dest = path.join(imgDir, name);
+      try {
+        await fs.access(dest);
+      } catch {
+        await fs.copyFile(path.join(fallback, name), dest);
+      }
+    }
+  } catch {
+    /* optional fallback folder */
+  }
 }
 
 main().catch((e) => {
