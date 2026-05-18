@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="text-center mt-4">
-            <a href="{{ route('blog') }}" class="btn btn-outline-secondary rounded-pill px-4">Read case stories</a>
+            <a href="{{ route('blog') }}" class="btn btn-outline-secondary rounded-pill px-4">View case studies</a>
             <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-link text-secondary">View founder portfolio →</a>
         </div>
     </div>

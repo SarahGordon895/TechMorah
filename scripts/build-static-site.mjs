@@ -68,7 +68,8 @@ const ROUTES = {
   home: "index.html",
   about: "about.html",
   services: "services.html",
-  blog: "blog.html",
+  blog: "case-studies.html",
+  "case-studies": "case-studies.html",
   contact: "contact.html",
   "chat.index": "chat.html",
   "contact.send": "api/contact.php",
@@ -110,7 +111,7 @@ function nav(active) {
     a("index.html", "Home", "home"),
     a("about.html", "About", "about"),
     a("services.html", "Services", "services"),
-    a("blog.html", "Blog", "blog"),
+    a("case-studies.html", "Case Studies", "case-studies"),
     a("chat.html", "AI Chatbot", "chat"),
     a("contact.html", "Contact", "contact"),
   ].join("\n          ");
@@ -251,6 +252,10 @@ function buildServicesBody() {
 </div></form></div></div></div></section>`);
 }
 
+function storyImage(st) {
+  return st.image.startsWith("http") ? st.image : asset(st.image);
+}
+
 function buildBlogBody() {
   const stats = blogStats
     .map(
@@ -261,29 +266,30 @@ function buildBlogBody() {
   const stories = solutionStories
     .map(
       (st) => `<div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="${st.image}" class="w-100 h-100 object-fit-cover" alt="${st.client}"></div>
+<div class="ratio ratio-4x3 bg-light"><img src="${storyImage(st)}" class="w-100 h-100 object-fit-cover" alt="${st.client}" loading="lazy" decoding="async"></div>
 <div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">${st.industry}</span>
 <h5 class="fw-semibold">${st.client}</h5>
 <p class="text-muted small mb-1"><strong>Challenge:</strong> ${st.challenge}</p>
 <p class="text-muted small mb-1"><strong>Solution:</strong> ${st.solution}</p>
 <p class="text-muted small mb-3"><strong>Outcome:</strong> ${st.outcome}</p>
 <div class="d-flex flex-wrap gap-2 mb-3">${st.services.map((x) => `<span class="badge bg-dark text-white">${x}</span>`).join("")}</div>
-<a href="${st.cta_url}" class="text-primary fw-semibold mt-auto">Continue the story &rarr;</a></div></div></div>`
+<div class="mt-auto d-flex flex-wrap gap-2">${st.portfolio_url ? `<a href="${st.portfolio_url}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a>` : ""}<a href="${asset(st.cta_url)}" class="text-primary fw-semibold">Start similar work &rarr;</a></motion></div></div></div>`
     )
     .join("");
   const spotlights = serviceSpotlights
     .map(
       (sp) => `<div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">${sp.title}</h5>
-<p class="text-muted mb-3">${sp.description}</p><a href="${sp.link}" class="text-primary fw-semibold">${sp.label}</a></motion></div>`
+<p class="text-muted mb-3">${sp.description}</p><a href="${asset(sp.link)}" class="text-primary fw-semibold">${sp.label}</a></div></motion>`
     )
     .join("");
   return fixHtml(`
 <div class="blog-page">
 <div class="container-fluid page-header py-5"><div class="container text-center py-5">
-<h1 class="display-2 text-white mb-4">Our Blog</h1>
+<h1 class="display-2 text-white mb-4">Case Studies</h1>
+<p class="lead text-white-50 mx-auto mb-4" style="max-width:640px">Real screenshots from enterprise SMS, payments, and SME systems we deliver.</p>
 <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center mb-0">
 <li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
-<li class="breadcrumb-item text-white-50">Pages</li><li class="breadcrumb-item active text-white">Blog</li></ol></nav></div></div>
+<li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></div>
 <div class="container-fluid bg-secondary py-5"><div class="container"><div class="row g-4 text-white">${stats}</div></div></div>
 <div class="container py-5"><div class="row g-5">
 <div class="col-lg-7"><div class="bg-dark text-white rounded-4 p-5"><h2 class="mb-3">Subscribe for TechMorah updates</h2>
@@ -292,8 +298,8 @@ function buildBlogBody() {
 <div class="col-sm-auto"><button class="btn btn-secondary btn-lg" type="submit">Subscribe</button></div></form></div></div>
 <div class="col-lg-5"><div class="bg-light rounded-4 p-4 h-100"><h4 class="mb-4">Popular Tags</h4><div class="tag-cloud d-flex flex-wrap gap-2">${tags}</div></div></div></div></div>
 <div class="container pb-5"><div class="text-center mx-auto pb-4" style="max-width:700px">
-<h5 class="text-primary text-uppercase">Solution Stories</h5><h2 class="mb-3">TechMorah inside real client launches</h2>
-<p class="text-muted">Snapshots from systems we built for Tanzanian businesses.</p></div>
+<h5 class="text-primary text-uppercase">All case studies</h5><h2 class="mb-3">Client launches &amp; delivery notes</h2>
+<p class="text-muted">Victoria Lush and LipaPay use real project screenshots; other stories summarize sector work.</p></div>
 <div class="row g-4">${stories}</div></div>
 <div class="container pb-5"><div class="row g-4">${spotlights}</div></div>
 <div class="bg-primary py-5"><div class="container text-center text-white"><h2 class="mb-3">Ready to Transform Your Business?</h2>
@@ -426,18 +432,30 @@ async function main() {
   );
   console.log("✓ services.html");
 
-  const blogStyle = await extractStyles("blog.blade.php");
+  const caseStudiesStyle = await extractStyles("blog.blade.php");
+  const caseStudiesExtra = `${caseStudiesStyle}
+<style>.tm-case-card--featured{border-width:2px;border-color:rgba(255,117,15,.35)}.case-studies-page .tm-case-card img{object-position:top center}</style>`;
+  await fs.writeFile(
+    path.join(docs, "case-studies.html"),
+    shell({
+      title: "Case Studies | TechMorah Solution LTD",
+      active: "case-studies",
+      body: buildBlogBody(),
+      headExtra: caseStudiesExtra,
+      footExtra: `<script src="${asset("js/blog-newsletter.js")}"></script>`,
+    })
+  );
+  console.log("✓ case-studies.html");
   await fs.writeFile(
     path.join(docs, "blog.html"),
     shell({
       title: "Blog | TechMorah Solution LTD",
       active: "blog",
-      body: buildBlogBody(),
-      headExtra: blogStyle,
-      footExtra: `<script src="${asset("js/blog-newsletter.js")}"></script>`,
+      body: `<motion class="container py-5 text-center"><h1 class="mb-3">This page has moved</h1><p class="text-muted mb-4">Our case studies and delivery stories now live on a dedicated page.</p><a href="${asset("case-studies.html")}" class="btn btn-secondary rounded-pill px-4">View Case Studies</a></motion>`,
+      headExtra: `<meta http-equiv="refresh" content="0;url=${asset("case-studies.html")}">`,
     })
   );
-  console.log("✓ blog.html");
+  console.log("✓ blog.html (redirect)");
 
   if (includePhp) await copyApi();
 
