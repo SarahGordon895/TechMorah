@@ -337,9 +337,11 @@ function stripBlade(raw) {
   const topbar = s.match(/@section\('page_topbar'\)([\s\S]*?)(?=@section)/);
   const navbar = s.match(/@section\('page_navbar'\)([\s\S]*?)(?=@section)/);
   const content = s.match(/@section\('content'\)([\s\S]*?)(?=@endsection|@push|$)/);
-  const cssBlock = style
-    ? `<style>\n${transform(style[1]).replace(/<\/?style>/gi, "").trim()}\n</style>`
-    : "";
+  let cssBlock = "";
+  if (style) {
+    const raw = transform(style[1]).replace(/<\/?style>/gi, "").trim();
+    cssBlock = raw.includes("<link") ? raw : `<style>\n${raw}\n</style>`;
+  }
   return {
     style: cssBlock,
     body: transform((topbar?.[1] || "") + (navbar?.[1] || "") + (content?.[1] || "")),
@@ -350,9 +352,8 @@ function patchContact(body) {
   const formTag = includePhp
     ? '<form id="contactForm" data-techmorah-contact method="POST" action="api/contact.php">'
     : '<form id="contactForm" data-techmorah-contact>';
-  return fixHtml(
-    body.replace(/<form id="contactForm"[^>]*>/, formTag).replace(/<input[^>]*name="_token"[^>]*>/g, "")
-  );
+  let s = body.replace(/<form id="contactForm"[^>]*>/, formTag).replace(/<input[^>]*name="_token"[^>]*>/g, "");
+  return fixHtml(s);
 }
 
 async function copyPublic() {
@@ -392,9 +393,9 @@ async function main() {
       out: "contact.html",
       title: "Contact | TechMorah Solution LTD",
       active: "contact",
-      foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>`,
-      hideFooterContact: true,
-      skipChrome: true,
+      foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>\n<script src="${asset("js/contact-chat-embed.js")}"></script>\n<script src="${asset("js/contact-page.js")}"></script>\n<script src="${asset("js/site.js")}"></script>`,
+      hideFooterContact: false,
+      skipChrome: false,
       patch: patchContact,
     },
     { blade: "chat.blade.php", out: "chat.html", title: "AI Copilot | TechMorah", active: "chat", foot: `<script src="${asset("js/chat-bot.js")}"></script>` },

@@ -65,24 +65,29 @@
         btn.textContent = label || "Send";
       }
 
-      const alertBox = document.getElementById("consultAlert");
+      const alertBox =
+        document.getElementById("contactAlert") || document.getElementById("consultAlert");
       if (ok) {
         if (alertBox) {
-          alertBox.className = "alert alert-success";
-          alertBox.textContent = "Request received! We will reach out shortly.";
+          alertBox.className = "alert alert-success alert-contact";
+          alertBox.textContent = "Message received! We will reach out shortly on email or WhatsApp.";
           alertBox.classList.remove("d-none");
+          alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
         } else {
           alert("Thank you! We received your message and will respond shortly.");
         }
         form.reset();
+        form.dispatchEvent(new Event("input", { bubbles: true }));
       } else if (
         confirm("Could not send email from this browser. Open WhatsApp to send your message now?")
       ) {
         window.open(whatsappLink(data), "_blank", "noopener");
       } else if (alertBox) {
-        alertBox.className = "alert alert-danger";
-        alertBox.textContent = "Unable to send right now. Try WhatsApp or email techmorahsolution@gmail.com.";
+        alertBox.className = "alert alert-danger alert-contact";
+        alertBox.textContent =
+          "Unable to send right now. Try WhatsApp or email techmorahsolution@gmail.com.";
         alertBox.classList.remove("d-none");
+        alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     });
   });

@@ -1,0 +1,341 @@
+/* TechMorah contact — dark layout, dark shadows, mobile-first */
+
+.contact-page {
+    background: #0b0f15;
+    color: #e8ecf4;
+}
+
+.contact-page .page-header {
+    background: linear-gradient(135deg, #0f172a 0%, #152238 45%, #0b0f15 100%) !important;
+    background-image: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-page .page-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 0%, rgba(255, 117, 15, 0.18), transparent 55%);
+    pointer-events: none;
+}
+
+.contact-page .page-header::after {
+    display: none !important;
+}
+
+.contact-page .page-header > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-page .page-header h1 {
+    font-size: clamp(1.75rem, 5vw, 3.5rem);
+}
+
+.contact-page .contact-stats {
+    background: linear-gradient(120deg, #ff750f, #933afe);
+}
+
+.contact-page .stat-card {
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    min-height: 100%;
+}
+
+.contact-page .stat-card h1 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+}
+
+.contact-page .contact-intro {
+    background: #0f141c;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.contact-page .contact-intro h1,
+.contact-page .contact-intro .lead {
+    color: #f4f6fb;
+}
+
+.contact-page .contact-intro .text-muted {
+    color: rgba(232, 236, 244, 0.72) !important;
+}
+
+.contact-page .channel-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+}
+
+.contact-page .channel-pill {
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.35);
+    color: #e8ecf4;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.contact-page .channel-pill:hover,
+.contact-page .channel-pill:focus {
+    color: #fff;
+    border-color: rgba(255, 117, 15, 0.55);
+    background: rgba(255, 117, 15, 0.15);
+    transform: translateY(-1px);
+}
+
+.contact-page .contact-detail {
+    background: linear-gradient(165deg, #121a2a 0%, #0a0d12 100%);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55), 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.contact-page .whatsapp-cta {
+    background: rgba(37, 211, 102, 0.1);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    border-radius: 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.contact-page .contact-info-card {
+    background: rgba(0, 0, 0, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    height: 100%;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-page .contact-info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+.contact-page .contact-form-card,
+.contact-page .contact-chat-card,
+.contact-page .hours-block,
+.contact-page .contact-map-card {
+    background: linear-gradient(160deg, #161f30 0%, #0e1218 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    color: #e8ecf4;
+}
+
+.contact-page .contact-form-card h4,
+.contact-page .contact-chat-card h4,
+.contact-page .hours-block h2 {
+    color: #fff;
+}
+
+.contact-page .contact-form-card .form-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(232, 236, 244, 0.65);
+    margin-bottom: 0.35rem;
+}
+
+.contact-page .contact-form-card .form-control,
+.contact-page .contact-form-card .form-select {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.35);
+    color: #f4f6fb;
+    padding: 0.75rem 1rem;
+    min-height: 48px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.contact-page .contact-form-card .form-control::placeholder {
+    color: rgba(232, 236, 244, 0.45);
+}
+
+.contact-page .contact-form-card .form-control:focus,
+.contact-page .contact-form-card .form-select:focus {
+    border-color: rgba(255, 117, 15, 0.65);
+    box-shadow: 0 0 0 3px rgba(255, 117, 15, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+}
+
+.contact-page .contact-form-card textarea.form-control {
+    min-height: 140px;
+    border-radius: 0.75rem;
+}
+
+.contact-page .contact-form-card small,
+.contact-page .contact-chat-card small {
+    color: rgba(232, 236, 244, 0.55) !important;
+}
+
+.contact-page .btn-whatsapp {
+    background: #25d366;
+    color: #06210f;
+    border: none;
+    font-weight: 600;
+    min-height: 48px;
+}
+
+.contact-page .btn-whatsapp:hover {
+    filter: brightness(1.08);
+    color: #06210f;
+}
+
+.contact-page .btn-contact-primary {
+    background-image: linear-gradient(120deg, #ff750f, #933afe);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    min-height: 48px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.contact-page .btn-contact-primary:hover {
+    filter: brightness(1.06);
+    color: #fff;
+}
+
+.contact-page .btn-contact-outline {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #e8ecf4;
+    min-height: 48px;
+}
+
+.contact-page .btn-contact-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.contact-page .contact-map-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: 260px;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
+    background: #0a0d12;
+}
+
+.contact-page .contact-map-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.contact-page .contact-map-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.contact-page .contact-chat-messages {
+    height: min(320px, 45vh);
+    overflow-y: auto;
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.contact-page .contact-chat-messages .message-bubble {
+    max-width: 88%;
+    padding: 0.65rem 0.9rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.contact-page .contact-chat-messages .message-bubble.user {
+    background: linear-gradient(120deg, #ff750f, #933afe);
+    color: #fff;
+    margin-left: auto;
+}
+
+.contact-page .contact-chat-messages .message-bubble.bot {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e8ecf4;
+}
+
+.contact-page .contact-chat-input-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.contact-page .contact-chat-input-row .form-control {
+    flex: 1 1 180px;
+    min-height: 48px;
+}
+
+.contact-page .quick-reply-chip {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 117, 15, 0.35);
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffb366;
+    cursor: pointer;
+}
+
+.contact-page .quick-reply-chip:hover {
+    background: rgba(255, 117, 15, 0.15);
+}
+
+.contact-page .alert-contact {
+    border-radius: 0.75rem;
+    border: none;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 991.98px) {
+    .contact-page .contact-detail {
+        padding: 1.25rem !important;
+    }
+
+    .contact-page .display-2 {
+        font-size: 2rem;
+    }
+
+    .contact-page .stat-card {
+        padding: 1rem !important;
+    }
+
+    .contact-page .stat-card h5 {
+        font-size: 0.85rem;
+    }
+
+    .contact-page .whatsapp-cta h5 {
+        font-size: 1rem;
+    }
+
+    .contact-page .contact-map-wrap {
+        aspect-ratio: 16 / 12;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .contact-page .channel-pill {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-page .d-flex.flex-column.flex-md-row.gap-3 .btn {
+        width: 100%;
+    }
+}
