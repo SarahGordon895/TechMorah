@@ -15,6 +15,9 @@
     if (p.includes("payment") || p.includes("lipa") || p.includes("m-pesa")) {
       return "We integrate mobile money and payment sandboxes with clear API docs and staging — like LipaPay at iMartGroup. What gateway or bank are you using?";
     }
+    if (p.includes("deploy") || p.includes("hosting") || p.includes("vps") || p.includes("server")) {
+      return "We deploy to Linux VPS (Victoria Lush production) and shared hosting (iMartGroup LipaPay) with SSL, domains, and handover runbooks. Tell me your stack and host.";
+    }
     if (p.includes("support") || p.includes("whatsapp")) {
       return "24/7 support routes through WhatsApp +255 655 139 724, email, and this chat. For urgent issues, WhatsApp is fastest.";
     }

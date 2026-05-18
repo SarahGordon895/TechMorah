@@ -13,16 +13,16 @@ export const clientProjects = [
     sector: "Enterprise SMS platform",
     stack: ["Laravel", "PHP", "MySQL", "APIs", "Bulk SMS"],
     summary:
-      "VLL Admin, customer portal (VLL SMS), and legacy SmSver1 stack — reseller workflows, operations dashboards, and messaging integrations.",
-    highlight: "Ongoing full-stack delivery",
+      "Victoria Lush company portal (VLL SMS), VLL Admin, and SmSver1 stack — deployed and maintained on Linux VPS with SSL and production handover.",
+    highlight: "Portal + Linux VPS deployment",
   },
   {
     name: "iMartGroup Ltd — LipaPay",
     sector: "FinTech / mobile money",
-    stack: ["Laravel", "REST APIs", "Sandbox", "Developer docs"],
+    stack: ["Laravel", "REST APIs", "Shared hosting", "SSL"],
     summary:
-      "Sandbox_LipaPay developer hub and staging environment for payment flows, API reference, and pre-production integration testing.",
-    highlight: "Enterprise financial product",
+      "Sandbox_LipaPay developer hub — deployed on shared hosting with API reference and staging for pre-production payment integration.",
+    highlight: "Shared hosting deployment",
   },
   {
     name: "SME & retail clients",
@@ -77,6 +77,9 @@ export const techStack = [
   "Bootstrap",
   "Git",
   "XAMPP / Apache",
+  "Linux VPS",
+  "Shared hosting",
+  "SSL / domains",
   "Power BI",
 ];
 
@@ -100,5 +103,10 @@ export const capabilities = [
     icon: "fas fa-robot",
     title: "AI & automation",
     copy: "Copilots, WhatsApp bots, and smart routing that respect your existing tools.",
+  },
+  {
+    icon: "fas fa-server",
+    title: "Deployment & web hosting",
+    copy: "Linux VPS (Victoria Lush), shared hosting (iMartGroup), domains, SSL, and documented runbooks for your team.",
   },
 ];

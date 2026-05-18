@@ -14,11 +14,11 @@
                 <div class="tm-client-card">
                     <span class="badge bg-secondary mb-2">Enterprise · ongoing</span>
                     <h4 class="h5 fw-bold">Victoria Lush Limited</h4>
-                    <p class="text-muted small mb-2">VLL Admin, VLL SMS portal, SmSver1 legacy stack — bulk messaging, resellers, and operations.</p>
+                    <p class="text-muted small mb-2">Company portal (VLL SMS), VLL Admin, SmSver1 — production on Linux VPS with SSL and documented handover.</p>
                     <div>
+                        <span class="badge bg-light text-dark tm-stack-badge">Company portal</span>
+                        <span class="badge bg-light text-dark tm-stack-badge">Linux VPS</span>
                         <span class="badge bg-light text-dark tm-stack-badge">Laravel</span>
-                        <span class="badge bg-light text-dark tm-stack-badge">APIs</span>
-                        <span class="badge bg-light text-dark tm-stack-badge">SMS</span>
                     </div>
                 </div>
             </div>
@@ -26,10 +26,10 @@
                 <div class="tm-client-card">
                     <span class="badge bg-secondary mb-2">FinTech</span>
                     <h4 class="h5 fw-bold">iMartGroup — LipaPay</h4>
-                    <p class="text-muted small mb-2">Sandbox developer hub, API reference, and staging for mobile-money flows before production.</p>
+                    <p class="text-muted small mb-2">Sandbox on shared hosting — API reference and staging for mobile-money before production go-live.</p>
                     <div>
-                        <span class="badge bg-light text-dark tm-stack-badge">REST</span>
-                        <span class="badge bg-light text-dark tm-stack-badge">Sandbox</span>
+                        <span class="badge bg-light text-dark tm-stack-badge">Shared hosting</span>
+                        <span class="badge bg-light text-dark tm-stack-badge">REST APIs</span>
                         <span class="badge bg-light text-dark tm-stack-badge">Laravel</span>
                     </div>
                 </div>
@@ -78,9 +78,10 @@
                 ['01', 'Discover & align', 'Goals, users, compliance, and success metrics — captured before build starts.'],
                 ['02', 'Design the experience', 'Wireframes, UI systems, and branded assets as the single source of truth for engineering.'],
                 ['03', 'Build & integrate', 'Laravel services, React screens, REST APIs, SMS/WhatsApp/payment hooks — tested on real workflows.'],
-                ['04', 'Launch & support', 'Training, documentation, monitoring, and iteration so your team keeps momentum.'],
+                ['04', 'Deploy & host', 'Linux VPS or shared hosting, SSL, domains, and runbooks — then launch with confidence.'],
+                ['05', 'Launch & support', 'Training, documentation, monitoring, and iteration so your team keeps momentum.'],
             ] as $step)
-            <div class="col-md-6 col-lg-3">
+            <div class="col-6 col-md-4 col-lg">
                 <div class="tm-workflow-step">
                     <div class="tm-workflow-step__num mb-2">{{ $step[0] }}</div>
                     <h4 class="h6 fw-bold">{{ $step[1] }}</h4>
@@ -96,7 +97,7 @@
     <div class="container text-center">
         <p class="tm-section-label mb-3">Technology we ship with</p>
         <div class="d-flex flex-wrap justify-content-center">
-            @foreach(['Laravel', 'PHP', 'React', 'JavaScript', 'MySQL', 'REST APIs', 'Twilio / SMS', 'OpenAI', 'Bootstrap', 'Git', 'M-Pesa integrations', 'Power BI'] as $tech)
+            @foreach(['Laravel', 'PHP', 'React', 'Linux VPS', 'Shared hosting', 'MySQL', 'REST APIs', 'Twilio / SMS', 'OpenAI', 'SSL / domains', 'Git', 'M-Pesa'] as $tech)
             <span class="tm-stack-pill">{{ $tech }}</span>
             @endforeach
         </div>

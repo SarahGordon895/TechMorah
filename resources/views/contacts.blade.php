@@ -161,6 +161,7 @@
                                         <option>AI & automation</option>
                                         <option>IT support & NOC</option>
                                         <option>UI/UX & branding</option>
+                                        <option>Deployment & web hosting (VPS / shared)</option>
                                         <option>Other</option>
                                     </select>
                                 </div>
