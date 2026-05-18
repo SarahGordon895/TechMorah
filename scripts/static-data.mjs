@@ -1,9 +1,9 @@
 /** Data mirrored from PageController + pages/services.blade.php */
 export const serviceStats = [
-  { value: "120+", label: "Projects shipped" },
-  { value: "99%", label: "Client happiness" },
-  { value: "24/7", label: "Human + AI support" },
-  { value: "25+", label: "Industries served" },
+  { value: "2+", label: "Years production delivery" },
+  { value: "Enterprise", label: "SMS & payments" },
+  { value: "24/7", label: "Support-ready" },
+  { value: "Laravel", label: "Full-stack core" },
 ];
 
 export const services = [
@@ -58,10 +58,10 @@ export const approachSteps = [
 ];
 
 export const blogStats = [
-  { value: "99%", label: "Client Happiness" },
-  { value: "25+", label: "Industries Served" },
-  { value: "120+", label: "Projects Shipped" },
-  { value: "24/7", label: "Support Access" },
+  { value: "2+", label: "Years delivery" },
+  { value: "Enterprise", label: "SMS & payments" },
+  { value: "Laravel", label: "Full-stack" },
+  { value: "24/7", label: "Support access" },
 ];
 
 export const blogTags = [
@@ -104,6 +104,26 @@ export const serviceSpotlights = [
 ];
 
 export const solutionStories = [
+  {
+    client: "Victoria Lush Limited",
+    industry: "Enterprise SMS",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80",
+    challenge: "Needed a unified admin, customer portal, and legacy SmSver1 stack for bulk messaging, resellers, and operations.",
+    solution: "Delivered VLL Admin (Laravel), VLL SMS customer portal, and API integrations — ongoing full-stack ownership.",
+    outcome: "Production SMS platform with admin consoles, reseller workflows, and operational dashboards in daily use.",
+    services: ["Laravel", "SMS APIs", "System Design"],
+    cta_url: "contact.html",
+  },
+  {
+    client: "iMartGroup — LipaPay",
+    industry: "FinTech / payments",
+    image: "https://images.unsplash.com/photo-1563986768608-018a0e3b6f0b?auto=format&fit=crop&w=1000&q=80",
+    challenge: "Required a developer sandbox and API reference before mobile-money flows went to production.",
+    solution: "Built Sandbox_LipaPay — staging environment, API docs, and integration testing aligned with enterprise delivery practices.",
+    outcome: "Teams could validate payment flows safely before go-live, with clear handover and review culture.",
+    services: ["REST APIs", "Sandbox", "Laravel"],
+    cta_url: "services.html#integrations",
+  },
   {
     client: "Prime Tech Lab TZ",
     industry: "IT Support & Software",

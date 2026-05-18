@@ -1,6 +1,7 @@
 @props([
     'size' => 'md',
     'alt' => 'TechMorah Solution LTD',
+    'showWordmark' => null,
 ])
 
 @php
@@ -12,8 +13,9 @@
     $sizeClass = $sizes[$size] ?? $sizes['md'];
     $srText = trim($slot) ?: 'TechMorah Solution LTD';
     $logoSrc = config('branding.logo', 'img/techmorah-icon.png');
-    $cropBottom = (int) config('branding.logo_crop_bottom_percent', 42);
+    $cropBottom = (int) config('branding.logo_crop_bottom_percent', 0);
     $cropStyle = $cropBottom > 0 ? 'clip-path: inset(0 0 ' . $cropBottom . '% 0);' : '';
+    $wordmark = $showWordmark ?? config('branding.show_wordmark', true);
 @endphp
 
 <span {{ $attributes->merge(['class' => "brand-mark {$sizeClass}"]) }}>
@@ -27,5 +29,8 @@
             decoding="async"
         >
     </span>
+    @if($wordmark && $size === 'lg')
+        <span class="brand-mark__wordmark d-none d-sm-inline">TechMorah <small class="brand-mark__tagline">Solution LTD</small></span>
+    @endif
     <span class="visually-hidden">{{ $srText }}</span>
 </span>

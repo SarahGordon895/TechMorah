@@ -109,7 +109,7 @@
                     <div class="footer-brand">
                         <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
                     </div>
-                    <p class="text-white-50 small mb-0">Empowering businesses with AI, digital, and IT innovations for a smarter tomorrow.</p>
+                    <p class="text-white-50 small mb-0">Enterprise web, SMS, payments &amp; integrations — Dar es Salaam Science Park, Tanzania.</p>
                 </div>
                 <div class="col-md-4">
                     <h5 class="text-secondary mb-3">Quick Links</h5>

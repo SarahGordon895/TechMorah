@@ -58,10 +58,10 @@ const publicDir = path.join(root, "public");
 const apiTpl = path.join(__dirname, "api-templates");
 
 function brandSm() {
-  return `<span class="brand-mark brand-mark--sm brand-mark--align-text"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
+  return `<span class="brand-mark brand-mark--sm brand-mark--align-text"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
 }
 function brandLg(className = "text-white") {
-  return `<span class="brand-mark brand-mark--lg ${className}"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" style="clip-path: inset(0 0 42% 0);" loading="lazy" decoding="async"></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
+  return `<span class="brand-mark brand-mark--lg ${className}"><span class="brand-mark__icon-slot"><img src="${asset("img/techmorah-icon.png")}" alt="TechMorah Solution LTD" class="brand-mark__logo-img" loading="lazy" decoding="async"></span><span class="brand-mark__wordmark d-none d-sm-inline">TechMorah <small class="brand-mark__tagline">Solution LTD</small></span><span class="visually-hidden">TechMorah Solution LTD</span></span>`;
 }
 
 const ROUTES = {
@@ -148,7 +148,8 @@ ${nav(active)}
 <title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TechMorah Solution LTD — AI, IT support, web systems, and digital solutions in Tanzania.">
-<link rel="icon" type="image/svg+xml" href="${asset("img/techmorah-logo.svg")}">
+<link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
+<link rel="apple-touch-icon" href="${asset("img/techmorah-icon.png")}">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@600;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -162,7 +163,7 @@ ${headExtra}
 ${chrome}
 ${body}
 <footer class="footer bg-dark text-light pt-5"><div class="container pb-4"><div class="row g-4">
-<div class="col-md-4"><motion class="footer-brand">${brandLg()}</div><p class="text-white-50 small">Empowering businesses with AI, digital, and IT innovations.</p></div>
+<div class="col-md-4"><div class="footer-brand">${brandLg()}</div><p class="text-white-50 small">Enterprise web, SMS, payments &amp; integrations — Dar es Salaam, Tanzania.</p></div>
 <div class="col-md-4"><h5 class="text-secondary mb-3">Quick Links</h5><ul class="list-unstyled">
 <li><a href="${asset("about.html")}" class="text-white-50 text-decoration-none">About</a></li>
 <li><a href="${asset("services.html")}" class="text-white-50 text-decoration-none">Services</a></li>
@@ -214,8 +215,8 @@ function buildServicesBody() {
   return fixHtml(`
 <section class="services-hero py-5"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-7"><span class="badge bg-secondary text-uppercase mb-3">TechMorah Services</span>
-<h1 class="display-5 fw-bold mb-3">Systems, AI copilots, and support that stay in sync with your flow</h1>
-<p class="lead text-white-50 mb-4">From AI integration to computerized accounting, we ship solutions tailored to East African teams.</p>
+<h1 class="display-5 fw-bold mb-3">Full-stack systems, integrations &amp; support</h1>
+<p class="lead text-white-50 mb-4">Enterprise SMS, payment sandboxes, Laravel web systems, UI/UX, and AI-assisted operations — scoped for East African teams.</p>
 <div class="d-flex flex-wrap gap-3"><a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
 <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a></div></div>
 <div class="col-lg-5"><div class="row g-3">${stats}</div></div></div></div></section>
@@ -302,8 +303,24 @@ function buildBlogBody() {
 <a href="services.html" class="btn btn-outline-light px-4 py-2">View Services</a></div></div></div></div>`);
 }
 
+async function expandIncludes(raw) {
+  let s = raw;
+  let prev;
+  do {
+    prev = s;
+    const matches = [...s.matchAll(/@include\(['"]([^'"]+)['"]\)/g)];
+    for (const m of matches) {
+      const incPath = path.join(views, m[1].replace(/\./g, "/") + ".blade.php");
+      const inc = await fs.readFile(incPath, "utf8");
+      s = s.replace(m[0], inc);
+    }
+  } while (s !== prev);
+  return s;
+}
+
 async function readBlade(rel) {
-  return fs.readFile(path.join(views, rel), "utf8");
+  const raw = await fs.readFile(path.join(views, rel), "utf8");
+  return expandIncludes(raw);
 }
 
 function stripBlade(raw) {
@@ -362,7 +379,7 @@ async function main() {
   await copyPublic();
 
   const pages = [
-    { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — AI & IT Solutions", active: "home" },
+    { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — Enterprise Web, SMS & Integration", active: "home" },
     { blade: "pages/about.blade.php", out: "about.html", title: "About | TechMorah Solution LTD", active: "about" },
     {
       blade: "contacts.blade.php",

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Welcome to TechMorah Solution LTD - AI & IT Solutions Agency')
+@section('title', 'TechMorah Solution LTD — Enterprise Web, SMS & Integration')
 @section('content')
 
 <!-- Hero Section -->
@@ -10,22 +10,22 @@
             <div class="carousel-item active">
                 <img src="{{ asset('img/carousel-1.jpg') }}" class="w-100" alt="AI Solutions">
                 <div class="carousel-caption d-flex flex-column justify-content-center">
-                    <h1 class="display-4 fw-bold text-white animated fadeInDown">Innovative AI & IT Solutions</h1>
-                    <p class="lead text-white animated fadeInUp">Empower your business with smart automation and seamless digital tools.</p>
+                    <h1 class="display-4 fw-bold text-white animated fadeInDown">Enterprise systems. Real integrations. East Africa delivery.</h1>
+                    <p class="lead text-white animated fadeInUp">Laravel platforms, SMS & payment sandboxes, and AI-ready support — built by a team that ships production software for Victoria Lush, iMartGroup, and growing SMEs.</p>
                     <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-3">
-                        <a href="{{ route('services') }}" class="btn btn-secondary rounded-pill px-4 py-2">Explore Services</a>
-                        <a href="{{ route('chat.index') }}" class="btn btn-outline-light rounded-pill px-4 py-2">Open AI Chatbot</a>
+                        <a href="{{ route('contact') }}" class="btn btn-secondary rounded-pill px-4 py-2">Book a consultation</a>
+                        <a href="{{ route('services') }}" class="btn btn-outline-light rounded-pill px-4 py-2">View services</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="{{ asset('img/carousel-2.jpg') }}" class="w-100" alt="Tech Development">
                 <div class="carousel-caption d-flex flex-column justify-content-center">
-                    <h1 class="display-4 fw-bold text-white animated fadeInDown">Custom Software & Cloud Systems</h1>
-                    <p class="lead text-white animated fadeInUp">We build scalable, secure, and efficient digital ecosystems for your success.</p>
+                    <h1 class="display-4 fw-bold text-white animated fadeInDown">From wireframe to production — on your timeline</h1>
+                    <p class="lead text-white animated fadeInUp">Discovery, UI/UX, Laravel + React builds, M-Pesa & SMS integrations, and 24/7 support handover — documented every step.</p>
                     <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mt-3">
-                        <a href="{{ route('chat.index') }}" class="btn btn-secondary rounded-pill px-4 py-2">AI Chatbot</a>
-                        <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light rounded-pill px-4 py-2">WhatsApp Us</a>
+                        <a href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-secondary rounded-pill px-4 py-2">WhatsApp +255 655 139 724</a>
+                        <a href="{{ route('about') }}" class="btn btn-outline-light rounded-pill px-4 py-2">Our story</a>
                     </div>
                 </div>
             </div>
@@ -37,13 +37,15 @@
 <section class="py-5" style="background: linear-gradient(135deg, rgba(4,11,31,0.95), rgba(15,26,58,0.85));">
     <div class="container text-center">
         <h5 class="text-secondary mb-2">Who We Are</h5>
-        <h2 class="fw-bold text-white mb-4">Empowering Businesses through Smart Technology</h2>
+        <h2 class="fw-bold text-white mb-4">Your technology partner in Dar es Salaam & beyond</h2>
         <p class="text-white-50 mx-auto" style="max-width:700px;">
-            At <strong class="text-white fw-semibold">TechMorah Solution ltd</strong>, we combine AI, cloud, and modern software to drive innovation, efficiency, and growth. From small startups to enterprises — we help you scale intelligently.
+            <strong class="text-white fw-semibold">TechMorah Solution LTD</strong> delivers full-stack systems — enterprise SMS (Victoria Lush), payment sandboxes (iMartGroup LipaPay), custom web & POS for SMEs, and AI-assisted support. We align product, design, and engineering so your project ships with clarity, not guesswork.
         </p>
         <a href="{{ route('about') }}" class="btn btn-secondary rounded-pill mt-3 px-4 py-2">Learn More</a>
     </div>
 </section>
+
+@include('partials.home-proof')
 
 <!-- Connect Section -->
 <section class="py-5 bg-white">

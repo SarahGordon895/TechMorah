@@ -20,14 +20,16 @@ return [
     |
     */
 
-    'logo_crop_bottom_percent' => (int) env('BRAND_LOGO_CROP_BOTTOM', 42),
+    'logo_crop_bottom_percent' => (int) env('BRAND_LOGO_CROP_BOTTOM', 0),
 
     /*
     |--------------------------------------------------------------------------
-    | Favicon (small mark — SVG works well in the tab)
+    | Favicon — same mark as navbar for consistent branding
     |--------------------------------------------------------------------------
     */
 
-    'favicon' => env('BRAND_FAVICON', 'img/techmorah-logo.svg'),
+    'favicon' => env('BRAND_FAVICON', 'img/techmorah-icon.png'),
+
+    'show_wordmark' => env('BRAND_SHOW_WORDMARK', true),
 
 ];
