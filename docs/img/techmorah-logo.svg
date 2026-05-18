@@ -1,0 +1,18 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TechMorah Solution LTD logo">
+  <defs>
+    <linearGradient id="tm-icon-a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9524" />
+      <stop offset="25%" stop-color="#ff6d4a" />
+      <stop offset="55%" stop-color="#ea3fff" />
+      <stop offset="100%" stop-color="#3c7dff" />
+    </linearGradient>
+    <linearGradient id="tm-icon-b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffae35" />
+      <stop offset="40%" stop-color="#ff5ed9" />
+      <stop offset="100%" stop-color="#5c8dff" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#030b1f" />
+  <path d="M68 64c0-13.255 10.745-24 24-24h72c30.928 0 56 25.072 56 56v88c0 13.255-10.745 24-24 24h-36a8 8 0 0 1 0-16h28c4.418 0 8-3.582 8-8V96c0-17.673-14.327-32-32-32H92c-4.418 0-8 3.582-8 8v36H60V64z" fill="url(#tm-icon-a)" />
+  <path d="M52 112h104c22.091 0 40 17.909 40 40s-17.909 40-40 40H96c-8.837 0-16-7.163-16-16s7.163-16 16-16h60c10.493 0 19-8.507 19-19s-8.507-19-19-19H52z" fill="url(#tm-icon-b)" />
+</svg>

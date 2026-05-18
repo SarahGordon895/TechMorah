@@ -1,0 +1,36 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized modern interior scene">
+  <defs>
+    <linearGradient id="wall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1f"/>
+      <stop offset="100%" stop-color="#0c0c0f"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1f26"/>
+      <stop offset="100%" stop-color="#16171c"/>
+    </linearGradient>
+    <linearGradient id="art" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#30eec7"/>
+      <stop offset="100%" stop-color="#8d5bff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="360" fill="url(#wall)"/>
+  <rect y="360" width="800" height="240" fill="url(#floor)"/>
+  <rect x="80" y="130" width="160" height="120" fill="#101218" stroke="#262a34" stroke-width="4"/>
+  <circle cx="120" cy="170" r="25" fill="#262a34"/>
+  <rect x="260" y="110" width="180" height="140" rx="8" fill="#11151b" stroke="#2c3140" stroke-width="4"/>
+  <rect x="280" y="130" width="140" height="100" fill="url(#art)" rx="6"/>
+  <rect x="500" y="90" width="220" height="180" rx="10" fill="#11151b" stroke="#2c3140" stroke-width="4"/>
+  <rect x="520" y="110" width="180" height="120" rx="8" fill="#141b24"/>
+  <rect x="520" y="240" width="180" height="20" fill="#1d232f"/>
+  <path d="M140 360 L200 360 L240 470 L100 470 Z" fill="#1f2430"/>
+  <rect x="120" y="360" width="100" height="110" rx="10" fill="#191e28"/>
+  <rect x="120" y="420" width="100" height="50" rx="6" fill="#262d3a"/>
+  <ellipse cx="430" cy="430" rx="150" ry="60" fill="#1f2430"/>
+  <rect x="320" y="360" width="220" height="80" rx="30" fill="#242a36"/>
+  <rect x="350" y="390" width="160" height="120" rx="30" fill="#2d3442"/>
+  <rect x="360" y="410" width="140" height="80" rx="26" fill="#383f52"/>
+  <circle cx="640" cy="450" r="60" fill="#262d3a"/>
+  <rect x="620" y="420" width="80" height="80" rx="30" fill="#2c3342"/>
+  <rect x="100" y="500" width="600" height="20" rx="10" fill="#11151b" opacity="0.5"/>
+  <rect x="95" y="520" width="610" height="4" fill="#2c3140" opacity="0.3"/>
+</svg>
