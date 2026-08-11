@@ -1,74 +1,95 @@
-/** Data mirrored from PageController + pages/services.blade.php */
+/** Data mirrored from PageController + fintech service catalogue */
 export const serviceStats = [
-  { value: "2+", label: "Years production delivery" },
-  { value: "Enterprise", label: "SMS & payments" },
-  { value: "24/7", label: "Support-ready" },
-  { value: "Laravel", label: "Full-stack core" },
+  { value: "4+", label: "Years leadership" },
+  { value: "10+", label: "Relationships" },
+  { value: "25+", label: "Platforms" },
+  { value: "10", label: "Service lines" },
 ];
 
 export const services = [
   {
-    id: "web",
-    icon: "fas fa-laptop-code",
-    title: "Web & System Design",
-    copy: "Laravel + React portals, intranets, and CRMs tuned for local compliance, multi-currency billing, and offline-first access.",
+    id: "core-banking",
+    icon: "fas fa-university",
+    title: "Microfinance & Core Banking",
+    copy: "Module configuration, loan/savings workflows, GL mapping review, and EOD batch troubleshooting within authorised platform scope.",
     cta: "#consult",
   },
   {
-    id: "integrations",
-    icon: "fas fa-project-diagram",
-    title: "Custom Integrations",
-    copy: "API bridges for ERPs, mobile money, and WhatsApp so data flows across departments without breaking legacy tools.",
+    id: "channels",
+    icon: "fas fa-mobile-alt",
+    title: "Digital Banking Channels",
+    copy: "Internet Banking, Flutter mobile, agency POS, USSD, and merchant journeys with OTP and REST/Swagger integration.",
+    cta: "#consult",
+  },
+  {
+    id: "payments",
+    icon: "fas fa-credit-card",
+    title: "Integrations & Payments",
+    copy: "Mobile money gateways, developer sandboxes, callbacks, and reconciliation-aware collection/disbursement flows.",
+    cta: "#consult",
+  },
+  {
+    id: "ecommerce",
+    icon: "fas fa-shopping-cart",
+    title: "E-Commerce Solutions",
+    copy: "Storefronts, inventory, cart, checkout, and payment gateways for direct digital sales channels.",
+    cta: "#consult",
+  },
+  {
+    id: "enterprise",
+    icon: "fas fa-laptop-code",
+    title: "Custom Enterprise Software",
+    copy: "Tailored web/mobile workflows, approval chains, HR platforms, and business portals on Laravel + React.",
+    cta: "#consult",
+  },
+  {
+    id: "web",
+    icon: "fas fa-globe",
+    title: "Web & Portal Design",
+    copy: "Corporate web applications, customer portals, administrative dashboards, and intranets.",
     cta: "#consult",
   },
   {
     id: "ai",
     icon: "fas fa-robot",
     title: "AI Integration & Automation",
-    copy: "OpenAI, Groq, and WhatsApp bots that summarize tickets, escalate to humans, and keep transcripts synced across channels.",
+    copy: "Enterprise knowledge assistants, document classification, and support routing workflows.",
     cta: "#consult",
   },
   {
     id: "support",
     icon: "fas fa-headset",
     title: "IT Support & NOC",
-    copy: "Proactive monitoring, FaceTime walkthroughs, and on-site dispatch supported by Azure + Twilio alerts 24/7.",
+    copy: "Monitoring, database performance tuning, remote support, and incident management for high availability.",
     cta: "#consult",
   },
   {
     id: "uiux",
     icon: "fas fa-palette",
-    title: "Graphic & UI/UX Design",
-    copy: "Design systems, dashboards, and storytelling assets that hand off cleanly to engineering and marketing squads.",
+    title: "Graphic Design & UI/UX",
+    copy: "Wireframing, prototypes, design systems, visual branding, and accessible digital assets.",
     cta: "about.html",
-  },
-  {
-    id: "accounting",
-    icon: "fas fa-calculator",
-    title: "Computerized Accounting",
-    copy: "Finance dashboards with Power BI, automated approvals, and audit-ready exports for cooperatives and SMEs.",
-    cta: "#consult",
   },
   {
     id: "hosting",
     icon: "fas fa-server",
-    title: "Deployment & Web Hosting",
-    copy: "Linux VPS production rollouts, shared hosting, SSL, domains, and documented handover — proven on Victoria Lush (VLL portal) and iMartGroup LipaPay.",
+    title: "Hosting & Infrastructure",
+    copy: "Linux VPS, IIS, SSL, DNS, and backup routines — proven on Victoria Lush and iMartGroup LipaPay deployments.",
     cta: "#consult",
   },
 ];
 
 export const approachSteps = [
-  { title: "Discover & co-design", copy: "Workshops to map current workflows, languages, and compliance requirements." },
-  { title: "Build & integrate", copy: "Sprints with shared demos, AI-assisted QA, and handoffs synced with your ops calendar." },
-  { title: "Deploy & host", copy: "Linux VPS or shared hosting setup, SSL, environment config, and runbooks your team can operate." },
-  { title: "Launch & support", copy: "Playbooks for training, WhatsApp escalation trees, and analytics dashboards out of the box." },
+  { title: "Discover & align", copy: "Workshops to map workflows, compliance, and success metrics before build starts." },
+  { title: "Design the experience", copy: "Wireframes, UI systems, and branded assets as the single source of truth." },
+  { title: "Build & integrate", copy: "Laravel, React, REST APIs, SMS/WhatsApp/payment hooks tested on real workflows." },
+  { title: "Launch & support", copy: "VPS or shared hosting, training, runbooks, and production iteration." },
 ];
 
 export const blogStats = [
-  { value: "2+", label: "Years delivery" },
-  { value: "Enterprise", label: "SMS & payments" },
-  { value: "Laravel", label: "Full-stack" },
+  { value: "4+", label: "Years leadership" },
+  { value: "Fintech", label: "Channels & payments" },
+  { value: "25+", label: "Platforms" },
   { value: "24/7", label: "Support access" },
 ];
 

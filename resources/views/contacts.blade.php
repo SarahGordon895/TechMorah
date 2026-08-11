@@ -138,6 +138,10 @@
                         <form id="contactForm" method="POST" action="{{ route('contact.send') }}" data-techmorah-contact>
                             @csrf
                             <input type="hidden" name="source" value="contact">
+                            <div class="honeypot-field" aria-hidden="true">
+                                <label for="website_url">Website</label>
+                                <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label" for="name">Full name</label>
@@ -155,13 +159,14 @@
                                     <label class="form-label" for="focus">What do you need?</label>
                                     <select id="focus" name="focus" class="form-select">
                                         <option value="">Select a focus</option>
-                                        <option>Web & system development</option>
-                                        <option>Enterprise SMS / messaging</option>
+                                        <option>Core banking / microfinance support</option>
+                                        <option>Digital banking channels</option>
                                         <option>Payments & integrations</option>
+                                        <option>Enterprise SMS / messaging</option>
+                                        <option>Custom enterprise software</option>
                                         <option>AI & automation</option>
                                         <option>IT support & NOC</option>
-                                        <option>UI/UX & branding</option>
-                                        <option>Deployment & web hosting (VPS / shared)</option>
+                                        <option>Hosting & infrastructure</option>
                                         <option>Other</option>
                                     </select>
                                 </div>

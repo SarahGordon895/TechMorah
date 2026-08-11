@@ -1,146 +1,108 @@
 @extends('layouts.app')
 
-@section('title', 'About - ' . config('app.name'))
-@section('keywords', 'TechMorah Solution LTD about, Laravel developer Tanzania, enterprise SMS, LipaPay, full stack agency')
-@section('description', 'TechMorah Solution LTD — full-stack delivery for enterprise SMS, payments, and SME systems. Based at Dar es Salaam Science Park.')
+@section('title', 'About — TechMorah Solution LTD')
+@section('keywords', 'TechMorah fintech, core banking Tanzania, Sarah George Gordon, Dar es Salaam Science Park')
+@section('description', 'TechMorah Solution LTD is an East African fintech and enterprise technology partner. Mission, vision, leadership, and delivery principles.')
 
 @section('content')
-<section class="container-fluid page-header py-5" style="background: radial-gradient(circle at top, #1f1813, #0c0b0a);">
-    <div class="container text-center py-5 text-white">
-        <h1 class="display-4 mb-3 fw-bold">About TechMorah Solution LTD</h1>
-        <p class="lead text-white-50 mx-auto mb-4" style="max-width:640px;">Full-stack systems, integrations, and support — grounded in real client work across SMS, payments, and operations software.</p>
+<section class="tm-page-hero page-header">
+    <div class="container text-center">
+        <p class="tm-section-label" style="color:var(--copper-soft)">Corporate foundation</p>
+        <h1 class="tm-title" style="color:#fff;font-size:clamp(2rem,5vw,2.8rem)">About TechMorah Solution LTD</h1>
+        <p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">
+            Fintech and enterprise technology — core banking support, digital channels, payments, and East African delivery.
+        </p>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50 text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white-50">Home</a></li>
                 <li class="breadcrumb-item active text-white" aria-current="page">About</li>
             </ol>
         </nav>
     </div>
 </section>
 
-<section class="container-fluid bg-secondary py-4 text-white">
+<section class="tm-trust">
     <div class="container">
-        <div class="row g-4 text-center">
-            <div class="col-6 col-md-3">
-                <h2 class="text-primary fw-bold mb-0">2+</h2>
-                <small>Years shipping systems</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <h2 class="text-primary fw-bold mb-0">Enterprise</h2>
-                <small>SMS & payments</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <h2 class="text-primary fw-bold mb-0">Laravel</h2>
-                <small>Full-stack core</small>
-            </div>
-            <div class="col-6 col-md-3">
-                <h2 class="text-primary fw-bold mb-0">24/7</h2>
-                <small>Support-ready</small>
-            </div>
+        <div class="tm-trust__grid">
+            <div><p class="tm-trust__value">4+</p><p class="tm-trust__label">Years leadership</p></div>
+            <div><p class="tm-trust__value">10+</p><p class="tm-trust__label">Relationships</p></div>
+            <div><p class="tm-trust__value">25+</p><p class="tm-trust__label">Platforms</p></div>
+            <div><p class="tm-trust__value">10</p><p class="tm-trust__label">Service lines</p></div>
         </div>
     </div>
 </section>
 
-<section class="container py-5 my-4">
-    <div class="row g-5 align-items-center">
-        <div class="col-lg-6 position-relative">
-            <img src="{{ asset('img/TechMorahSolution.png') }}" class="img-fluid rounded-4 shadow" alt="TechMorah Solution LTD">
-        </div>
-        <div class="col-lg-6">
-            <p class="text-primary text-uppercase fw-semibold tm-section-label">Who we are</p>
-            <h2 class="fw-bold mb-3">Built on production experience</h2>
-            <p class="text-muted">TechMorah Solution LTD is led by practitioners who ship — not slide decks. Our foundation is enterprise SMS for <strong>Victoria Lush Limited</strong> (company portal, VLL Admin, VLL SMS, SmSver1) with <strong>Linux VPS deployment</strong>, payment sandbox work for <strong>iMartGroup LipaPay</strong> on <strong>shared hosting</strong>, and two years of self-employed delivery for Tanzanian SMEs: POS, websites, intranets, brand systems, and web hosting handover.</p>
-            <p class="text-muted">We bridge product thinking, UI/UX, and engineering: workshops become wireframes, then Laravel and React with clear APIs and MySQL. Clients get documented handovers, Git-backed workflows, and communication that respects timelines and budgets.</p>
-            <div class="mt-4 d-flex flex-wrap gap-2">
-                <span class="badge bg-secondary">Laravel & PHP</span>
-                <span class="badge bg-secondary">React & APIs</span>
-                <span class="badge bg-secondary">SMS & Twilio</span>
-                <span class="badge bg-secondary">Linux VPS</span>
-                <span class="badge bg-secondary">Shared hosting</span>
-                <span class="badge bg-secondary">OpenAI assistants</span>
-                <span class="badge bg-secondary">UI/UX & branding</span>
-            </div>
-            <div class="mt-4 d-flex flex-wrap gap-3">
-                <a href="{{ route('contact') }}" class="btn btn-secondary px-5 rounded-pill">Start a project</a>
-                <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary rounded-pill px-4">Founder portfolio</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container pb-5">
-    <div class="text-center mb-5">
-        <p class="tm-section-label mb-2">Experience</p>
-        <h2 class="fw-bold">Where we have delivered</h2>
-    </div>
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="p-4 bg-white rounded-4 h-100 shadow-sm border">
-                <h4 class="fw-bold">Victoria Lush Limited — Portal & VPS</h4>
-                <p class="text-muted small mb-2">Ongoing · Enterprise SMS</p>
-                <p class="text-muted mb-0">Victoria Lush company portal (VLL SMS), VLL Admin, SmSver1 — full-stack build plus Linux VPS deployment, SSL, and production operations support.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="p-4 bg-white rounded-4 h-100 shadow-sm border">
-                <h4 class="fw-bold">iMartGroup Ltd — LipaPay & hosting</h4>
-                <p class="text-muted small mb-2">Enterprise · FinTech</p>
-                <p class="text-muted mb-0">Sandbox_LipaPay on shared hosting — developer hub, API reference, staging for mobile-money flows, and web hosting handover with enterprise review culture.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="p-4 bg-white rounded-4 h-100 shadow-sm border">
-                <h4 class="fw-bold">SME & retail — Self-employed delivery</h4>
-                <p class="text-muted small mb-2">2+ years</p>
-                <p class="text-muted mb-0">Custom web systems, POS, applications, and brand kits for multiple customers across Tanzania.</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="p-4 bg-white rounded-4 h-100 shadow-sm border">
-                <h4 class="fw-bold">Deployment & web hosting</h4>
-                <p class="text-muted small mb-2">Production delivery</p>
-                <p class="text-muted mb-0">Linux VPS rollouts, shared hosting, domains, SSL, environment configuration, and runbooks so clients own their live systems — not just the codebase.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="container-fluid py-5" style="background:#f5f1ed;">
+<section class="tm-section">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="p-4 bg-white rounded-4 h-100 shadow-sm">
-                    <h4 class="text-secondary">Mission</h4>
-                    <p class="text-muted mb-0">Deliver reliable digital products and integrations that organisations can operate, audit, and extend — with honest scope and documented handover.</p>
-                </div>
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <img src="{{ asset('img/TechMorahSolution.png') }}" class="img-fluid border" alt="TechMorah Solution LTD" loading="lazy">
             </div>
-            <div class="col-md-4">
-                <div class="p-4 bg-white rounded-4 h-100 shadow-sm">
-                    <h4 class="text-secondary">Vision</h4>
-                    <p class="text-muted mb-0">Become East Africa’s trusted partner for enterprise web, messaging, payments, and AI-assisted operations.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 bg-white rounded-4 h-100 shadow-sm">
-                    <h4 class="text-secondary">Values</h4>
-                    <ul class="list-unstyled text-muted mb-0">
-                        <li>• Clear communication before code</li>
-                        <li>• Production-minded engineering</li>
-                        <li>• On-time, maintainable delivery</li>
-                    </ul>
+            <div class="col-lg-6">
+                <p class="tm-section-label">Who we are</p>
+                <h2 class="tm-title">Built on production experience</h2>
+                <p class="text-muted">TechMorah Solution LTD is a founder-led fintech and enterprise technology company covering e-commerce, custom software, integrations, communication platforms, microfinance and core banking support, digital banking channels, AI automation, deployment and implementation support.</p>
+                <p class="text-muted">We combine product discovery, business analysis, UX, full-stack engineering, integration, deployment, documentation, training and post-launch support — one accountable partner from first workshop through production operation.</p>
+                <p class="text-muted small"><strong>Attribution:</strong> Leadership experience at partner firms (including Craft Silicon, Victoria Lush, and iMart Group) reflects professional execution history. It is not presented as a TechMorah company contract unless TechMorah was formally engaged.</p>
+                <div class="mt-4 d-flex flex-wrap gap-3">
+                    <a href="{{ route('contact') }}" class="btn btn-secondary">Start a project</a>
+                    <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Founder portfolio</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="py-5 text-white" style="background:linear-gradient(120deg,#ff750f,#933AFE);">
-    <div class="container text-center">
-        <p class="text-uppercase small fw-semibold" style="letter-spacing:0.3rem">Dar es Salaam Science Park</p>
-        <h2 class="fw-bold mb-3">Ready to scope your next system?</h2>
-        <p class="mb-4">WhatsApp +255 655 139 724 · techmorahsolution@gmail.com · AI chat on this site.</p>
-        <a href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-light rounded-pill px-4 me-2 mb-2">WhatsApp</a>
-        <a href="{{ route('contact') }}" class="btn btn-outline-light rounded-pill px-4 mb-2">Contact form</a>
+<section class="tm-section tm-section--paper">
+    <div class="container">
+        <div class="tm-header text-center">
+            <p class="tm-section-label">Principles</p>
+            <h2 class="tm-title">Mission, vision &amp; values</h2>
+        </div>
+        <div class="tm-grid tm-grid--3">
+            <article class="tm-card">
+                <h3>Mission</h3>
+                <p>Deliver reliable digital and financial-technology products, integrations and support through clear scope, practical engineering, transparent communication and documented handover.</p>
+            </article>
+            <article class="tm-card">
+                <h3>Vision</h3>
+                <p>Become a trusted East African fintech and enterprise technology partner for core banking, digital channels, payments, messaging, AI-assisted operations and long-term digital support.</p>
+            </article>
+            <article class="tm-card">
+                <h3>Core values</h3>
+                <p>INNOVATE · INTEGRATE · IMPLEMENT · EMPOWER — with integrity, ownership, quality, security, clarity and continuous improvement in every engagement.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="tm-section">
+    <div class="container">
+        <div class="tm-header">
+            <p class="tm-section-label">Leadership</p>
+            <h2 class="tm-title">Sarah George Gordon</h2>
+            <p class="tm-lead">Co-Founder &amp; CEO · Principal Technologist</p>
+        </div>
+        <p class="text-muted" style="max-width:720px">4+ years across full-stack software, enterprise SMS, fintech systems, and core banking support. Current full-time role: Full Stack Developer at <strong>iMart Group LTD</strong>. Prior professional engagements include Craft Silicon (core banking / channel support), Victoria Lush Limited (portal &amp; SMS), and iMart LipaPay ecosystem work.</p>
+        <div class="d-flex flex-wrap mt-3">
+            <span class="tm-stack-pill">Laravel</span>
+            <span class="tm-stack-pill">React</span>
+            <span class="tm-stack-pill">Flutter</span>
+            <span class="tm-stack-pill">T-SQL</span>
+            <span class="tm-stack-pill">SQL Server</span>
+            <span class="tm-stack-pill">MySQL</span>
+            <span class="tm-stack-pill">Digital banking channels</span>
+        </div>
+    </div>
+</section>
+
+<section class="tm-section tm-section--navy text-center">
+    <div class="container">
+        <p class="tm-section-label">Dar es Salaam Science Park</p>
+        <h2 class="tm-title">Ready to scope your next system?</h2>
+        <p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto">WhatsApp +255 655 139 724 · techmorahsolution@gmail.com</p>
+        <a href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-outline-light me-2 mb-2">WhatsApp</a>
+        <a href="{{ route('contact') }}" class="btn btn-light mb-2">Contact form</a>
     </div>
 </section>
 @endsection

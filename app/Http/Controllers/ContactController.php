@@ -13,13 +13,21 @@ class ContactController extends Controller
 {
     public function send(Request $request)
     {
+        // Honeypot — bots fill this; humans never see it
+        if (filled($request->input('website_url'))) {
+            return $this->respond($request, [
+                'success' => true,
+                'message' => "✅ Message sent successfully! We'll be in touch soon.",
+            ]);
+        }
+
         $data = $request->validate([
             'name' => 'nullable|string|max:255',
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'focus' => 'nullable|string|max:255',
             'source' => 'nullable|string|in:contact,consultation',
-            'message' => 'required|string',
+            'message' => 'required|string|min:10|max:5000',
         ]);
 
         $contact = new Contact(Arr::only($data, ['name', 'email', 'phone', 'message']));

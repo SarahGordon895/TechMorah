@@ -1,83 +1,26 @@
 @extends('layouts.app')
 
 @section('title', 'Services | TechMorah Solution LTD')
-@section('keywords', 'TechMorah services, AI integration, IT support, computerized accounting, web systems, WhatsApp automation')
-@section('description', 'Explore TechMorah Solution LTD services: custom systems, AI copilots, IT support, UI/UX, and accounting automations built for East African businesses.')
+@section('keywords', 'TechMorah services, core banking, digital channels, payments, fintech Tanzania')
+@section('description', 'TechMorah Solution LTD services: microfinance and core banking support, digital channels, payments, custom software, AI, hosting, and East African delivery.')
 
 @push('styles')
 <style>
-    .services-hero {
-        background: linear-gradient(135deg, #0b0f15, #111c2b 60%, #0b0f15);
-        color: #fff;
-    }
-    .services-hero .badge {
-        letter-spacing: 0.1em;
-    }
-    .stats-card {
-        border-radius: 20px;
-        padding: 1.5rem;
-        background: #111c2b;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: #f7f9fb;
-    }
-    .service-card {
-        border-radius: 24px;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        background: #fff;
-        border: 1px solid rgba(17, 28, 43, 0.05);
-    }
-    .service-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 45px rgba(9, 14, 20, 0.15);
-    }
-    .service-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 18px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: #f1f5ff;
-        color: #0d6efd;
-        margin-bottom: 1rem;
-        font-size: 1.75rem;
-    }
-    .cta-panel {
-        border-radius: 28px;
-        background: linear-gradient(135deg, #0d6efd, #5315d3);
-        color: #fff;
-    }
-    .approach-step {
-        border-left: 3px solid #0d6efd;
-        padding-left: 1rem;
-    }
-    .consult-section {
-        background: #f5f7fb;
-    }
-    .consult-card {
-        border-radius: 24px;
-        background: #fff;
-        border: 1px solid rgba(13, 17, 23, 0.05);
-    }
-    .consult-card .form-control,
-    .consult-card select,
-    .consult-card textarea {
-        border-radius: 14px;
-        padding: 0.85rem 1rem;
-    }
+    .services-hero { color: #fff; }
+    .cta-panel { display: none; }
 </style>
 @endpush
 
 @section('content')
 
 <!-- Hero -->
-<section class="services-hero py-5">
+<section class="services-hero tm-page-hero py-5">
     <div class="container py-4">
         <div class="row g-4 align-items-center">
             <div class="col-lg-7">
                 <span class="badge bg-secondary text-uppercase mb-3">TechMorah Services</span>
-                <h1 class="display-5 fw-bold mb-3">Systems, AI copilots, and support that stay in sync with your flow</h1>
-                <p class="lead text-white-50 mb-4">From AI integration to computerized accounting, we ship solutions tailored to East African teams—always respecting your existing workflows and multilingual needs.</p>
+                <h1 class="display-5 fw-bold mb-3">Fintech depth. Enterprise delivery.</h1>
+                <p class="lead text-white-50 mb-4">Core banking support, digital channels, payments, custom platforms, and AI-assisted operations — scoped for East African institutions and businesses.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
                     <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a>

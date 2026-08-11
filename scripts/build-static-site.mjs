@@ -120,25 +120,19 @@ function nav(active) {
 function shell({ title, active, body, headExtra = "", footExtra = "", hideFooterContact = false, skipChrome = false }) {
   const chrome = skipChrome
     ? ""
-    : `<motion class="container-fluid bg-dark py-2 d-none d-md-flex"><div class="container d-flex justify-content-between align-items-center">
-<div class="text-white-50 small"><i class="fas fa-map-marker-alt text-secondary me-2"></i> Dar es Salaam Science Park, Tanzania <span class="mx-3">|</span> <i class="fas fa-envelope text-secondary me-2"></i> techmorahsolution@gmail.com</div>
-<div class="d-flex gap-2">
-<a href="https://www.facebook.com/share/1JnhuGhcnf/" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-facebook-f text-primary"></i></a>
-<a href="https://www.linkedin.com/in/sarah-gordon-0502b335b" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-linkedin-in text-primary"></i></a>
-<a href="https://www.instagram.com/techmorahsolution_ltd" target="_blank" rel="noopener" class="btn btn-sm btn-light rounded-circle"><i class="fab fa-instagram text-primary"></i></a>
-</div></div></div>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm"><div class="container">
-<a href="${asset("index.html")}" class="navbar-brand text-white d-flex align-items-center">${brandLg()}</a>
-<button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span></span><span></span><span></span></button>
-<div class="collapse navbar-collapse" id="navMenu"><div class="navbar-nav ms-auto gap-lg-2">
+    : `<nav class="navbar tm-nav" id="navbar" aria-label="Primary"><div class="container">
+<a href="${asset("index.html")}" class="navbar-brand tm-nav__brand">${brandLg()}</a>
+<button class="menu-toggle tm-nav__toggle" type="button" aria-controls="navMenu" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div class="navbar-collapse tm-nav__menu" id="navMenu"><div class="navbar-nav tm-nav__links">
 ${nav(active)}
-</motion>
-<a href="tel:+255655139724" class="btn btn-sm btn-secondary d-none d-xl-inline-block ms-3">Call Us</a>
-</div></motion></nav>`;
+</div>
+<a href="${asset("contact.html")}" class="btn btn-secondary tm-nav__cta">Talk to TechMorah</a>
+</div></div></nav>`;
   const footerCol = hideFooterContact
     ? ""
     : `<div class="col-md-4">
-          <h5 class="text-secondary mb-3">Get In Touch</h5>
+          <h5>Get In Touch</h5>
+          <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Dar es Salaam Science Park</p>
           <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
           <p><i class="fas fa-envelope me-2 text-secondary"></i> techmorahsolution@gmail.com</p>
         </div>`;
@@ -148,39 +142,36 @@ ${nav(active)}
 <meta charset="utf-8">
 <title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="TechMorah Solution LTD — AI, IT support, web systems, and digital solutions in Tanzania.">
+<meta name="theme-color" content="#071525">
+<meta name="description" content="TechMorah Solution LTD — fintech and enterprise technology partner for core banking support, digital channels, payments, and East African delivery.">
 <link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
 <link rel="apple-touch-icon" href="${asset("img/techmorah-icon.png")}">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Saira:wght@600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-<link href="${asset("lib/animate/animate.min.css")}" rel="stylesheet">
-<link href="${asset("css/bootstrap.min.css")}" rel="stylesheet">
-<link href="${asset("css/style.css")}" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260811a" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
-<div id="spinner" class="show position-fixed w-100 vh-100 top-50 start-50 d-flex justify-content-center align-items-center bg-white"><div class="spinner-grow text-primary" role="status"></div></div>
+<div id="spinner" class="show" aria-hidden="true"><div class="spinner-grow" role="status"></div></div>
 ${chrome}
+<main id="main-content">
 ${body}
-<footer class="footer bg-dark text-light pt-5"><div class="container pb-4"><div class="row g-4">
-<div class="col-md-4"><div class="footer-brand">${brandLg()}</div><p class="text-white-50 small">Enterprise web, SMS, payments &amp; integrations — Dar es Salaam, Tanzania.</p></div>
-<div class="col-md-4"><h5 class="text-secondary mb-3">Quick Links</h5><ul class="list-unstyled">
-<li><a href="${asset("about.html")}" class="text-white-50 text-decoration-none">About</a></li>
-<li><a href="${asset("services.html")}" class="text-white-50 text-decoration-none">Services</a></li>
-<li><a href="${asset("contact.html")}" class="text-white-50 text-decoration-none">Contact</a></li>
-<li><a href="${asset("chat.html")}" class="text-white-50 text-decoration-none">AI Chatbot</a></li>
+</main>
+<footer class="footer tm-footer"><div class="container"><div class="row g-4">
+<div class="col-md-4"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small">Fintech &amp; enterprise technology — core banking support, digital channels, payments, and East African delivery. Dar es Salaam Science Park, Tanzania.</p></div>
+<div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled">
+<li><a href="${asset("about.html")}">About</a></li>
+<li><a href="${asset("services.html")}">Services</a></li>
+<li><a href="${asset("case-studies.html")}">Case Studies</a></li>
+<li><a href="${asset("contact.html")}">Contact</a></li>
+<li><a href="${asset("chat.html")}">AI Chatbot</a></li>
 </ul></div>
 ${footerCol}
-</div><hr class="text-secondary"><p class="text-center small text-white-50 mb-0">© ${new Date().getFullYear()} TechMorah Solution LTD. All rights reserved.</p></div></footer>
-<a href="#" class="btn btn-secondary rounded-circle back-to-top"><i class="fa fa-arrow-up text-white"></i></a>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="${asset("lib/wow/wow.min.js")}"></script>
-<script src="${asset("lib/easing/easing.min.js")}"></script>
-<script src="${asset("lib/waypoints/waypoints.min.js")}"></script>
-<script src="${asset("js/main.js")}"></script>
-<script src="${asset("js/site.js")}"></script>
+</div><p class="footer-legal text-center small text-white-50 mb-0">© ${new Date().getFullYear()} TechMorah Solution LTD. All rights reserved. · INNOVATE · INTEGRATE · IMPLEMENT · EMPOWER</p></div></footer>
+<a href="#main-content" class="btn btn-secondary back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-arrow-up text-white"></i></a>
+<script src="${asset("js/site.js")}?v=20260811a" defer></script>
 ${footExtra}
 </body></html>`));
 }
@@ -214,37 +205,38 @@ function buildServicesBody() {
     )
     .join("");
   return fixHtml(`
-<section class="services-hero py-5"><div class="container py-4"><div class="row g-4 align-items-center">
+<section class="services-hero tm-page-hero py-5"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-7"><span class="badge bg-secondary text-uppercase mb-3">TechMorah Services</span>
-<h1 class="display-5 fw-bold mb-3">Full-stack systems, integrations &amp; support</h1>
-<p class="lead text-white-50 mb-4">Enterprise SMS, payment sandboxes, Laravel web systems, UI/UX, and AI-assisted operations — scoped for East African teams.</p>
+<h1 class="display-5 fw-bold mb-3">Fintech depth. Enterprise delivery.</h1>
+<p class="lead text-white-50 mb-4">Core banking support, digital channels, payments, custom platforms, and AI-assisted operations — scoped for East African institutions and businesses.</p>
 <div class="d-flex flex-wrap gap-3"><a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
 <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a></div></div>
 <div class="col-lg-5"><div class="row g-3">${stats}</div></div></div></div></section>
 <section class="py-5"><div class="container py-4"><div class="text-center mb-5"><h5 class="text-primary">What we build</h5>
-<h2 class="fw-bold">Services engineered around TechMorah delivery playbooks</h2>
-<p class="text-muted mb-0">Bilingual UX research, automation, and post-launch care.</p></div>
-<div class="row g-4">${grid}</div></motion></section>
+<h2 class="fw-bold">Ten technology service lines</h2>
+<p class="text-muted mb-0">From microfinance and channels to hosting and AI automation.</p></div>
+<div class="row g-4">${grid}</div></div></section>
 <section class="bg-light py-5"><div class="container py-4"><div class="row g-4 align-items-center">
-<div class="col-lg-5"><h5 class="text-primary">How we deliver</h5><h2 class="fw-bold">Observability + human touch in every sprint</h2>
-<p class="text-muted">WhatsApp, AI copilots, and dashboards keep every stakeholder in sync.</p></div>
+<div class="col-lg-5"><h5 class="text-primary">How we deliver</h5><h2 class="fw-bold">Clear scope from workshop to production</h2>
+<p class="text-muted">Documented milestones, integration tests, and handover runbooks.</p></div>
 <div class="col-lg-7"><div class="row g-4">${steps}</div></div></div></div></section>
-<section class="consult-section py-5" id="consult"><div class="container py-4"><motion class="row g-4 align-items-center">
+<section class="consult-section py-5" id="consult"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-5"><span class="badge bg-secondary text-uppercase mb-3">Book a consult</span>
-<h2 class="fw-bold mb-3">Match with a TechMorah consultant in one form</h2>
-<p class="text-muted">Tell us what you need and a human expert follows up the same day.</p></div>
+<h2 class="fw-bold mb-3">Match with a TechMorah consultant</h2>
+<p class="text-muted">Tell us what you need — we typically reply within one business day.</p></div>
 <div class="col-lg-7"><div class="consult-card p-4 p-md-5 shadow-sm">
 <h4 class="fw-semibold mb-3">Tell us about your project</h4>
 <div class="alert d-none" id="consultAlert" role="alert"></div>
 <form id="consultForm" data-techmorah-contact autocomplete="off"><input type="hidden" name="source" value="consultation">
+<div class="honeypot-field" aria-hidden="true"><label>Website</label><input type="text" name="website_url" tabindex="-1" autocomplete="off"></div>
 <div class="row g-3">
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Full name</label><input type="text" name="name" class="form-control" placeholder="Your name"></div>
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Email *</label><input type="email" name="email" class="form-control" required></div>
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Phone / WhatsApp</label><input type="text" name="phone" class="form-control"></div>
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Focus area *</label>
 <select name="focus" class="form-control" required><option value="" disabled selected>Select one</option>
-<option>AI Integration & Automation</option><option>Web & System Design</option><option>IT Support & NOC</option>
-<option>Computerized Accounting</option><option>Other / Custom</option></select></div>
+<option>Core banking / microfinance</option><option>Digital banking channels</option><option>Payments & integrations</option>
+<option>Enterprise SMS</option><option>Custom software</option><option>AI & automation</option><option>Hosting & infrastructure</option><option>Other</option></select></div>
 <div class="col-12"><label class="form-label small text-uppercase text-muted">Project details *</label>
 <textarea name="message" class="form-control" rows="4" required></textarea></div>
 <div class="col-12"><button type="submit" class="btn btn-secondary px-4" id="consultSubmit">Book consult</button>
@@ -386,7 +378,7 @@ async function main() {
   await copyPublic();
 
   const pages = [
-    { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — Enterprise Web, SMS & Integration", active: "home" },
+    { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — Fintech & Enterprise Technology Partner", active: "home" },
     { blade: "pages/about.blade.php", out: "about.html", title: "About | TechMorah Solution LTD", active: "about" },
     {
       blade: "contacts.blade.php",
