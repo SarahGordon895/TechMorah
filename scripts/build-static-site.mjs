@@ -150,7 +150,7 @@ ${nav(active)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260812a" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260812b" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -173,7 +173,7 @@ ${footerCol}
 <div class="tm-footer__band">Enterprise systems · Integrations · Implementation · Support</div>
 </footer>
 <a href="#main-content" class="btn btn-secondary back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-arrow-up text-white"></i></a>
-<script src="${asset("js/site.js")}?v=20260812a" defer></script>
+<script src="${asset("js/site.js")}?v=20260812b" defer></script>
 ${footExtra}
 </body></html>`));
 }
@@ -454,8 +454,14 @@ async function main() {
 
   if (includePhp) await copyApi();
 
-  const indexHtml = await fs.readFile(path.join(docs, "index.html"), "utf8");
-  await fs.writeFile(path.join(docs, "404.html"), indexHtml);
+  await fs.writeFile(
+    path.join(docs, "404.html"),
+    shell({
+      title: "Page not found | TechMorah Solution LTD",
+      active: "",
+      body: `<section class="tm-section tm-section--navy text-center" style="min-height:55vh;display:flex;align-items:center;"><div class="container"><p class="tm-section-label">404</p><h1 class="tm-title">This page is not available</h1><p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;">The link may be outdated. Return to TechMorah home or contact the team.</p><a href="${asset("index.html")}" class="btn btn-light me-2 mb-2">Home</a><a href="${asset("contact.html")}" class="btn btn-outline-light mb-2">Contact</a></div></section>`,
+    })
+  );
 
   await ensureImages();
   await fs.writeFile(path.join(docs, ".nojekyll"), "");

@@ -1,13 +1,15 @@
-/* TechMorah contact — dark layout, dark shadows, mobile-first */
+/* TechMorah contact — corporate dark layout, logo-gradient accents */
 
 .contact-page {
-    background: #0b0f15;
+    background: #050a18;
     color: #e8ecf4;
 }
 
 .contact-page .page-header {
-    background: linear-gradient(135deg, #0f172a 0%, #152238 45%, #0b0f15 100%) !important;
-    background-image: none !important;
+    background:
+        radial-gradient(ellipse 55% 50% at 85% 0%, rgba(0, 174, 239, 0.28), transparent 55%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, rgba(198, 33, 129, 0.2), transparent 50%),
+        linear-gradient(165deg, #0b1f3a, #050a18) !important;
     position: relative;
     overflow: hidden;
 }
@@ -15,9 +17,11 @@
 .contact-page .page-header::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 15% 0%, rgba(255, 117, 15, 0.18), transparent 55%);
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(115deg, #fdb913 0%, #f37021 28%, #c62181 52%, #7b278d 76%, #00aeef 100%);
     pointer-events: none;
+    z-index: 3;
 }
 
 .contact-page .page-header::after {
@@ -31,14 +35,15 @@
 
 .contact-page .page-header h1 {
     font-size: clamp(1.75rem, 5vw, 3.5rem);
+    font-family: "Source Serif 4", Georgia, serif;
 }
 
 .contact-page .contact-stats {
-    background: linear-gradient(120deg, #ff750f, #933afe);
+    background: linear-gradient(115deg, #fdb913 0%, #f37021 28%, #c62181 52%, #7b278d 76%, #00aeef 100%);
 }
 
 .contact-page .stat-card {
-    border-radius: 1rem;
+    border-radius: 2px;
     background: rgba(0, 0, 0, 0.28);
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
@@ -50,16 +55,18 @@
 }
 
 .contact-page .contact-intro {
-    background: #0f141c;
+    background: #0b1f3a;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .contact-page .contact-intro h1,
-.contact-page .contact-intro .lead {
+.contact-page .contact-intro .lead,
+.contact-page .contact-intro h2 {
     color: #f4f6fb;
 }
 
-.contact-page .contact-intro .text-muted {
+.contact-page .contact-intro .text-muted,
+.contact-page .contact-intro .text-secondary {
     color: rgba(232, 236, 244, 0.72) !important;
 }
 
@@ -72,7 +79,7 @@
 }
 
 .contact-page .channel-pill {
-    border-radius: 999px;
+    border-radius: 2px;
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
     font-weight: 600;
@@ -86,14 +93,14 @@
 .contact-page .channel-pill:hover,
 .contact-page .channel-pill:focus {
     color: #fff;
-    border-color: rgba(255, 117, 15, 0.55);
-    background: rgba(255, 117, 15, 0.15);
+    border-color: rgba(0, 174, 239, 0.55);
+    background: rgba(0, 174, 239, 0.12);
     transform: translateY(-1px);
 }
 
 .contact-page .contact-detail {
     background: linear-gradient(165deg, #121a2a 0%, #0a0d12 100%);
-    border-radius: 1.25rem;
+    border-radius: 2px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 28px 64px rgba(0, 0, 0, 0.55), 0 8px 24px rgba(0, 0, 0, 0.4);
 }
@@ -101,22 +108,38 @@
 .contact-page .whatsapp-cta {
     background: rgba(37, 211, 102, 0.1);
     border: 1px solid rgba(37, 211, 102, 0.35);
-    border-radius: 1rem;
+    border-radius: 2px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
 }
 
 .contact-page .contact-info-card {
     background: rgba(0, 0, 0, 0.32);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
+    border-radius: 2px;
     height: 100%;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-page .contact-info-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(115deg, #fdb913, #c62181, #00aeef);
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .contact-page .contact-info-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+}
+
+.contact-page .contact-info-card:hover::before {
+    opacity: 1;
 }
 
 .contact-page .contact-form-card,
@@ -125,7 +148,7 @@
 .contact-page .contact-map-card {
     background: linear-gradient(160deg, #161f30 0%, #0e1218 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 1.25rem;
+    border-radius: 2px;
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     color: #e8ecf4;
 }
@@ -146,7 +169,7 @@
 
 .contact-page .contact-form-card .form-control,
 .contact-page .contact-form-card .form-select {
-    border-radius: 0.75rem;
+    border-radius: 2px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(0, 0, 0, 0.35);
     color: #f4f6fb;
@@ -161,15 +184,15 @@
 
 .contact-page .contact-form-card .form-control:focus,
 .contact-page .contact-form-card .form-select:focus {
-    border-color: rgba(255, 117, 15, 0.65);
-    box-shadow: 0 0 0 3px rgba(255, 117, 15, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-color: rgba(0, 174, 239, 0.65);
+    box-shadow: 0 0 0 3px rgba(0, 174, 239, 0.2), inset 0 2px 8px rgba(0, 0, 0, 0.3);
     background: rgba(0, 0, 0, 0.45);
     color: #fff;
 }
 
 .contact-page .contact-form-card textarea.form-control {
     min-height: 140px;
-    border-radius: 0.75rem;
+    border-radius: 2px;
 }
 
 .contact-page .contact-form-card small,
@@ -183,6 +206,7 @@
     border: none;
     font-weight: 600;
     min-height: 48px;
+    border-radius: 2px !important;
 }
 
 .contact-page .btn-whatsapp:hover {
@@ -191,12 +215,13 @@
 }
 
 .contact-page .btn-contact-primary {
-    background-image: linear-gradient(120deg, #ff750f, #933afe);
+    background-image: linear-gradient(115deg, #fdb913 0%, #f37021 28%, #c62181 52%, #7b278d 76%, #00aeef 100%);
     border: none;
     color: #fff;
     font-weight: 600;
     min-height: 48px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    border-radius: 2px !important;
+    box-shadow: 0 12px 28px rgba(198, 33, 129, 0.35);
 }
 
 .contact-page .btn-contact-primary:hover {
@@ -208,6 +233,7 @@
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #e8ecf4;
     min-height: 48px;
+    border-radius: 2px !important;
 }
 
 .contact-page .btn-contact-outline:hover {
@@ -220,7 +246,7 @@
     width: 100%;
     aspect-ratio: 4 / 3;
     min-height: 260px;
-    border-radius: 1rem;
+    border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 24px 56px rgba(0, 0, 0, 0.55);
     background: #0a0d12;
@@ -245,7 +271,7 @@
     height: min(320px, 45vh);
     overflow-y: auto;
     padding: 0.75rem;
-    border-radius: 0.75rem;
+    border-radius: 2px;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.35);
@@ -254,14 +280,14 @@
 .contact-page .contact-chat-messages .message-bubble {
     max-width: 88%;
     padding: 0.65rem 0.9rem;
-    border-radius: 1rem;
+    border-radius: 2px;
     font-size: 0.9rem;
     line-height: 1.45;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .contact-page .contact-chat-messages .message-bubble.user {
-    background: linear-gradient(120deg, #ff750f, #933afe);
+    background: linear-gradient(115deg, #f37021, #c62181, #00aeef);
     color: #fff;
     margin-left: auto;
 }
@@ -286,19 +312,19 @@
 .contact-page .quick-reply-chip {
     font-size: 0.78rem;
     padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 117, 15, 0.35);
+    border-radius: 2px;
+    border: 1px solid rgba(0, 174, 239, 0.35);
     background: rgba(0, 0, 0, 0.3);
-    color: #ffb366;
+    color: #4dc8f5;
     cursor: pointer;
 }
 
 .contact-page .quick-reply-chip:hover {
-    background: rgba(255, 117, 15, 0.15);
+    background: rgba(0, 174, 239, 0.15);
 }
 
 .contact-page .alert-contact {
-    border-radius: 0.75rem;
+    border-radius: 2px;
     border: none;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
 }

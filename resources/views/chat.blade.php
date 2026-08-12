@@ -5,49 +5,60 @@
 @push('styles')
 <style>
     :root {
-        --ai-dark: #0d1117;
-        --ai-mid: #151b24;
-        --ai-accent: #00f0ff;
-        --ai-orange: #ff7a18;
+        --ai-dark: #050a18;
+        --ai-mid: #0b1f3a;
+        --ai-accent: #00aeef;
+        --ai-grad: linear-gradient(115deg, #fdb913 0%, #f37021 28%, #c62181 52%, #7b278d 76%, #00aeef 100%);
     }
     .ai-hero {
-        background: radial-gradient(circle at 0% 0%, rgba(0, 240, 255, 0.15), transparent 45%),
-                    radial-gradient(circle at 100% 0%, rgba(255, 122, 24, 0.12), transparent 45%),
-                    linear-gradient(135deg, #0b0f15, #111827 65%, #0b0f15);
+        background:
+            radial-gradient(ellipse 50% 45% at 90% 0%, rgba(0, 174, 239, 0.25), transparent 55%),
+            radial-gradient(ellipse 40% 40% at 0% 80%, rgba(198, 33, 129, 0.18), transparent 50%),
+            linear-gradient(165deg, #0b1f3a, #050a18);
         color: #fff;
     }
     .ai-hero .stat-card {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         backdrop-filter: blur(6px);
-        border-radius: 18px;
+        border-radius: 2px;
     }
     .chat-shell {
-        border-radius: 28px;
+        border-radius: 2px;
         background: #fff;
-        box-shadow: 0 25px 80px rgba(13, 17, 23, 0.15);
+        box-shadow: 0 25px 80px rgba(5, 10, 24, 0.18);
         overflow: hidden;
+        border: 1px solid #d8dee6;
     }
     .chat-shell.dark {
         background: var(--ai-mid);
         color: #f7f9fb;
+        border-color: rgba(255,255,255,0.1);
     }
     .chat-header {
-        background: linear-gradient(120deg, #111827, #0d1117);
+        background: linear-gradient(120deg, #0b1f3a, #050a18);
         color: #fff;
         padding: 1.5rem 2rem;
+        position: relative;
+    }
+    .chat-header::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: var(--ai-grad);
     }
     .message-area {
         height: 420px;
         overflow-y: auto;
         padding: 1.5rem;
-        background: #f7f9fb;
+        background: #f0f3f7;
     }
     .chat-shell.dark .message-area {
-        background: #131a24;
+        background: #071525;
     }
     .message-bubble {
-        border-radius: 18px;
+        border-radius: 2px;
         padding: 0.9rem 1.1rem;
         max-width: 85%;
         font-size: 0.95rem;
@@ -56,16 +67,14 @@
     }
     .message-bubble.user {
         margin-left: auto;
-        background: linear-gradient(135deg, var(--ai-orange), #ffb347);
+        background: var(--ai-grad);
         color: #fff;
-        border-bottom-right-radius: 6px;
-        box-shadow: 0 10px 30px rgba(255, 122, 24, 0.25);
+        box-shadow: 0 10px 30px rgba(198, 33, 129, 0.28);
     }
     .message-bubble.bot {
         background: rgba(13, 17, 23, 0.75);
         border: 1px solid rgba(255, 255, 255, 0.08);
         color: #f0f7ff;
-        border-bottom-left-radius: 6px;
     }
     .message-bubble.error {
         background: rgba(220, 53, 69, 0.12);
@@ -73,8 +82,8 @@
         border: 1px solid rgba(220, 53, 69, 0.4);
     }
     .quick-reply {
-        border-radius: 999px;
-        border: 1px solid rgba(0, 240, 255, 0.4);
+        border-radius: 2px;
+        border: 1px solid rgba(0, 174, 239, 0.4);
         padding: 0.35rem 1rem;
         font-size: 0.85rem;
         color: var(--ai-accent);
@@ -82,10 +91,10 @@
         transition: all 0.2s ease;
     }
     .quick-reply:hover {
-        background: rgba(0, 240, 255, 0.08);
+        background: rgba(0, 174, 239, 0.08);
     }
     .chat-input {
-        border-radius: 999px;
+        border-radius: 2px;
         border: 1px solid #e0e6ef;
         padding: 0.85rem 1.2rem;
     }
@@ -113,7 +122,7 @@
         40% { opacity: 1; transform: translateY(-4px); }
     }
     @media (max-width: 991.98px) {
-        .chat-shell { border-radius: 20px; }
+        .chat-shell { border-radius: 2px; }
         .message-area { height: min(50vh, 360px); min-height: 280px; }
     }
     @media (max-width: 575.98px) {
