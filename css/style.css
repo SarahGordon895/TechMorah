@@ -1796,3 +1796,40 @@ section, .tm-section { position: relative; z-index: 1; }
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* Chat question-script categories */
+.tm-chat-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.tm-chat-cat {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.tm-chat-cat:hover {
+  border-color: var(--brand-c);
+  color: var(--brand-v);
+}
+.tm-chat-cat.is-active {
+  border-color: transparent;
+  color: #fff;
+  background: var(--grad);
+}
+.tm-chat-aside .tm-chat-prompts {
+  max-height: min(52vh, 420px);
+  overflow-y: auto;
+  padding-right: 4px;
+}

@@ -173,7 +173,15 @@
   function localExpertReply(prompt, history) {
     const text = String(prompt || "").toLowerCase().trim();
     if (!text) {
-      return "Ask a concrete question — for example: “How should we start an ISP billing system?” or “Do we need RAG or fine-tuning?”";
+      return "Ask a concrete question — for example: “Can you build a microfinance system?” or “Do we need RAG or fine-tuning?”";
+    }
+
+    // 1) Prefer the official service question script
+    if (window.TechMorahChatScript && typeof window.TechMorahChatScript.match === "function") {
+      const hit = window.TechMorahChatScript.match(prompt);
+      if (hit && hit.score >= 3 && hit.entry) {
+        return hit.entry.answer;
+      }
     }
 
     let best = null;
@@ -190,7 +198,6 @@
       return best.reply();
     }
 
-    // Light context from previous user turn
     const prevUser = [...history].reverse().find((m) => m.role === "user");
     if (prevUser) {
       const prev = String(prevUser.content || "").toLowerCase();
@@ -201,7 +208,7 @@
       }
     }
 
-    return `${PERSONA}\n\nI can advise on AI/ML architecture and TechMorah delivery for microfinance, e-commerce, ISP, payments, SMS, web systems, UI/UX, IT support, and accounting.\n\nTry a specific prompt like “Compare RAG vs fine-tuning for a support desk” or “Design a payment collections sandbox.”\n\n${handoff()}`;
+    return `${PERSONA}\n\nI can advise on AI/ML architecture and TechMorah delivery for microfinance, e-commerce, ISP, payments, SMS, web systems, UI/UX, IT support, and accounting.\n\nTap a suggested question on the left, or ask something specific like “Can you integrate M-Pesa collections?”\n\n${handoff()}`;
   }
 
   function apiCandidates() {
@@ -252,8 +259,21 @@
     async send(text) {
       const history = loadHistory();
       history.push({ role: "user", content: text });
-      const apiReply = await tryApi(text, history);
-      const reply = apiReply || localExpertReply(text, history);
+
+      // Script answers win for known service questions (consistent on static hosting).
+      let reply = null;
+      if (window.TechMorahChatScript && typeof window.TechMorahChatScript.match === "function") {
+        const hit = window.TechMorahChatScript.match(text);
+        if (hit && hit.score >= 4 && hit.entry) {
+          reply = hit.entry.answer;
+        }
+      }
+
+      if (!reply) {
+        const apiReply = await tryApi(text, history);
+        reply = apiReply || localExpertReply(text, history);
+      }
+
       history.push({ role: "assistant", content: reply });
       saveHistory(history);
       return reply;
@@ -267,6 +287,8 @@
   const messageInput = document.getElementById("messageInput");
   const chatMessages = document.getElementById("chatMessages");
   const sendBtn = document.getElementById("chatSendBtn");
+  const promptBox = document.getElementById("chatScriptPrompts");
+  const categoryBox = document.getElementById("chatScriptCategories");
   if (!chatForm || !messageInput || !chatMessages) return;
 
   function clearWelcome() {
@@ -329,12 +351,68 @@
     }
   }
 
-  document.querySelectorAll(".quick-reply").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      const text = chip.getAttribute("data-reply") || chip.textContent.trim();
-      submitPrompt(text);
+  function bindPromptButtons(root) {
+    (root || document).querySelectorAll(".quick-reply").forEach((chip) => {
+      if (chip.dataset.bound === "1") return;
+      chip.dataset.bound = "1";
+      chip.addEventListener("click", () => {
+        const text = chip.getAttribute("data-reply") || chip.textContent.trim();
+        submitPrompt(text);
+      });
     });
-  });
+  }
+
+  function renderScriptPrompts(categoryId) {
+    if (!promptBox || !window.TechMorahChatScript) return;
+    const script = window.TechMorahChatScript;
+    let items = [];
+    if (categoryId && categoryId !== "all") {
+      items = script.promptsByCategory(categoryId);
+    } else {
+      // Show first question from each category + a few high-value extras
+      items = script.featuredPrompts(12);
+      const payments = script.promptsByCategory("payments");
+      if (payments[1]) items.push(payments[1]);
+      const ai = script.promptsByCategory("ai");
+      if (ai[1]) items.push(ai[1]);
+    }
+    // de-dupe by question
+    const seen = new Set();
+    items = items.filter((it) => {
+      if (seen.has(it.question)) return false;
+      seen.add(it.question);
+      return true;
+    });
+
+    promptBox.innerHTML = items
+      .map(
+        (it) =>
+          `<button type="button" class="quick-reply" data-reply="${it.question.replace(/"/g, "&quot;")}">${it.question}</button>`
+      )
+      .join("");
+    bindPromptButtons(promptBox);
+  }
+
+  function renderCategories() {
+    if (!categoryBox || !window.TechMorahChatScript) return;
+    const cats = window.TechMorahChatScript.SCRIPT.categories;
+    categoryBox.innerHTML =
+      `<button type="button" class="tm-chat-cat is-active" data-cat="all">All</button>` +
+      cats
+        .map((c) => `<button type="button" class="tm-chat-cat" data-cat="${c.id}">${c.label}</button>`)
+        .join("");
+    categoryBox.querySelectorAll(".tm-chat-cat").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        categoryBox.querySelectorAll(".tm-chat-cat").forEach((b) => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        renderScriptPrompts(btn.getAttribute("data-cat"));
+      });
+    });
+  }
+
+  renderCategories();
+  renderScriptPrompts("all");
+  bindPromptButtons(document);
 
   chatForm.addEventListener("submit", (e) => {
     e.preventDefault();
