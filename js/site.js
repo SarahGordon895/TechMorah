@@ -39,7 +39,7 @@
     }
 
     const nav = document.getElementById("navbar") || document.querySelector(".navbar");
-    const toggler = document.querySelector(".menu-toggle");
+    const toggler = document.querySelector(".menu-toggle") || document.querySelector(".tm-nav__toggle");
     const navMenu = document.getElementById("navMenu");
 
     function setScrolled() {
@@ -56,6 +56,7 @@
       toggler.classList.toggle("is-active", open);
       toggler.setAttribute("aria-expanded", open ? "true" : "false");
       toggler.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.classList.toggle("nav-open", open);
       document.body.style.overflow = open ? "hidden" : "";
     }
 
@@ -64,16 +65,22 @@
     }
 
     if (toggler && navMenu) {
+      // Keep the drawer under <body> so fixed positioning is never trapped by the nav.
+      if (navMenu.parentElement !== document.body) {
+        document.body.appendChild(navMenu);
+      }
+
       toggler.addEventListener("click", function (e) {
+        e.preventDefault();
         e.stopPropagation();
-        setOpen(!navMenu.classList.contains("show"));
+        setOpen(!navMenu.classList.contains("is-open"));
       });
       navMenu.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", closeMenu);
       });
       document.addEventListener("click", function (e) {
         if (
-          navMenu.classList.contains("show") &&
+          navMenu.classList.contains("is-open") &&
           !navMenu.contains(e.target) &&
           !toggler.contains(e.target)
         ) {
@@ -82,6 +89,9 @@
       });
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeMenu();
+      });
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 992) closeMenu();
       });
     }
 
