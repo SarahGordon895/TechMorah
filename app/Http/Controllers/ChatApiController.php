@@ -350,7 +350,23 @@ class ChatApiController extends Controller
 
     protected function techMorahSystemPrompt(): string
     {
-        return 'You are TechMorah Solution LTD’s AI copilot. Answer like a proactive consultant, keep it concise, and always reference TechMorah services, WhatsApp +255 655 139 724, email techmorahsolution@gmail.com, or the website contact form when relevant.';
+        return <<<'PROMPT'
+You are TechMorah Copilot for TechMorah Solution LTD (Dar es Salaam Science Park).
+
+Persona: Speak as a seasoned AI and machine-learning practitioner with ~30 years of applied experience across enterprise ML, NLP, computer vision, MLOps, RAG/LLM systems, and digital product delivery. Be clear, practical, and mentor-like — never hype, never invent fake case metrics.
+
+Company facts you must respect:
+- Services: web & system design, system development, graphic/UI/UX, IT support, computerised accounting, microfinance solutions, e-commerce, ISP management, payment gateway & integration, enterprise SMS.
+- Do NOT pitch core banking / digital banking channels as TechMorah offerings.
+- Contact: WhatsApp +255 655 139 724, techmorahsolution@gmail.com, website contact form.
+- Delivery flow: discover → design → build & integrate → launch & support.
+
+Behaviour:
+- Answer AI/ML questions with frameworks, trade-offs, and next steps (data readiness, baselines, evaluation, monitoring, human-in-the-loop).
+- Tie recommendations to TechMorah delivery when useful.
+- Keep replies concise (usually under 180 words) with short bullets when listing options.
+- For commercial scoping, invite WhatsApp/contact handoff.
+PROMPT;
     }
 
     protected function respondViaMistral(Chat $chat, string $session, string $prompt)
@@ -469,27 +485,48 @@ class ChatApiController extends Controller
     protected function fallbackReply(string $prompt): string
     {
         $prompt = strtolower($prompt);
+        $persona = 'I am TechMorah Copilot — an AI/ML advisor guiding practical automation and TechMorah digital delivery.';
 
-        if (str_contains($prompt, 'ai')) {
-            return 'We embed AI copilots into WhatsApp, web, and voice flows. Tell me your current system and we’ll map the rollout, or tap WhatsApp +255 655 139 724 for a live engineer.';
+        if (str_contains($prompt, 'machine learning') || str_contains($prompt, 'mlops') || str_contains($prompt, 'deep learning')) {
+            return 'Start with the decision to improve, then data quality and baseline metrics, then model complexity. TechMorah path: KPIs → data audit → baseline → model → evaluate → deploy with monitoring into web/WhatsApp workflows. Share your use case for a fit stack.';
         }
 
-        if (str_contains($prompt, 'price') || str_contains($prompt, 'cost')) {
-            return 'Pricing is tailored per scope. Share the modules you need and I can outline options, or our contact page can collect specs for an exact quote.';
+        if (str_contains($prompt, 'rag') || str_contains($prompt, 'fine-tun') || str_contains($prompt, 'llm') || str_contains($prompt, 'gpt')) {
+            return 'RAG fits changing knowledge bases; fine-tuning helps stable tone/format tasks. Many support desks use RAG + tools + human escalation. TechMorah embeds assistants with auth, logging, and handoff. WhatsApp +255 655 139 724 for scoping.';
         }
 
-        if (str_contains($prompt, 'support')) {
-            return 'Our 24/7 IT support desk routes WhatsApp, FaceTime, and phone into a single timeline with proactive alerts. Ask how many sites you run and we’ll shape the plan.';
+        if (str_contains($prompt, 'ai') || str_contains($prompt, 'nlp') || str_contains($prompt, 'automation')) {
+            return 'Business AI works in layers: workflow capture → RAG/tools or fine-tune → guardrails → channel embed (web/WhatsApp). Tell me the channel and job-to-be-done.';
         }
 
-        if (str_contains($prompt, 'account')) {
-            return 'Computerized accounting bundles Power BI dashboards, approvals, and compliance-ready exports. Want me to outline how it plugs into your current finance tools?';
+        if (str_contains($prompt, 'microfinance') || str_contains($prompt, 'mfi') || str_contains($prompt, 'loan')) {
+            return 'TechMorah builds microfinance solutions — loans, savings, members, approvals, reporting. Optional AI later: risk scoring/OCR after core workflows are solid. WhatsApp +255 655 139 724.';
         }
 
-        if (str_contains($prompt, 'website') || str_contains($prompt, 'system')) {
-            return 'We ship Laravel + React portals, e-commerce, and custom CRMs that inherit your brand. Describe your goal and I’ll suggest the best TechMorah squad to engage.';
+        if (str_contains($prompt, 'isp') || str_contains($prompt, 'fibre') || str_contains($prompt, 'fiber')) {
+            return 'TechMorah delivers ISP management — packages, subscribers, billing, support, payments. Later ML: churn, ticket classification, anomaly alerts.';
         }
 
-        return 'I’m here to guide you through TechMorah Solution LTD services—AI integration, IT support, accounting automations, and web systems. Ask away or jump to WhatsApp +255 655 139 724 for a human hand-off.';
+        if (str_contains($prompt, 'e-commerce') || str_contains($prompt, 'ecommerce') || str_contains($prompt, 'shop')) {
+            return 'We build e-commerce with catalogue, cart, checkout, and admin. AI add-ons after checkout reliability: search, recommendations, support bots.';
+        }
+
+        if (str_contains($prompt, 'pay') || str_contains($prompt, 'lipa') || str_contains($prompt, 'gateway') || str_contains($prompt, 'm-pesa')) {
+            return 'Payment gateway & integration: collections, disbursements, sandboxes, callbacks, reconciliation. Security first — signed callbacks and idempotent transactions. WhatsApp +255 655 139 724.';
+        }
+
+        if (str_contains($prompt, 'price') || str_contains($prompt, 'cost') || str_contains($prompt, 'quote')) {
+            return 'Pricing depends on scope and delivery model. AI/ML is quoted after data readiness and KPI clarity. Share modules on the contact page or WhatsApp +255 655 139 724.';
+        }
+
+        if (str_contains($prompt, 'support') || str_contains($prompt, 'hosting') || str_contains($prompt, 'vps')) {
+            return 'IT support, monitoring, Linux VPS/shared hosting, SSL, and handover runbooks are available. Describe your environment.';
+        }
+
+        if (str_contains($prompt, 'service') || str_contains($prompt, 'website') || str_contains($prompt, 'system') || str_contains($prompt, 'design')) {
+            return 'TechMorah covers web & systems, UI/UX, IT support, accounting, microfinance, e-commerce, ISP management, payment gateways, and SMS. Which area should we start with?';
+        }
+
+        return $persona . ' Ask a specific question (for example: “Design a payment collections sandbox” or “Do we need RAG or fine-tuning?”). WhatsApp +255 655 139 724 for human handoff.';
     }
 }

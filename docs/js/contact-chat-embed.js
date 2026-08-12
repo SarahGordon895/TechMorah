@@ -5,12 +5,18 @@
   if (!form || !input || !messages) return;
 
   function fallbackReply(prompt) {
+    if (window.TechMorahChat && typeof window.TechMorahChat.send === "function") {
+      return null;
+    }
     const p = prompt.toLowerCase();
     if (p.includes("price") || p.includes("cost") || p.includes("quote")) {
       return "Share your scope (SMS, payments, web app, support) and timeline — we reply same day. Use the form below or WhatsApp +255 655 139 724.";
     }
+    if (p.includes("ai") || p.includes("ml") || p.includes("machine")) {
+      return "TechMorah Copilot advises on AI/ML rollout — data readiness, RAG vs fine-tuning, and embedding assistants into web/WhatsApp. Open the full chatbot for a deeper session.";
+    }
     if (p.includes("sms") || p.includes("victoria")) {
-      return "We build enterprise SMS platforms (admin, portals, APIs) — similar to our Victoria Lush delivery. Tell me your messaging volume and we'll suggest architecture.";
+      return "We build enterprise SMS platforms (admin, portals, APIs). Tell me your messaging volume and we'll suggest architecture.";
     }
     if (p.includes("payment") || p.includes("lipa") || p.includes("m-pesa")) {
       return "We integrate mobile money and payment gateways with clear API docs and staging — like LipaPay at iMartGroup. What gateway or MNO are you using?";
@@ -19,12 +25,12 @@
       return "We build solutions for microfinance, e-commerce, and ISP management — plus payment gateway integration. Tell me which vertical you need.";
     }
     if (p.includes("deploy") || p.includes("hosting") || p.includes("vps") || p.includes("server")) {
-      return "We deploy to Linux VPS (Victoria Lush production) and shared hosting (iMartGroup LipaPay) with SSL, domains, and handover runbooks. Tell me your stack and host.";
+      return "We deploy to Linux VPS and shared hosting with SSL, domains, and handover runbooks. Tell me your stack and host.";
     }
     if (p.includes("support") || p.includes("whatsapp")) {
-      return "24/7 support routes through WhatsApp +255 655 139 724, email, and this chat. For urgent issues, WhatsApp is fastest.";
+      return "Support routes through WhatsApp +255 655 139 724, email, and chat. For urgent issues, WhatsApp is fastest.";
     }
-    return "I'm TechMorah's assistant. Ask about web systems, AI, SMS, payments, or IT support — or open the full chat page for a longer session.";
+    return "I'm TechMorah's assistant. Ask about AI/ML, web systems, SMS, payments, ISP, or IT support — or open the full AI chatbot for a longer session.";
   }
 
   async function send(text) {
@@ -32,7 +38,7 @@
       try {
         return await window.TechMorahChat.send(text);
       } catch {
-        return fallbackReply(text);
+        /* fall through */
       }
     }
     return fallbackReply(text);
@@ -41,22 +47,15 @@
   function pushMessage(text, type) {
     const empty = messages.querySelector(".contact-chat-empty");
     if (empty) empty.remove();
-    const wrap = document.createElement("div");
-    wrap.className = `d-flex mb-2 ${type === "user" ? "justify-content-end" : "justify-content-start"}`;
     const bubble = document.createElement("div");
-    bubble.className = `message-bubble ${type}`;
-    bubble.textContent = text;
-    wrap.appendChild(bubble);
-    messages.appendChild(wrap);
+    bubble.className = "message-bubble " + (type === "user" ? "user" : "bot");
+    const p = document.createElement("p");
+    p.className = "mb-0";
+    p.textContent = text;
+    bubble.appendChild(p);
+    messages.appendChild(bubble);
     messages.scrollTop = messages.scrollHeight;
   }
-
-  document.querySelectorAll(".contact-quick-reply").forEach((chip) => {
-    chip.addEventListener("click", () => {
-      input.value = chip.dataset.reply || "";
-      input.focus();
-    });
-  });
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -64,10 +63,7 @@
     if (!text) return;
     pushMessage(text, "user");
     input.value = "";
-    input.disabled = true;
     const reply = await send(text);
-    pushMessage(reply, "bot");
-    input.disabled = false;
-    input.focus();
+    pushMessage(reply || "Please try again, or WhatsApp +255 655 139 724.", "bot");
   });
 })();
