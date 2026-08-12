@@ -65,14 +65,31 @@
     }
 
     if (toggler && navMenu) {
-      // Keep the drawer under <body> so fixed positioning is never trapped by the nav.
-      if (navMenu.parentElement !== document.body) {
-        document.body.appendChild(navMenu);
+      const navContainer = nav ? nav.querySelector(".container") : null;
+
+      function placeMenu() {
+        const mobile = window.innerWidth < 992;
+        if (mobile) {
+          // Drawer on body only while mobile — keeps fixed positioning reliable.
+          if (navMenu.parentElement !== document.body) {
+            document.body.appendChild(navMenu);
+          }
+        } else {
+          // Desktop: menu must live inside the top bar.
+          closeMenu();
+          if (navContainer && navMenu.parentElement !== navContainer) {
+            navContainer.appendChild(navMenu);
+          }
+        }
       }
+
+      placeMenu();
+      window.addEventListener("resize", placeMenu);
 
       toggler.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
+        placeMenu();
         setOpen(!navMenu.classList.contains("is-open"));
       });
       navMenu.querySelectorAll("a").forEach(function (link) {
@@ -89,9 +106,6 @@
       });
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeMenu();
-      });
-      window.addEventListener("resize", function () {
-        if (window.innerWidth >= 992) closeMenu();
       });
     }
 
