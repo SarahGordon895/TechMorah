@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#050a18">
-    <meta name="keywords" content="@yield('keywords', 'fintech Tanzania, core banking support, digital channels, payments, TechMorah Solution LTD')">
-    <meta name="description" content="@yield('description', 'TechMorah Solution LTD — fintech and enterprise technology partner for core banking support, digital channels, payments, and East African delivery.')">
+    <meta name="keywords" content="@yield('keywords', 'TechMorah Tanzania, digital solutions, microfinance, e-commerce, ISP management, payment gateway, web development')">
+    <meta name="description" content="@yield('description', 'TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, and payment gateway integration.')">
 
     @php
         $faviconPath = config('branding.favicon', 'img/techmorah-icon.png');
@@ -63,7 +63,7 @@
                     <div class="footer-brand mb-3">
                         <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
                     </div>
-                    <p class="text-white-50 small mb-0">Fintech &amp; enterprise technology — core banking support, digital channels, payments, and East African delivery. Dar es Salaam Science Park, Tanzania.</p>
+                    <p class="text-white-50 small mb-0">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, and East African delivery. Dar es Salaam Science Park, Tanzania.</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Quick Links</h5>

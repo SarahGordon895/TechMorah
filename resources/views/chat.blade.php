@@ -29,7 +29,7 @@
                 <h2 class="h5 mb-3">Start with a prompt</h2>
                 <div class="tm-chat-prompts">
                     <button type="button" class="quick-reply" data-reply="What services does TechMorah offer?">Services overview</button>
-                    <button type="button" class="quick-reply" data-reply="Tell me about core banking and digital channels support">Core banking &amp; channels</button>
+                    <button type="button" class="quick-reply" data-reply="Tell me about microfinance, e-commerce, ISP and payment gateway solutions">Our solution verticals</button>
                     <button type="button" class="quick-reply" data-reply="How do payments and LipaPay-style integrations work?">Payments &amp; integrations</button>
                     <button type="button" class="quick-reply" data-reply="How should I contact TechMorah for a project?">Contact &amp; next steps</button>
                 </div>
@@ -51,7 +51,7 @@
                     </div>
                     <div class="message-area" id="chatMessages">
                         <div class="text-center text-muted">
-                            <p class="mb-0">Hi — ask about core banking support, channels, payments, SMS platforms, or how to engage TechMorah.</p>
+                            <p class="mb-0">Hi — ask about web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, or how to engage TechMorah.</p>
                         </div>
                     </div>
                     <div class="tm-chat-footer">

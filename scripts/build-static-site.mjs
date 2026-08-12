@@ -143,14 +143,14 @@ ${nav(active)}
 <title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050a18">
-<meta name="description" content="TechMorah Solution LTD — fintech and enterprise technology partner for core banking support, digital channels, payments, and East African delivery.">
+<meta name="description" content="TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, and payment gateway integration.">
 <link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
 <link rel="apple-touch-icon" href="${asset("img/techmorah-icon.png")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260812d" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260812e" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -160,7 +160,7 @@ ${chrome}
 ${body}
 </main>
 <footer class="footer tm-footer"><div class="container"><div class="row g-4">
-<div class="col-md-4"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small">Fintech &amp; enterprise technology — core banking support, digital channels, payments, and East African delivery. Dar es Salaam Science Park, Tanzania.</p></div>
+<div class="col-md-4"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, and East African delivery. Dar es Salaam Science Park, Tanzania.</p></div>
 <div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled">
 <li><a href="${asset("about.html")}">About</a></li>
 <li><a href="${asset("services.html")}">Services</a></li>
@@ -209,14 +209,14 @@ function buildServicesBody() {
   return fixHtml(`
 <section class="services-hero tm-page-hero py-5"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-7"><span class="badge bg-secondary text-uppercase mb-3">TechMorah Services</span>
-<h1 class="display-5 fw-bold mb-3">Fintech depth. Enterprise delivery.</h1>
-<p class="lead text-white-50 mb-4">Core banking support, digital channels, payments, custom platforms, and AI-assisted operations — scoped for East African institutions and businesses.</p>
+<h1 class="display-5 fw-bold mb-3">Digital solutions. Production delivery.</h1>
+<p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, and payment gateway integration — scoped for East African businesses.</p>
 <div class="d-flex flex-wrap gap-3"><a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
 <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a></div></div>
 <div class="col-lg-5"><div class="row g-3">${stats}</div></div></div></div></section>
 <section class="py-5"><div class="container py-4"><div class="text-center mb-5"><h5 class="text-primary">What we build</h5>
 <h2 class="fw-bold">Ten technology service lines</h2>
-<p class="text-muted mb-0">From microfinance and channels to hosting and AI automation.</p></div>
+<p class="text-muted mb-0">From web &amp; systems to microfinance, e-commerce, ISP, and payment gateways.</p></div>
 <div class="row g-4">${grid}</div></div></section>
 <section class="bg-light py-5"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-5"><h5 class="text-primary">How we deliver</h5><h2 class="fw-bold">Clear scope from workshop to production</h2>
@@ -237,8 +237,9 @@ function buildServicesBody() {
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Phone / WhatsApp</label><input type="text" name="phone" class="form-control"></div>
 <div class="col-md-6"><label class="form-label small text-uppercase text-muted">Focus area *</label>
 <select name="focus" class="form-control" required><option value="" disabled selected>Select one</option>
-<option>Core banking / microfinance</option><option>Digital banking channels</option><option>Payments & integrations</option>
-<option>Enterprise SMS</option><option>Custom software</option><option>AI & automation</option><option>Hosting & infrastructure</option><option>Other</option></select></div>
+<option>Web & system design</option><option>Microfinance solutions</option><option>E-commerce</option>
+<option>ISP management</option><option>Payment gateway & integration</option><option>Computerised accounting</option>
+<option>Graphic design & UI/UX</option><option>IT support</option><option>Enterprise SMS</option><option>Other</option></select></div>
 <div class="col-12"><label class="form-label small text-uppercase text-muted">Project details *</label>
 <textarea name="message" class="form-control" rows="4" required></textarea></div>
 <div class="col-12"><button type="submit" class="btn btn-secondary px-4" id="consultSubmit">Book consult</button>

@@ -28,7 +28,7 @@
             <div class="tm-contact-main">
                 <p class="tm-section-label">Project briefing</p>
                 <h2 class="tm-title">Send a message</h2>
-                <p class="tm-lead">Core banking, channels, payments, SMS, or a custom platform — tell us what you need.</p>
+                <p class="tm-lead">Microfinance, e-commerce, ISP management, payments, SMS, or a custom platform — tell us what you need.</p>
 
                 <div id="contactAlert" class="alert d-none" role="alert"></div>
                 @if(session('success'))
@@ -63,14 +63,15 @@
                             <label class="form-label" for="focus">Focus area</label>
                             <select id="focus" name="focus" class="form-control">
                                 <option value="">Select a focus</option>
-                                <option>Core banking / microfinance support</option>
-                                <option>Digital banking channels</option>
-                                <option>Payments &amp; integrations</option>
-                                <option>Enterprise SMS / messaging</option>
-                                <option>Custom enterprise software</option>
+                                <option>Web &amp; system design</option>
+                                <option>Microfinance solutions</option>
                                 <option>E-commerce</option>
-                                <option>AI &amp; automation</option>
-                                <option>Hosting &amp; infrastructure</option>
+                                <option>ISP management</option>
+                                <option>Payment gateway &amp; integration</option>
+                                <option>Computerised accounting</option>
+                                <option>Graphic design &amp; UI/UX</option>
+                                <option>IT support</option>
+                                <option>Enterprise SMS</option>
                                 <option>Other</option>
                             </select>
                         </div>

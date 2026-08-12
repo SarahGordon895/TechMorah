@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Services | TechMorah Solution LTD')
-@section('keywords', 'TechMorah services, core banking, digital channels, payments, fintech Tanzania')
-@section('description', 'TechMorah Solution LTD services: microfinance and core banking support, digital channels, payments, custom software, AI, hosting, and East African delivery.')
+@section('keywords', 'TechMorah services, web development, microfinance, e-commerce, ISP management, payment gateway Tanzania')
+@section('description', 'TechMorah Solution LTD services: web & system design, UI/UX, IT support, accounting, microfinance, e-commerce, ISP management, and payment gateway integration.')
 
 @section('content')
 
@@ -11,8 +11,8 @@
         <div class="row g-4 align-items-center">
             <div class="col-lg-7">
                 <span class="badge bg-secondary text-uppercase mb-3">Ten technology service lines</span>
-                <h1 class="display-5 fw-bold mb-3">Fintech depth. Enterprise delivery.</h1>
-                <p class="lead text-white-50 mb-4">Core banking support, digital channels, payments, custom platforms, and AI-assisted operations — scoped for East African institutions and businesses.</p>
+                <h1 class="display-5 fw-bold mb-3">Digital solutions. Production delivery.</h1>
+                <p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, and payment gateway integration — scoped for East African businesses.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
                     <a href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a>
@@ -49,16 +49,16 @@
         <div class="tm-grid tm-grid--3">
             @php
                 $services = [
-                    ['icon' => 'fas fa-university', 'id' => 'core-banking', 'title' => 'Microfinance & Core Banking', 'copy' => 'Module configuration, loan/savings workflows, GL mapping review, and EOD batch troubleshooting within authorised platform scope.'],
-                    ['icon' => 'fas fa-mobile-alt', 'id' => 'channels', 'title' => 'Digital Banking Channels', 'copy' => 'Internet Banking, Flutter mobile, agency POS, USSD, and merchant journeys with OTP and REST/Swagger integration.'],
-                    ['icon' => 'fas fa-credit-card', 'id' => 'payments', 'title' => 'Integrations & Payments', 'copy' => 'Mobile money gateways, developer sandboxes, callbacks, and reconciliation-aware collection/disbursement flows.'],
-                    ['icon' => 'fas fa-shopping-cart', 'id' => 'ecommerce', 'title' => 'E-Commerce Solutions', 'copy' => 'Storefronts, inventory, cart, checkout, and payment gateways for direct digital sales channels.'],
-                    ['icon' => 'fas fa-laptop-code', 'id' => 'enterprise', 'title' => 'Custom Enterprise Software', 'copy' => 'Tailored web/mobile workflows, approval chains, HR platforms, and business portals on Laravel + React.'],
-                    ['icon' => 'fas fa-globe', 'id' => 'web', 'title' => 'Web & Portal Design', 'copy' => 'Corporate web applications, customer portals, administrative dashboards, and intranets.'],
-                    ['icon' => 'fas fa-robot', 'id' => 'ai', 'title' => 'AI Integration & Automation', 'copy' => 'Enterprise knowledge assistants, document classification, and support routing workflows.'],
-                    ['icon' => 'fas fa-headset', 'id' => 'support', 'title' => 'IT Support & NOC', 'copy' => 'Monitoring, database performance tuning, remote support, and incident management for high availability.'],
-                    ['icon' => 'fas fa-palette', 'id' => 'uiux', 'title' => 'Graphic Design & UI/UX', 'copy' => 'Wireframing, prototypes, design systems, visual branding, and accessible digital assets.'],
-                    ['icon' => 'fas fa-server', 'id' => 'hosting', 'title' => 'Hosting & Infrastructure', 'copy' => 'Linux VPS, IIS, SSL, DNS, and backup routines — proven on Victoria Lush and iMartGroup LipaPay deployments.'],
+                    ['icon' => 'fas fa-laptop-code', 'id' => 'web', 'title' => 'Web & System Design & Development', 'copy' => 'User-friendly, secure, and scalable systems and websites.'],
+                    ['icon' => 'fas fa-cogs', 'id' => 'systems', 'title' => 'System Design & Development', 'copy' => 'Customised solutions tailored to optimise business processes and efficiency.'],
+                    ['icon' => 'fas fa-paint-brush', 'id' => 'uiux', 'title' => 'Graphic Design & UI/UX Design', 'copy' => 'Creative visuals and intuitive interfaces to enhance brand impact.'],
+                    ['icon' => 'fas fa-headset', 'id' => 'support', 'title' => 'IT Support Services', 'copy' => 'Reliable technical support for smooth and efficient operations.'],
+                    ['icon' => 'fas fa-file-invoice-dollar', 'id' => 'accounting', 'title' => 'Computerised Accounting Solutions', 'copy' => 'Streamlined financial management for accurate and efficient reporting.'],
+                    ['icon' => 'fas fa-hand-holding-usd', 'id' => 'microfinance', 'title' => 'Microfinance Solutions', 'copy' => 'Loan, savings, and member workflows for MFIs and community lenders.'],
+                    ['icon' => 'fas fa-shopping-cart', 'id' => 'ecommerce', 'title' => 'E-Commerce Solutions', 'copy' => 'Storefronts, inventory, cart, checkout, and catalogue operations for digital sales.'],
+                    ['icon' => 'fas fa-wifi', 'id' => 'isp', 'title' => 'ISP Management', 'copy' => 'Subscriber, billing, support, and payment flows for internet service providers.'],
+                    ['icon' => 'fas fa-credit-card', 'id' => 'payments', 'title' => 'Payment Gateway & Integration', 'copy' => 'Collections, disbursements, sandboxes, callbacks, and reconciliation-aware APIs.'],
+                    ['icon' => 'fas fa-sms', 'id' => 'sms', 'title' => 'Enterprise SMS Platforms', 'copy' => 'Admin consoles, reseller portals, bulk messaging, and API layers.'],
                 ];
             @endphp
             @foreach ($services as $i => $service)
@@ -107,7 +107,7 @@
             <div class="col-lg-5">
                 <span class="badge bg-secondary text-uppercase mb-3">Book a consult</span>
                 <h2 class="tm-title">Match with a TechMorah consultant</h2>
-                <p class="text-muted">Tell us what you need — core banking, channels, payments, SMS, or a custom platform. We typically reply within one business day.</p>
+                <p class="text-muted">Tell us what you need — microfinance, e-commerce, ISP management, payments, SMS, or a custom platform. We typically reply within one business day.</p>
                 <ul class="list-unstyled text-muted small">
                     <li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>WhatsApp + email follow-up with full context</li>
                     <li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>Honest scope and attribution on every engagement</li>
@@ -143,14 +143,15 @@
                                 <label class="form-label small text-uppercase text-muted">Focus area *</label>
                                 <select name="focus" class="form-control" required>
                                     <option value="" selected disabled>Select one</option>
-                                    <option>Core banking / microfinance</option>
-                                    <option>Digital banking channels</option>
-                                    <option>Payments &amp; integrations</option>
-                                    <option>Enterprise SMS</option>
-                                    <option>Custom software</option>
+                                    <option>Web &amp; system design</option>
+                                    <option>Microfinance solutions</option>
                                     <option>E-commerce</option>
-                                    <option>AI &amp; automation</option>
-                                    <option>Hosting &amp; infrastructure</option>
+                                    <option>ISP management</option>
+                                    <option>Payment gateway &amp; integration</option>
+                                    <option>Computerised accounting</option>
+                                    <option>Graphic design &amp; UI/UX</option>
+                                    <option>IT support</option>
+                                    <option>Enterprise SMS</option>
                                     <option>Other</option>
                                 </select>
                             </div>

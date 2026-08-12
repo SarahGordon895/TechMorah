@@ -380,30 +380,38 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .tm-hero__visual {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   border: 1px solid rgba(255,255,255,0.14);
-  background:
-    linear-gradient(160deg, rgba(5, 10, 24, 0.2), rgba(5, 10, 24, 0.75)),
-    url("../img/profile-cover-2026.png") center / cover no-repeat;
+  background: #050a18;
   overflow: hidden;
   min-height: 220px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+.tm-hero__visual-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .tm-hero__visual::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--grad-soft);
-  mix-blend-mode: soft-light;
+  background: linear-gradient(160deg, rgba(5, 10, 24, 0.15), rgba(5, 10, 24, 0.55));
   pointer-events: none;
+  z-index: 1;
 }
 .tm-hero__visual-glow {
   position: absolute;
   width: 60%; height: 60%;
   top: 12%; right: 8%;
-  background: radial-gradient(circle, rgba(0, 174, 239, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(0, 174, 239, 0.25), transparent 70%);
   animation: tm-pulse 5s ease-in-out infinite;
-  z-index: 1;
+  z-index: 2;
+  pointer-events: none;
 }
 @keyframes tm-pulse {
   0%, 100% { transform: scale(1); opacity: 0.65; }
@@ -413,33 +421,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: absolute;
   inset: 16px;
   border: 1px solid rgba(255,255,255,0.16);
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
 }
 .tm-hero__visual-orb {
-  position: absolute;
-  width: 42%;
-  aspect-ratio: 1;
-  top: 14%;
-  right: 14%;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 174, 239, 0.45);
-  box-shadow:
-    0 0 0 12px rgba(0, 174, 239, 0.06),
-    inset 0 0 40px rgba(0, 174, 239, 0.2);
-  animation: tm-orb 18s linear infinite;
-  z-index: 2;
-}
-.tm-hero__visual-orb::before {
-  content: "";
-  position: absolute;
-  inset: 18%;
-  border-radius: 50%;
-  border: 1px dashed rgba(253, 185, 19, 0.35);
-}
-@keyframes tm-orb {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  display: none;
 }
 .tm-hero__visual-label {
   position: absolute;
@@ -448,7 +434,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.78);
-  z-index: 3;
+  z-index: 4;
 }
 
 /* Values strip */

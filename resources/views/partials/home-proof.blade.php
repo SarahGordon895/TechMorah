@@ -3,7 +3,7 @@
         <div class="tm-header text-center mx-auto" style="max-width:720px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Proven delivery</p>
             <h2 class="tm-title">Systems we build for real clients</h2>
-            <p class="tm-lead">From enterprise SMS and payment sandboxes to SME web systems — clear scope, documentation, and support handover. Leadership experience at partner firms is attributed honestly and is not presented as a TechMorah contract unless TechMorah was formally engaged.</p>
+            <p class="tm-lead">From enterprise SMS and payment sandboxes to e-commerce and ISP digital platforms — clear scope, documentation, and support handover.</p>
         </div>
         <div class="tm-grid tm-grid--4">
             <article class="tm-client-card tm-reveal">
@@ -17,11 +17,11 @@
                 </div>
             </article>
             <article class="tm-client-card tm-reveal" data-delay="1">
-                <span class="tm-badge">FinTech · live</span>
+                <span class="tm-badge">Payments · live</span>
                 <h4>iMartGroup — LipaPay</h4>
                 <p class="mb-2">Collections, airtime, disbursement, and sandbox hubs — shared hosting with API reference and production support.</p>
                 <div>
-                    <span class="tm-stack-badge">Payments</span>
+                    <span class="tm-stack-badge">Payment gateway</span>
                     <span class="tm-stack-badge">REST APIs</span>
                     <span class="tm-stack-badge">Laravel</span>
                 </div>
@@ -37,13 +37,13 @@
                 </div>
             </article>
             <article class="tm-client-card tm-reveal" data-delay="3">
-                <span class="tm-badge">Channels · capability</span>
-                <h4>Core banking support</h4>
-                <p class="mb-2">Founder experience supporting Mobile/Internet/Agency Banking, GL mappings, and T-SQL diagnostics for bank/MFI clients — attributed to employment context.</p>
+                <span class="tm-badge">ISP · live</span>
+                <h4>Savanna Fibre Digital</h4>
+                <p class="mb-2">ISP acquisition site and Laravel management stack for packages, coverage, leads, billing, and payment journeys.</p>
                 <div>
-                    <span class="tm-stack-badge">Channels</span>
-                    <span class="tm-stack-badge">T-SQL</span>
-                    <span class="tm-stack-badge">GL mapping</span>
+                    <span class="tm-stack-badge">ISP management</span>
+                    <span class="tm-stack-badge">Laravel</span>
+                    <span class="tm-stack-badge">Billing</span>
                 </div>
             </article>
         </div>
@@ -59,7 +59,7 @@
         <div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">How we work</p>
             <h2 class="tm-title">From discovery to launch</h2>
-            <p class="tm-lead">A predictable flow for banking channels, payment integrations, SMS platforms, or custom enterprise software.</p>
+            <p class="tm-lead">A predictable flow for payment integrations, SMS platforms, ISP systems, e-commerce, or custom enterprise software.</p>
         </div>
         <div class="tm-workflow">
             <article class="tm-workflow-step tm-reveal">
@@ -95,7 +95,6 @@
             <span class="tm-stack-pill">React</span>
             <span class="tm-stack-pill">Flutter</span>
             <span class="tm-stack-pill">Filament</span>
-            <span class="tm-stack-pill">T-SQL</span>
             <span class="tm-stack-pill">MySQL</span>
             <span class="tm-stack-pill">SQL Server</span>
             <span class="tm-stack-pill">REST / Swagger</span>
