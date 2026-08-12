@@ -983,3 +983,300 @@ section, .tm-section { position: relative; z-index: 1; }
   .tm-hero__actions .btn { width: 100%; }
   .col-6 { width: 100%; }
 }
+
+/* Case studies */
+.tm-case {
+  display: grid;
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow: hidden;
+  height: 100%;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+.tm-case:hover {
+  box-shadow: var(--shadow);
+  border-color: rgba(0, 174, 239, 0.35);
+}
+.tm-case__media {
+  aspect-ratio: 16 / 10;
+  background: var(--paper);
+  overflow: hidden;
+}
+.tm-case__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.tm-case__body {
+  padding: 22px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tm-case__title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--navy);
+  font-weight: 600;
+}
+.tm-case__meta {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.tm-case__meta dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-c);
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.tm-case__meta dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.tm-case__tags { margin-top: 4px; }
+.tm-case__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* Contact layout */
+.tm-contact-layout {
+  display: grid;
+  gap: 32px;
+}
+.tm-contact-main { min-width: 0; }
+.tm-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+.tm-form__row {
+  display: grid;
+  gap: 16px;
+}
+.tm-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+.tm-form .form-control {
+  width: 100%;
+  border: 1px solid var(--line);
+  padding: 12px 14px;
+  font-family: inherit;
+  background: var(--paper);
+  border-radius: 2px !important;
+  min-height: 48px;
+}
+.tm-form textarea.form-control { min-height: 140px; }
+.tm-form .form-control:focus {
+  outline: 2px solid rgba(0, 174, 239, 0.35);
+  border-color: var(--brand-c);
+}
+.tm-contact-aside {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+.tm-aside-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 20px 18px;
+}
+.tm-aside-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.tm-aside-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.tm-aside-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.tm-aside-list span {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.tm-aside-list a,
+.tm-aside-list strong {
+  color: var(--navy);
+  font-weight: 600;
+  word-break: break-word;
+}
+.tm-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  min-height: 260px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  overflow: hidden;
+}
+.tm-map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.w-100 { width: 100% !important; }
+
+/* Chat layout */
+.tm-chat-layout {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+.tm-chat-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tm-chat-prompts .quick-reply {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--navy);
+  cursor: pointer;
+  font-family: inherit;
+}
+.tm-chat-prompts .quick-reply:hover {
+  border-color: var(--brand-c);
+  color: var(--brand-v);
+}
+.chat-shell {
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow: hidden;
+}
+.chat-shell.dark {
+  background: var(--navy);
+  border-color: rgba(255,255,255,0.1);
+  color: #f7f9fb;
+}
+.chat-header {
+  background: var(--ink-deep);
+  color: #fff;
+  padding: 18px 20px;
+  position: relative;
+}
+.chat-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--grad);
+}
+.message-area {
+  height: min(52vh, 420px);
+  min-height: 280px;
+  overflow-y: auto;
+  padding: 20px;
+  background: #071525;
+}
+.message-bubble {
+  border-radius: 2px;
+  padding: 0.85rem 1rem;
+  max-width: 88%;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.message-bubble.user {
+  margin-left: auto;
+  background: var(--grad);
+  color: #fff;
+}
+.message-bubble.bot {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #f0f7ff;
+}
+.message-bubble.error {
+  background: rgba(220, 53, 69, 0.12);
+  color: #ff8a96;
+  border: 1px solid rgba(220, 53, 69, 0.35);
+}
+.tm-chat-footer {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: var(--ink-deep);
+}
+.tm-chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.chat-input {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.85rem 1rem;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-family: inherit;
+  min-height: 48px;
+}
+.chat-input:focus {
+  outline: 2px solid rgba(0, 174, 239, 0.35);
+  border-color: var(--brand-c);
+}
+.typing-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  display: inline-block;
+  margin-right: 4px;
+  animation: typing 1s infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing {
+  0%, 80%, 100% { opacity: 0.2; transform: translateY(0); }
+  40% { opacity: 1; transform: translateY(-4px); }
+}
+
+@media (min-width: 768px) {
+  .tm-form__row { grid-template-columns: 1fr 1fr; }
+  .tm-chat-form { flex-direction: row; align-items: stretch; }
+  .tm-chat-form .btn { flex-shrink: 0; }
+}
+
+@media (min-width: 992px) {
+  .tm-contact-layout {
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.7fr);
+    gap: 40px;
+    align-items: start;
+  }
+  .tm-chat-layout {
+    grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1.4fr);
+    gap: 32px;
+  }
+  .tm-map { aspect-ratio: 21 / 8; }
+}
+

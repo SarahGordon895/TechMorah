@@ -88,9 +88,9 @@ export const approachSteps = [
 
 export const blogStats = [
   { value: "4+", label: "Years leadership" },
-  { value: "Fintech", label: "Channels & payments" },
+  { value: "10+", label: "Relationships" },
   { value: "25+", label: "Platforms" },
-  { value: "24/7", label: "Support access" },
+  { value: "10", label: "Service lines" },
 ];
 
 export const blogTags = [

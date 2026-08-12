@@ -150,7 +150,7 @@ ${nav(active)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260812b" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260812c" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -173,7 +173,7 @@ ${footerCol}
 <div class="tm-footer__band">Enterprise systems · Integrations · Implementation · Support</div>
 </footer>
 <a href="#main-content" class="btn btn-secondary back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-arrow-up text-white"></i></a>
-<script src="${asset("js/site.js")}?v=20260812b" defer></script>
+<script src="${asset("js/site.js")}?v=20260812c" defer></script>
 ${footExtra}
 </body></html>`));
 }
@@ -253,54 +253,47 @@ function storyImage(st) {
 function buildBlogBody() {
   const stats = blogStats
     .map(
-      (s) => `<div class="col-6 col-lg-3"><div class="d-flex stat-card p-4"><h1 class="me-3 text-primary">${s.value}</h1><h5 class="mb-0">${s.label}</h5></div></div>`
+      (s) => `<div class="tm-reveal"><p class="tm-trust__value">${s.value}</p><p class="tm-trust__label">${s.label}</p></div>`
     )
     .join("");
-  const tags = blogTags.map((t) => `<a href="#" class="text-dark text-decoration-none">#${t}</a>`).join("\n");
   const stories = solutionStories
     .map(
-      (st) => `<div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="${storyImage(st)}" class="w-100 h-100 object-fit-cover" alt="${st.client}" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">${st.industry}</span>
-<h5 class="fw-semibold">${st.client}</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> ${st.challenge}</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> ${st.solution}</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> ${st.outcome}</p>
-<div class="d-flex flex-wrap gap-2 mb-3">${st.services.map((x) => `<span class="badge bg-dark text-white">${x}</span>`).join("")}</div>
-<div class="mt-auto d-flex flex-wrap gap-2">${st.portfolio_url ? `<a href="${st.portfolio_url}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a>` : ""}<a href="${asset(st.cta_url)}" class="text-primary fw-semibold">Start similar work &rarr;</a></motion></div></div></div>`
-    )
-    .join("");
-  const spotlights = serviceSpotlights
-    .map(
-      (sp) => `<div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">${sp.title}</h5>
-<p class="text-muted mb-3">${sp.description}</p><a href="${asset(sp.link)}" class="text-primary fw-semibold">${sp.label}</a></div></motion>`
+      (st, i) => `<article class="tm-case tm-reveal"${i % 2 ? ' data-delay="1"' : ""}>
+<div class="tm-case__media"><img src="${storyImage(st)}" alt="${st.client}" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">${st.industry}</span>
+<h3 class="tm-case__title">${st.client}</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>${st.challenge}</dd></div>
+<div><dt>Solution</dt><dd>${st.solution}</dd></div>
+<div><dt>Outcome</dt><dd>${st.outcome}</dd></div>
+</dl>
+<div class="tm-case__tags">${st.services.map((x) => `<span class="tm-stack-badge">${x}</span>`).join("")}</div>
+<div class="tm-case__actions">${st.portfolio_url ? `<a href="${st.portfolio_url}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a>` : ""}<a href="${asset(st.cta_url)}" class="btn btn-secondary">Start similar work</a></div>
+</div></article>`
     )
     .join("");
   return fixHtml(`
-<div class="blog-page">
-<div class="container-fluid page-header py-5"><div class="container text-center py-5">
-<h1 class="display-2 text-white mb-4">Case Studies</h1>
-<p class="lead text-white-50 mx-auto mb-4" style="max-width:640px">Real screenshots from enterprise SMS, payments, and SME systems we deliver.</p>
+<section class="tm-page-hero page-header"><div class="container text-center">
+<p class="tm-section-label" style="color:var(--copper-soft)">Delivery evidence</p>
+<h1 class="tm-title" style="color:#fff;font-size:clamp(2rem,5vw,2.8rem)">Case studies</h1>
+<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">Production systems and capability evidence — labelled by delivery context.</p>
 <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center mb-0">
-<li class="breadcrumb-item"><a href="index.html" class="text-white-50 text-decoration-none">Home</a></li>
-<li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></div>
-<div class="container-fluid bg-secondary py-5"><div class="container"><div class="row g-4 text-white">${stats}</div></div></div>
-<div class="container py-5"><div class="row g-5">
-<div class="col-lg-7"><div class="bg-dark text-white rounded-4 p-5"><h2 class="mb-3">Subscribe for TechMorah updates</h2>
-<p class="text-white-50">Actionable playbooks and engineering write-ups. No spam.</p>
-<form class="row g-3 align-items-center" id="newsletterForm"><div class="col-sm"><input type="email" class="form-control form-control-lg" placeholder="Email address" required></div>
-<div class="col-sm-auto"><button class="btn btn-secondary btn-lg" type="submit">Subscribe</button></div></form></div></div>
-<div class="col-lg-5"><div class="bg-light rounded-4 p-4 h-100"><h4 class="mb-4">Popular Tags</h4><div class="tag-cloud d-flex flex-wrap gap-2">${tags}</div></div></div></div></div>
-<div class="container pb-5"><div class="text-center mx-auto pb-4" style="max-width:700px">
-<h5 class="text-primary text-uppercase">All case studies</h5><h2 class="mb-3">Client launches &amp; delivery notes</h2>
-<p class="text-muted">Victoria Lush and LipaPay use real project screenshots; other stories summarize sector work.</p></div>
-<div class="row g-4">${stories}</div></div>
-<div class="container pb-5"><div class="row g-4">${spotlights}</div></div>
-<div class="bg-primary py-5"><div class="container text-center text-white"><h2 class="mb-3">Ready to Transform Your Business?</h2>
-<p class="mb-4">Talk to TechMorah experts about AI, cloud, and digital experiences.</p>
-<div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-<a href="contact.html" class="btn btn-light text-primary px-4 py-2">Contact Us</a>
-<a href="services.html" class="btn btn-outline-light px-4 py-2">View Services</a></div></div></div></div>`);
+<li class="breadcrumb-item"><a href="${asset("index.html")}" class="text-white-50">Home</a></li>
+<li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></section>
+<section class="tm-trust"><div class="container"><div class="tm-trust__grid">${stats}</div></div></section>
+<section class="tm-section"><div class="container">
+<div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
+<p class="tm-section-label">Selected work</p>
+<h2 class="tm-title">Systems shipped in production</h2>
+<p class="tm-lead">Challenge, solution, and outcome — the same stack clients see on the founder portfolio.</p></div>
+<div class="tm-grid tm-grid--2">${stories}</div></div></section>
+<section class="tm-section tm-section--navy text-center"><div class="container">
+<h2 class="tm-title">Need a system like one of these?</h2>
+<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;">Share your scope — we reply with clear next steps.</p>
+<a href="${asset("contact.html")}" class="btn btn-light me-2 mb-2">Contact us</a>
+<a href="${asset("services.html")}" class="btn btn-outline-light mb-2">View services</a>
+</div></section>`);
 }
 
 async function expandIncludes(raw) {
@@ -387,7 +380,7 @@ async function main() {
       out: "contact.html",
       title: "Contact | TechMorah Solution LTD",
       active: "contact",
-      foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>\n<script src="${asset("js/contact-chat-embed.js")}"></script>\n<script src="${asset("js/contact-page.js")}"></script>\n<script src="${asset("js/site.js")}"></script>`,
+      foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>\n<script src="${asset("js/contact-page.js")}"></script>`,
       hideFooterContact: false,
       skipChrome: false,
       patch: patchContact,
@@ -427,9 +420,7 @@ async function main() {
   );
   console.log("✓ services.html");
 
-  const caseStudiesStyle = await extractStyles("blog.blade.php");
-  const caseStudiesExtra = `${caseStudiesStyle}
-<style>.tm-case-card--featured{border-width:2px;border-color:rgba(255,117,15,.35)}.case-studies-page .tm-case-card img{object-position:top center}</style>`;
+  const caseStudiesExtra = `<style>.tm-case__media img{object-position:top center}</style>`;
   await fs.writeFile(
     path.join(docs, "case-studies.html"),
     shell({
