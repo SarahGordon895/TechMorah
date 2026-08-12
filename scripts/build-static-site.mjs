@@ -150,7 +150,7 @@ ${nav(active)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260812c" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260812d" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -269,7 +269,7 @@ function buildBlogBody() {
 <div><dt>Outcome</dt><dd>${st.outcome}</dd></div>
 </dl>
 <div class="tm-case__tags">${st.services.map((x) => `<span class="tm-stack-badge">${x}</span>`).join("")}</div>
-<div class="tm-case__actions">${st.portfolio_url ? `<a href="${st.portfolio_url}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a>` : ""}<a href="${asset(st.cta_url)}" class="btn btn-secondary">Start similar work</a></div>
+<div class="tm-case__actions">${st.live_url ? `<a href="${st.live_url}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Live</a>` : ""}${st.portfolio_url ? `<a href="${st.portfolio_url}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a>` : ""}<a href="${asset(st.cta_url)}" class="btn btn-secondary">Start similar work</a></div>
 </div></article>`
     )
     .join("");
@@ -277,7 +277,7 @@ function buildBlogBody() {
 <section class="tm-page-hero page-header"><div class="container text-center">
 <p class="tm-section-label" style="color:var(--copper-soft)">Delivery evidence</p>
 <h1 class="tm-title" style="color:#fff;font-size:clamp(2rem,5vw,2.8rem)">Case studies</h1>
-<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">Production systems and capability evidence — labelled by delivery context.</p>
+<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">Selected builds from the founder portfolio — each card follows Challenge → Solution → Outcome.</p>
 <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center mb-0">
 <li class="breadcrumb-item"><a href="${asset("index.html")}" class="text-white-50">Home</a></li>
 <li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></section>
@@ -286,7 +286,7 @@ function buildBlogBody() {
 <div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
 <p class="tm-section-label">Selected work</p>
 <h2 class="tm-title">Systems shipped in production</h2>
-<p class="tm-lead">Challenge, solution, and outcome — the same stack clients see on the founder portfolio.</p></div>
+<p class="tm-lead">Extracted from the live founder portfolio — same Challenge → Solution → Outcome flow on every card.</p></div>
 <div class="tm-grid tm-grid--2">${stories}</div></div></section>
 <section class="tm-section tm-section--navy text-center"><div class="container">
 <h2 class="tm-title">Need a system like one of these?</h2>

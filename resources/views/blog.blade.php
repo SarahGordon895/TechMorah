@@ -11,7 +11,7 @@
         <p class="tm-section-label" style="color:var(--copper-soft)">Delivery evidence</p>
         <h1 class="tm-title" style="color:#fff;font-size:clamp(2rem,5vw,2.8rem)">Case studies</h1>
         <p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">
-            Production systems and capability evidence — labelled by delivery context. Founder employment work is not claimed as a TechMorah contract unless TechMorah was formally engaged.
+            Selected builds from the founder portfolio — each card follows Challenge → Solution → Outcome. Employment delivery is capability evidence unless TechMorah was formally engaged.
         </p>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb justify-content-center mb-0">
@@ -40,7 +40,7 @@
         <div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Selected work</p>
             <h2 class="tm-title">Systems shipped in production</h2>
-            <p class="tm-lead">Challenge, solution, and outcome — the same stack clients see on the founder portfolio.</p>
+            <p class="tm-lead">Extracted from the live founder portfolio — same Challenge → Solution → Outcome flow on every card.</p>
         </div>
         <div class="tm-grid tm-grid--2">
             @foreach ($solutionStories as $i => $story)
@@ -62,6 +62,9 @@
                         @endforeach
                     </div>
                     <div class="tm-case__actions">
+                        @if (!empty($story['live_url']))
+                        <a href="{{ $story['live_url'] }}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Live</a>
+                        @endif
                         @if (!empty($story['portfolio_url']))
                         <a href="{{ $story['portfolio_url'] }}" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a>
                         @endif
