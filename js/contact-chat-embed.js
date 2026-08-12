@@ -13,7 +13,10 @@
       return "We build enterprise SMS platforms (admin, portals, APIs) — similar to our Victoria Lush delivery. Tell me your messaging volume and we'll suggest architecture.";
     }
     if (p.includes("payment") || p.includes("lipa") || p.includes("m-pesa")) {
-      return "We integrate mobile money and payment sandboxes with clear API docs and staging — like LipaPay at iMartGroup. What gateway or bank are you using?";
+      return "We integrate mobile money and payment gateways with clear API docs and staging — like LipaPay at iMartGroup. What gateway or MNO are you using?";
+    }
+    if (p.includes("isp") || p.includes("fibre") || p.includes("microfinance") || p.includes("e-commerce") || p.includes("ecommerce")) {
+      return "We build solutions for microfinance, e-commerce, and ISP management — plus payment gateway integration. Tell me which vertical you need.";
     }
     if (p.includes("deploy") || p.includes("hosting") || p.includes("vps") || p.includes("server")) {
       return "We deploy to Linux VPS (Victoria Lush production) and shared hosting (iMartGroup LipaPay) with SSL, domains, and handover runbooks. Tell me your stack and host.";
