@@ -83,15 +83,18 @@
             <h2 class="tm-title">Sarah George Gordon</h2>
             <p class="tm-lead">Co-Founder &amp; CEO · Principal Technologist</p>
         </div>
-        <p class="text-muted" style="max-width:720px">4+ years across full-stack software, enterprise SMS, fintech systems, and core banking support. Current full-time role: Full Stack Developer at <strong>iMart Group LTD</strong>. Prior professional engagements include Craft Silicon (core banking / channel support), Victoria Lush Limited (portal &amp; SMS), and iMart LipaPay ecosystem work.</p>
+        <p class="text-muted" style="max-width:720px">4+ years across full-stack software, enterprise SMS, fintech systems, and core banking support. Current full-time role: Full Stack Developer at <strong>iMart Group LTD</strong> (LipaPay, SMS desk, ELMS). Prior professional engagements include Craft Silicon — Support &amp; Implementation (core banking / channel support, ended 11 Aug 2026), Victoria Lush Limited (portal &amp; SMS on Linux VPS), and Active Targets e-commerce. Company expertise mirrors the founder’s production stack — see the <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener">founder portfolio</a>.</p>
         <div class="d-flex flex-wrap mt-3">
             <span class="tm-stack-pill">Laravel</span>
             <span class="tm-stack-pill">React</span>
             <span class="tm-stack-pill">Flutter</span>
+            <span class="tm-stack-pill">Filament</span>
             <span class="tm-stack-pill">T-SQL</span>
             <span class="tm-stack-pill">SQL Server</span>
             <span class="tm-stack-pill">MySQL</span>
             <span class="tm-stack-pill">Digital banking channels</span>
+            <span class="tm-stack-pill">Payments / MNO</span>
+            <span class="tm-stack-pill">Linux VPS</span>
         </div>
     </div>
 </section>

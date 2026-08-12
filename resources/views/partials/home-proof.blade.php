@@ -1,5 +1,3 @@
-{{-- Client proof, delivery workflow, tech stack — fintech profile aligned --}}
-
 <section class="tm-section">
     <div class="container">
         <div class="tm-header text-center mx-auto" style="max-width:720px;margin-left:auto;margin-right:auto;">
@@ -9,7 +7,7 @@
         </div>
         <div class="tm-grid tm-grid--4">
             <article class="tm-client-card tm-reveal">
-                <span class="tm-badge">Enterprise · ongoing</span>
+                <span class="tm-badge">Founder delivery · production</span>
                 <h4>Victoria Lush Limited</h4>
                 <p class="mb-2">Company portal (VLL SMS), VLL Admin, SmSver1 — production on Linux VPS with SSL and documented handover.</p>
                 <div>
@@ -18,34 +16,34 @@
                     <span class="tm-stack-badge">Laravel</span>
                 </div>
             </article>
-            <article class="tm-client-card tm-reveal">
-                <span class="tm-badge">FinTech</span>
+            <article class="tm-client-card tm-reveal" data-delay="1">
+                <span class="tm-badge">FinTech · live</span>
                 <h4>iMartGroup — LipaPay</h4>
-                <p class="mb-2">Sandbox on shared hosting — API reference and staging for mobile-money before production go-live.</p>
+                <p class="mb-2">Collections, airtime, disbursement, and sandbox hubs — shared hosting with API reference and production support.</p>
                 <div>
-                    <span class="tm-stack-badge">Shared hosting</span>
+                    <span class="tm-stack-badge">Payments</span>
                     <span class="tm-stack-badge">REST APIs</span>
                     <span class="tm-stack-badge">Laravel</span>
                 </div>
             </article>
-            <article class="tm-client-card tm-reveal">
-                <span class="tm-badge">SME &amp; retail</span>
-                <h4>Custom web &amp; POS</h4>
-                <p class="mb-2">Websites, POS, intranets, and brand kits — scoped for Tanzanian businesses and long-term maintainability.</p>
+            <article class="tm-client-card tm-reveal" data-delay="2">
+                <span class="tm-badge">E-commerce · live</span>
+                <h4>Active Targets</h4>
+                <p class="mb-2">Laravel + Filament storefront and admin — shop, cart, checkout, CMS, and hardened production deploy.</p>
                 <div>
-                    <span class="tm-stack-badge">React</span>
-                    <span class="tm-stack-badge">MySQL</span>
-                    <span class="tm-stack-badge">UI/UX</span>
+                    <span class="tm-stack-badge">Filament</span>
+                    <span class="tm-stack-badge">E-commerce</span>
+                    <span class="tm-stack-badge">Laravel</span>
                 </div>
             </article>
-            <article class="tm-client-card tm-reveal">
-                <span class="tm-badge">Sectors</span>
-                <h4>Education &amp; hospitality</h4>
-                <p class="mb-2">Library systems, campus ordering, IT support desks — bilingual UX and mobile-first interfaces.</p>
+            <article class="tm-client-card tm-reveal" data-delay="3">
+                <span class="tm-badge">Channels · capability</span>
+                <h4>Core banking support</h4>
+                <p class="mb-2">Founder experience supporting Mobile/Internet/Agency Banking, GL mappings, and T-SQL diagnostics for bank/MFI clients — attributed to employment context.</p>
                 <div>
-                    <span class="tm-stack-badge">PWA</span>
-                    <span class="tm-stack-badge">Payments</span>
-                    <span class="tm-stack-badge">Support</span>
+                    <span class="tm-stack-badge">Channels</span>
+                    <span class="tm-stack-badge">T-SQL</span>
+                    <span class="tm-stack-badge">GL mapping</span>
                 </div>
             </article>
         </div>
@@ -92,9 +90,21 @@
     <div class="container text-center">
         <p class="tm-section-label mb-3">Technology we ship with</p>
         <div class="d-flex flex-wrap justify-content-center">
-            @foreach(['Laravel', 'PHP', 'React', 'Flutter', 'T-SQL', 'MySQL', 'SQL Server', 'REST / Swagger', 'Twilio / SMS', 'OpenAI', 'Linux VPS', 'Shared hosting', 'IIS', 'M-Pesa'] as $tech)
-            <span class="tm-stack-pill">{{ $tech }}</span>
-            @endforeach
+            <span class="tm-stack-pill">Laravel</span>
+            <span class="tm-stack-pill">PHP</span>
+            <span class="tm-stack-pill">React</span>
+            <span class="tm-stack-pill">Flutter</span>
+            <span class="tm-stack-pill">Filament</span>
+            <span class="tm-stack-pill">T-SQL</span>
+            <span class="tm-stack-pill">MySQL</span>
+            <span class="tm-stack-pill">SQL Server</span>
+            <span class="tm-stack-pill">REST / Swagger</span>
+            <span class="tm-stack-pill">Twilio / SMS</span>
+            <span class="tm-stack-pill">OpenAI</span>
+            <span class="tm-stack-pill">Linux VPS</span>
+            <span class="tm-stack-pill">Shared hosting</span>
+            <span class="tm-stack-pill">IIS</span>
+            <span class="tm-stack-pill">M-Pesa</span>
         </div>
     </div>
 </section>

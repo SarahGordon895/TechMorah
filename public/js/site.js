@@ -1,6 +1,6 @@
 /**
- * TechMorah site scripts — nav drawer, reveal, back-to-top, spinner.
- * No jQuery / Bootstrap Collapse dependency.
+ * TechMorah site scripts — nav drawer, scroll state, reveal, counters, back-to-top.
+ * No jQuery / Bootstrap Collapse dependency. Respects prefers-reduced-motion.
  */
 (function () {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -8,6 +8,25 @@
   function ready(fn) {
     if (document.readyState !== "loading") fn();
     else document.addEventListener("DOMContentLoaded", fn);
+  }
+
+  function animateCount(el) {
+    const target = parseInt(el.getAttribute("data-count"), 10);
+    if (Number.isNaN(target)) return;
+    const suffix = el.getAttribute("data-suffix") || "";
+    if (prefersReduced) {
+      el.textContent = target + suffix;
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    function frame(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   }
 
   ready(function () {
@@ -19,8 +38,16 @@
       }, prefersReduced ? 0 : 400);
     }
 
+    const nav = document.getElementById("navbar") || document.querySelector(".navbar");
     const toggler = document.querySelector(".menu-toggle");
     const navMenu = document.getElementById("navMenu");
+
+    function setScrolled() {
+      if (!nav) return;
+      nav.classList.toggle("is-scrolled", window.pageYOffset > 12);
+    }
+    setScrolled();
+    window.addEventListener("scroll", setScrolled, { passive: true });
 
     function setOpen(open) {
       if (!toggler || !navMenu) return;
@@ -59,7 +86,6 @@
     }
 
     const navHeight = function () {
-      const nav = document.getElementById("navbar") || document.querySelector(".navbar");
       return nav ? nav.offsetHeight : 72;
     };
 
@@ -96,10 +122,11 @@
       const io = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              io.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            entry.target.querySelectorAll("[data-count]").forEach(animateCount);
+            if (entry.target.hasAttribute("data-count")) animateCount(entry.target);
+            io.unobserve(entry.target);
           });
         },
         { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
@@ -110,6 +137,9 @@
     } else {
       document.querySelectorAll(".tm-reveal").forEach(function (el) {
         el.classList.add("is-visible");
+        el.querySelectorAll("[data-count]").forEach(function (n) {
+          n.textContent = (n.getAttribute("data-count") || "") + (n.getAttribute("data-suffix") || "");
+        });
       });
     }
   });

@@ -36,14 +36,14 @@
             <div class="row g-3 g-md-4 text-white">
                 <div class="col-6 col-lg-3">
                     <div class="d-flex align-items-center stat-card p-3 p-md-4">
-                        <h1 class="me-2 me-md-3 text-white mb-0">2+</h1>
-                        <h5 class="mb-0">Years delivery</h5>
+                        <h1 class="me-2 me-md-3 text-white mb-0">4+</h1>
+                        <h5 class="mb-0">Years leadership</h5>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="d-flex align-items-center stat-card p-3 p-md-4">
-                        <h1 class="me-2 me-md-3 text-white mb-0">24/7</h1>
-                        <h5 class="mb-0">Support ready</h5>
+                        <h1 class="me-2 me-md-3 text-white mb-0">25+</h1>
+                        <h5 class="mb-0">Platforms shipped</h5>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">

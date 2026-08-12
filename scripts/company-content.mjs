@@ -1,4 +1,4 @@
-/** TechMorah company positioning — 2026 Fintech Edition */
+/** TechMorah company positioning — 2026 Fintech Edition + founder portfolio alignment */
 
 export const trustMetrics = [
   { value: "4+", label: "Years technical leadership" },
@@ -21,24 +21,24 @@ export const clientProjects = [
     sector: "FinTech / mobile money",
     stack: ["Laravel", "REST APIs", "Shared hosting", "SSL"],
     summary:
-      "Sandbox_LipaPay developer hub — shared hosting with API reference and staging for pre-production payment integration.",
-    highlight: "Shared hosting deployment",
+      "LipaPay collections, airtime, disbursement, and sandbox developer hub — shared hosting with API reference and production support.",
+    highlight: "Payments production stack",
   },
   {
-    name: "SME & retail clients",
-    sector: "Web systems & POS",
-    stack: ["Laravel", "React", "MySQL", "UI/UX"],
+    name: "Active Targets",
+    sector: "E-commerce",
+    stack: ["Laravel", "Filament", "MySQL", "Checkout"],
     summary:
-      "Custom websites, POS systems, intranets, and brand kits for Tanzanian businesses — scoped for budget, timeline, and maintainability.",
-    highlight: "Self-employed delivery",
+      "Full storefront + Filament admin — shop, cart, checkout, coupons, CMS, orders, and hardened production deploy.",
+    highlight: "Live e-commerce",
   },
   {
-    name: "Education & hospitality",
-    sector: "Operations software",
-    stack: ["Laravel", "PWA", "Payments", "SMS"],
+    name: "Core banking channels",
+    sector: "Banks & MFIs (capability)",
+    stack: ["T-SQL", "SQL Server", "Channels", "GL mapping"],
     summary:
-      "Library systems, campus ordering, and workflow tools with bilingual UX and mobile-first interfaces.",
-    highlight: "Sector-specific builds",
+      "Founder professional delivery supporting Mobile/Internet/Agency Banking and GL diagnostics — attributed to employment context, not claimed as TechMorah contracts unless engaged.",
+    highlight: "Channel support capability",
   },
 ];
 
@@ -70,6 +70,7 @@ export const techStack = [
   "PHP",
   "React",
   "Flutter",
+  "Filament",
   "JavaScript",
   "MySQL",
   "SQL Server",
