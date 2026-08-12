@@ -12,18 +12,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="/TechMorah/css/style.css?v=20260812b" rel="stylesheet">
-<style>
-.blog-page .page-header { background: linear-gradient(120deg,#0a0a0a,#1a1a1a); position:relative; }
-    .blog-page .page-header::after { content:''; position:absolute; inset:0; background:radial-gradient(circle at top,rgba(21,255,153,.2),rgba(0,0,0,.9)); }
-    .blog-page .page-header > .container { position:relative; z-index:1; }
-    .blog-page .stat-card { border-radius:1rem; background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); }
-    .blog-page .blog-item { transition:transform .3s ease, box-shadow .3s ease; border-radius:1.25rem; overflow:hidden; }
-    .blog-page .blog-item:hover { transform:translateY(-6px); box-shadow:0 25px 70px rgba(0,0,0,.25); }
-    .blog-page .blog-btn-icon { transition:background .3s ease; }
-    .blog-page .tag-cloud a { border-radius:999px; border:1px solid rgba(255,255,255,.15); padding:.45rem 1.25rem; }
-</style>
-<style>.tm-case-card--featured{border-width:2px;border-color:rgba(255,117,15,.35)}.case-studies-page .tm-case-card img{object-position:top center}</style>
+<link href="/TechMorah/css/style.css?v=20260812c" rel="stylesheet">
+<style>.tm-case__media img{object-position:top center}</style>
 </head>
 <body>
 <div id="spinner" class="show" aria-hidden="true"><div class="spinner-grow" role="status"></div></div>
@@ -42,90 +32,98 @@
 </div></div></nav>
 <main id="main-content">
 
-<div class="blog-page">
-<div class="container-fluid page-header py-5"><div class="container text-center py-5">
-<h1 class="display-2 text-white mb-4">Case Studies</h1>
-<p class="lead text-white-50 mx-auto mb-4" style="max-width:640px">Real screenshots from enterprise SMS, payments, and SME systems we deliver.</p>
+<section class="tm-page-hero page-header"><div class="container text-center">
+<p class="tm-section-label" style="color:var(--copper-soft)">Delivery evidence</p>
+<h1 class="tm-title" style="color:#fff;font-size:clamp(2rem,5vw,2.8rem)">Case studies</h1>
+<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;color:rgba(255,255,255,0.7)">Production systems and capability evidence — labelled by delivery context.</p>
 <nav aria-label="breadcrumb"><ol class="breadcrumb justify-content-center mb-0">
-<li class="breadcrumb-item"><a href="/TechMorah/index.html" class="text-white-50 text-decoration-none">Home</a></li>
-<li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></div>
-<div class="container-fluid bg-secondary py-5"><div class="container"><div class="row g-4 text-white"><div class="col-6 col-lg-3"><div class="d-flex stat-card p-4"><h1 class="me-3 text-primary">4+</h1><h5 class="mb-0">Years leadership</h5></div></div><div class="col-6 col-lg-3"><div class="d-flex stat-card p-4"><h1 class="me-3 text-primary">Fintech</h1><h5 class="mb-0">Channels & payments</h5></div></div><div class="col-6 col-lg-3"><div class="d-flex stat-card p-4"><h1 class="me-3 text-primary">25+</h1><h5 class="mb-0">Platforms</h5></div></div><div class="col-6 col-lg-3"><div class="d-flex stat-card p-4"><h1 class="me-3 text-primary">24/7</h1><h5 class="mb-0">Support access</h5></div></div></div></div></div>
-<div class="container py-5"><div class="row g-5">
-<div class="col-lg-7"><div class="bg-dark text-white rounded-4 p-5"><h2 class="mb-3">Subscribe for TechMorah updates</h2>
-<p class="text-white-50">Actionable playbooks and engineering write-ups. No spam.</p>
-<form class="row g-3 align-items-center" id="newsletterForm"><div class="col-sm"><input type="email" class="form-control form-control-lg" placeholder="Email address" required></div>
-<div class="col-sm-auto"><button class="btn btn-secondary btn-lg" type="submit">Subscribe</button></div></form></div></div>
-<div class="col-lg-5"><div class="bg-light rounded-4 p-4 h-100"><h4 class="mb-4">Popular Tags</h4><div class="tag-cloud d-flex flex-wrap gap-2"><a href="#" class="text-dark text-decoration-none">#WebDev</a>
-<a href="#" class="text-dark text-decoration-none">#SystemDesign</a>
-<a href="#" class="text-dark text-decoration-none">#UIUX</a>
-<a href="#" class="text-dark text-decoration-none">#ITSupport</a>
-<a href="#" class="text-dark text-decoration-none">#Accounting</a>
-<a href="#" class="text-dark text-decoration-none">#Automation</a>
-<a href="#" class="text-dark text-decoration-none">#WhatsApp</a>
-<a href="#" class="text-dark text-decoration-none">#CloudOps</a>
-<a href="#" class="text-dark text-decoration-none">#AIIntegration</a></div></div></div></div></div>
-<div class="container pb-5"><div class="text-center mx-auto pb-4" style="max-width:700px">
-<h5 class="text-primary text-uppercase">All case studies</h5><h2 class="mb-3">Client launches &amp; delivery notes</h2>
-<p class="text-muted">Victoria Lush and LipaPay use real project screenshots; other stories summarize sector work.</p></div>
-<div class="row g-4"><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/case-studies/vll-admin.jpg" class="w-100 h-100 object-fit-cover" alt="Victoria Lush Limited" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">Enterprise SMS</span>
-<h5 class="fw-semibold">Victoria Lush Limited</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> Needed a company portal, unified admin, customer-facing SMS app, and reliable production hosting for daily operations.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Built VLL Admin, the Victoria Lush company portal (VLL SMS), and SmSver1 integrations — deployed and maintained on a Linux VPS with SSL and handover documentation.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Live enterprise SMS stack on VPS: portals, reseller workflows, and operations dashboards used in production.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">Laravel</span><span class="badge bg-dark text-white">Company portal</span><span class="badge bg-dark text-white">Linux VPS</span><span class="badge bg-dark text-white">SMS APIs</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/contact.html" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/case-studies/lipapay-sandbox.jpg" class="w-100 h-100 object-fit-cover" alt="iMartGroup — LipaPay" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">FinTech / payments</span>
-<h5 class="fw-semibold">iMartGroup — LipaPay</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> Required merchant collections, airtime, disbursement, and a developer sandbox before mobile-money flows went to production.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Delivered LipaPay portal / airtime / disbursement surfaces plus Sandbox_LipaPay on shared hosting with API reference and staging.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Teams validate and operate payment flows with clear handover and hosting runbooks.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">REST APIs</span><span class="badge bg-dark text-white">Shared hosting</span><span class="badge bg-dark text-white">Sandbox</span><span class="badge bg-dark text-white">Laravel</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/services.html#payments" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/carousel-1.jpg" class="w-100 h-100 object-fit-cover" alt="Active Targets" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">E-commerce</span>
-<h5 class="fw-semibold">Active Targets</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> Needed a production storefront and admin for Tanzania-made AR500 targets with carts, coupons, and CMS.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Shipped Laravel + Filament e-commerce — shop, cart, checkout, orders, and hardened Namecheap production deploy.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Live commerce channel with admin ops and performance/security hardening.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">Laravel</span><span class="badge bg-dark text-white">Filament</span><span class="badge bg-dark text-white">E-commerce</span><span class="badge bg-dark text-white">Checkout</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/services.html#ecommerce" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/blog-1.jpg" class="w-100 h-100 object-fit-cover" alt="Savanna Fibre" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">ISP / digital</span>
-<h5 class="fw-semibold">Savanna Fibre</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> Needed package presentation, coverage enquiry, lead capture, and support journeys for fibre customers.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Built a marketing and conversion site with residential/business packages, shops, and lead forms.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Clear digital front door for ISP acquisition and support routing.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">Web</span><span class="badge bg-dark text-white">Lead forms</span><span class="badge bg-dark text-white">UX</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/services.html#web" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/blog-2.jpg" class="w-100 h-100 object-fit-cover" alt="iMartGroup — ELMS" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">HR / operations</span>
-<h5 class="fw-semibold">iMartGroup — ELMS</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> Needed employee leave applications, approvals, balances, and reporting in one secure portal.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Delivered Laravel leave management with employee and administrator portals.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Production HR workflow used by iMartGroup teams.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">Laravel</span><span class="badge bg-dark text-white">HR workflow</span><span class="badge bg-dark text-white">Blade</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/services.html#enterprise" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div><div class="col-md-6 col-xl-3"><div class="h-100 border rounded-4 overflow-hidden d-flex flex-column">
-<div class="ratio ratio-4x3 bg-light"><img src="/TechMorah/img/blog-3.jpg" class="w-100 h-100 object-fit-cover" alt="Fee Tracking & Reminder" loading="lazy" decoding="async"></div>
-<div class="p-4 d-flex flex-column flex-grow-1"><span class="badge bg-secondary text-uppercase small mb-2">Education</span>
-<h5 class="fw-semibold">Fee Tracking & Reminder</h5>
-<p class="text-muted small mb-1"><strong>Challenge:</strong> School staff needed fee records, receipts, and parent reminders without spreadsheet chaos.</p>
-<p class="text-muted small mb-1"><strong>Solution:</strong> Delivered a Laravel staff portal for payments, receipts, and reminder workflows.</p>
-<p class="text-muted small mb-3"><strong>Outcome:</strong> Clearer fee visibility and parent communication for Mbonea Secondary School.</p>
-<div class="d-flex flex-wrap gap-2 mb-3"><span class="badge bg-dark text-white">Laravel</span><span class="badge bg-dark text-white">Receipts</span><span class="badge bg-dark text-white">Reminders</span></div>
-<div class="mt-auto d-flex flex-wrap gap-2"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary">View project</a><a href="/TechMorah/services.html#enterprise" class="text-primary fw-semibold">Start similar work &rarr;</a></div></div></div></div></div></div>
-<div class="container pb-5"><div class="row g-4"><div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">Web & System Design</h5>
-<p class="text-muted mb-3">Custom CRMs, portals, and bilingual UX journeys engineered with Laravel, React, and secure APIs.</p><a href="/TechMorah/services.html" class="text-primary fw-semibold">See how we ship →</a></div></div><div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">Graphic & UI/UX Design</h5>
-<p class="text-muted mb-3">Brand systems, dashboards, and design systems crafted for smooth handoff to engineering.</p><a href="/TechMorah/services.html#uiux" class="text-primary fw-semibold">Explore design ops →</a></div></div><div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">IT Support & Accounting</h5>
-<p class="text-muted mb-3">Always-on support paired with computerized accounting automations tuned for African finance teams.</p><a href="/TechMorah/contact.html" class="text-primary fw-semibold">Schedule a consult →</a></div></div><div class="col-md-4"><div class="p-4 h-100 border rounded-4"><h5 class="text-primary">AI Integration & Automation</h5>
-<p class="text-muted mb-3">Embed OpenAI copilots, WhatsApp bots, and voice agents into your workflow without breaking existing systems.</p><a href="/TechMorah/services.html#ai" class="text-primary fw-semibold">Plan an AI rollout →</a></div></div></div></div>
-<div class="bg-primary py-5"><div class="container text-center text-white"><h2 class="mb-3">Ready to Transform Your Business?</h2>
-<p class="mb-4">Talk to TechMorah experts about AI, cloud, and digital experiences.</p>
-<div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
-<a href="/TechMorah/contact.html" class="btn btn-light text-primary px-4 py-2">Contact Us</a>
-<a href="/TechMorah/services.html" class="btn btn-outline-light px-4 py-2">View Services</a></div></div></div></div>
+<li class="breadcrumb-item"><a href="/TechMorah/index.html" class="text-white-50">Home</a></li>
+<li class="breadcrumb-item active text-white">Case Studies</li></ol></nav></div></section>
+<section class="tm-trust"><div class="container"><div class="tm-trust__grid"><div class="tm-reveal"><p class="tm-trust__value">4+</p><p class="tm-trust__label">Years leadership</p></div><div class="tm-reveal"><p class="tm-trust__value">10+</p><p class="tm-trust__label">Relationships</p></div><div class="tm-reveal"><p class="tm-trust__value">25+</p><p class="tm-trust__label">Platforms</p></div><div class="tm-reveal"><p class="tm-trust__value">10</p><p class="tm-trust__label">Service lines</p></div></div></div></section>
+<section class="tm-section"><div class="container">
+<div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
+<p class="tm-section-label">Selected work</p>
+<h2 class="tm-title">Systems shipped in production</h2>
+<p class="tm-lead">Challenge, solution, and outcome — the same stack clients see on the founder portfolio.</p></div>
+<div class="tm-grid tm-grid--2"><article class="tm-case tm-reveal">
+<div class="tm-case__media"><img src="/TechMorah/img/case-studies/vll-admin.jpg" alt="Victoria Lush Limited" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">Enterprise SMS</span>
+<h3 class="tm-case__title">Victoria Lush Limited</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>Needed a company portal, unified admin, customer-facing SMS app, and reliable production hosting for daily operations.</dd></div>
+<div><dt>Solution</dt><dd>Built VLL Admin, the Victoria Lush company portal (VLL SMS), and SmSver1 integrations — deployed and maintained on a Linux VPS with SSL and handover documentation.</dd></div>
+<div><dt>Outcome</dt><dd>Live enterprise SMS stack on VPS: portals, reseller workflows, and operations dashboards used in production.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">Laravel</span><span class="tm-stack-badge">Company portal</span><span class="tm-stack-badge">Linux VPS</span><span class="tm-stack-badge">SMS APIs</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/contact.html" class="btn btn-secondary">Start similar work</a></div>
+</div></article><article class="tm-case tm-reveal" data-delay="1">
+<div class="tm-case__media"><img src="/TechMorah/img/case-studies/lipapay-sandbox.jpg" alt="iMartGroup — LipaPay" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">FinTech / payments</span>
+<h3 class="tm-case__title">iMartGroup — LipaPay</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>Required merchant collections, airtime, disbursement, and a developer sandbox before mobile-money flows went to production.</dd></div>
+<div><dt>Solution</dt><dd>Delivered LipaPay portal / airtime / disbursement surfaces plus Sandbox_LipaPay on shared hosting with API reference and staging.</dd></div>
+<div><dt>Outcome</dt><dd>Teams validate and operate payment flows with clear handover and hosting runbooks.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">REST APIs</span><span class="tm-stack-badge">Shared hosting</span><span class="tm-stack-badge">Sandbox</span><span class="tm-stack-badge">Laravel</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/services.html#payments" class="btn btn-secondary">Start similar work</a></div>
+</div></article><article class="tm-case tm-reveal">
+<div class="tm-case__media"><img src="/TechMorah/img/carousel-1.jpg" alt="Active Targets" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">E-commerce</span>
+<h3 class="tm-case__title">Active Targets</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>Needed a production storefront and admin for Tanzania-made AR500 targets with carts, coupons, and CMS.</dd></div>
+<div><dt>Solution</dt><dd>Shipped Laravel + Filament e-commerce — shop, cart, checkout, orders, and hardened Namecheap production deploy.</dd></div>
+<div><dt>Outcome</dt><dd>Live commerce channel with admin ops and performance/security hardening.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">Laravel</span><span class="tm-stack-badge">Filament</span><span class="tm-stack-badge">E-commerce</span><span class="tm-stack-badge">Checkout</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/services.html#ecommerce" class="btn btn-secondary">Start similar work</a></div>
+</div></article><article class="tm-case tm-reveal" data-delay="1">
+<div class="tm-case__media"><img src="/TechMorah/img/blog-1.jpg" alt="Savanna Fibre" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">ISP / digital</span>
+<h3 class="tm-case__title">Savanna Fibre</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>Needed package presentation, coverage enquiry, lead capture, and support journeys for fibre customers.</dd></div>
+<div><dt>Solution</dt><dd>Built a marketing and conversion site with residential/business packages, shops, and lead forms.</dd></div>
+<div><dt>Outcome</dt><dd>Clear digital front door for ISP acquisition and support routing.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">Web</span><span class="tm-stack-badge">Lead forms</span><span class="tm-stack-badge">UX</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/services.html#web" class="btn btn-secondary">Start similar work</a></div>
+</div></article><article class="tm-case tm-reveal">
+<div class="tm-case__media"><img src="/TechMorah/img/blog-2.jpg" alt="iMartGroup — ELMS" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">HR / operations</span>
+<h3 class="tm-case__title">iMartGroup — ELMS</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>Needed employee leave applications, approvals, balances, and reporting in one secure portal.</dd></div>
+<div><dt>Solution</dt><dd>Delivered Laravel leave management with employee and administrator portals.</dd></div>
+<div><dt>Outcome</dt><dd>Production HR workflow used by iMartGroup teams.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">Laravel</span><span class="tm-stack-badge">HR workflow</span><span class="tm-stack-badge">Blade</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/services.html#enterprise" class="btn btn-secondary">Start similar work</a></div>
+</div></article><article class="tm-case tm-reveal" data-delay="1">
+<div class="tm-case__media"><img src="/TechMorah/img/blog-3.jpg" alt="Fee Tracking & Reminder" loading="lazy" decoding="async"></div>
+<div class="tm-case__body">
+<span class="tm-badge">Education</span>
+<h3 class="tm-case__title">Fee Tracking & Reminder</h3>
+<dl class="tm-case__meta">
+<div><dt>Challenge</dt><dd>School staff needed fee records, receipts, and parent reminders without spreadsheet chaos.</dd></div>
+<div><dt>Solution</dt><dd>Delivered a Laravel staff portal for payments, receipts, and reminder workflows.</dd></div>
+<div><dt>Outcome</dt><dd>Clearer fee visibility and parent communication for Mbonea Secondary School.</dd></div>
+</dl>
+<div class="tm-case__tags"><span class="tm-stack-badge">Laravel</span><span class="tm-stack-badge">Receipts</span><span class="tm-stack-badge">Reminders</span></div>
+<div class="tm-case__actions"><a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-outline-secondary">Portfolio</a><a href="/TechMorah/services.html#enterprise" class="btn btn-secondary">Start similar work</a></div>
+</div></article></div></div></section>
+<section class="tm-section tm-section--navy text-center"><div class="container">
+<h2 class="tm-title">Need a system like one of these?</h2>
+<p class="tm-lead mx-auto" style="margin-left:auto;margin-right:auto;">Share your scope — we reply with clear next steps.</p>
+<a href="/TechMorah/contact.html" class="btn btn-light me-2 mb-2">Contact us</a>
+<a href="/TechMorah/services.html" class="btn btn-outline-light mb-2">View services</a>
+</div></section>
 </main>
 <footer class="footer tm-footer"><div class="container"><div class="row g-4">
 <div class="col-md-4"><div class="footer-brand mb-3"><span class="brand-mark brand-mark--lg text-white"><span class="brand-mark__icon-slot"><img src="/TechMorah/img/techmorah-icon.png" alt="TechMorah Solution LTD" class="brand-mark__logo-img" loading="lazy" decoding="async"></span><span class="brand-mark__wordmark d-none d-sm-inline">TechMorah <small class="brand-mark__tagline">Solution LTD</small></span><span class="visually-hidden">TechMorah Solution LTD</span></span></div><p class="text-white-50 small">Fintech &amp; enterprise technology — core banking support, digital channels, payments, and East African delivery. Dar es Salaam Science Park, Tanzania.</p></div>
@@ -146,6 +144,6 @@
 <div class="tm-footer__band">Enterprise systems · Integrations · Implementation · Support</div>
 </footer>
 <a href="#main-content" class="btn btn-secondary back-to-top" id="backToTop" aria-label="Back to top"><i class="fa fa-arrow-up text-white"></i></a>
-<script src="/TechMorah/js/site.js?v=20260812b" defer></script>
+<script src="/TechMorah/js/site.js?v=20260812c" defer></script>
 <script src="/TechMorah/js/blog-newsletter.js"></script>
 </body></html>

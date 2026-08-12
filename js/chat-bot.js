@@ -12,22 +12,28 @@
 
   function fallbackReply(prompt) {
     const p = prompt.toLowerCase();
+    if (p.includes("bank") || p.includes("channel") || p.includes("core")) {
+      return "TechMorah supports microfinance/core banking configuration, GL mapping reviews, and digital channels (internet, mobile, agency, USSD) within authorised platform scope. Share your stack for a clearer next step, or WhatsApp +255 655 139 724.";
+    }
     if (p.includes("ai")) {
-      return "We embed AI copilots into WhatsApp, web, and voice flows. Tell me your current system and we'll map the rollout, or tap WhatsApp +255 655 139 724 for a live engineer.";
+      return "We embed AI assistants into web and WhatsApp workflows for routing and support. Tell me your current tools and goal, or use the contact form for a scoped proposal.";
     }
     if (p.includes("price") || p.includes("cost")) {
-      return "Pricing is tailored per scope. Share the modules you need and I can outline options, or use our contact page for an exact quote.";
+      return "Pricing depends on scope and delivery model (fixed project, phased release, or managed support). Share modules and timeline on the contact page for a practical estimate.";
     }
-    if (p.includes("support")) {
-      return "Our 24/7 IT support desk routes WhatsApp, FaceTime, and phone into a single timeline with proactive alerts.";
+    if (p.includes("support") || p.includes("hosting") || p.includes("vps")) {
+      return "We provide IT support, monitoring, Linux VPS / shared hosting setup, SSL, and documented handover. Describe the environment you need supported.";
     }
-    if (p.includes("account")) {
-      return "Computerized accounting bundles Power BI dashboards, approvals, and compliance-ready exports.";
+    if (p.includes("pay") || p.includes("lipa") || p.includes("m-pesa") || p.includes("sms")) {
+      return "We deliver payment gateways, mobile-money integrations, and enterprise SMS portals — with clear attribution when work was founder/employer delivery. Ask for a similar engagement via WhatsApp +255 655 139 724.";
     }
-    if (p.includes("website") || p.includes("system")) {
-      return "We ship Laravel + React portals, e-commerce, and custom CRMs that inherit your brand. Describe your goal and I'll suggest the best TechMorah squad.";
+    if (p.includes("contact") || p.includes("whatsapp")) {
+      return "Reach TechMorah on WhatsApp +255 655 139 724, email techmorahsolution@gmail.com, or the contact form. Headquarters: Dar es Salaam Science Park.";
     }
-    return "I'm here to guide you through TechMorah Solution LTD services—AI integration, IT support, accounting automations, and web systems. Ask away or jump to WhatsApp +255 655 139 724.";
+    if (p.includes("website") || p.includes("system") || p.includes("service")) {
+      return "TechMorah covers ten lines: core banking, digital channels, payments, e-commerce, custom software, portals, AI, IT support, UI/UX, and hosting. Which area should we start with?";
+    }
+    return "I can help with TechMorah services — core banking support, channels, payments, SMS, custom systems, and hosting. Ask a specific question or WhatsApp +255 655 139 724 for a human handoff.";
   }
 
   window.TechMorahChat = {
