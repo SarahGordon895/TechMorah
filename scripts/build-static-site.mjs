@@ -26,16 +26,12 @@ const docs = outArg
     ? path.resolve(root, "../../TechMorah-site")
     : path.join(root, "docs");
 const includePhp = !standalone && !args.includes("--no-php");
-/** Custom domain for GitHub Pages (e.g. techmorahsolution.dev). Empty = github.io project path. */
+/** Optional custom domain. Pass --domain=example.com only AFTER the domain is purchased + DNS is set. */
 const domainArg = args.find((a) => a.startsWith("--domain="));
-const customDomain = domainArg
-  ? domainArg.slice("--domain=".length).trim().toLowerCase()
-  : "techmorahsolution.dev";
+const customDomain = domainArg ? domainArg.slice("--domain=".length).trim().toLowerCase() : "";
 /**
- * Asset prefix:
- * - Custom domain / relative: "" (site is served at domain root)
- * - Project Pages only: /TechMorah
- * Override with --base=/TechMorah or --base=
+ * Asset prefix for GitHub project Pages: /TechMorah
+ * Use --base= (empty) together with --domain=... after custom domain DNS works.
  */
 const baseArg = args.find((a) => a.startsWith("--base="));
 const sitePrefix = baseArg
