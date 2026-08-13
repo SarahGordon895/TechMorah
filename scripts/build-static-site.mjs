@@ -26,11 +26,21 @@ const docs = outArg
     ? path.resolve(root, "../../TechMorah-site")
     : path.join(root, "docs");
 const includePhp = !standalone && !args.includes("--no-php");
-/** GitHub Pages (gh-pages) serves at /TechMorah/ — not /TechMorah/docs/ */
+/** Custom domain for GitHub Pages (e.g. techmorahsolution.dev). Empty = github.io project path. */
+const domainArg = args.find((a) => a.startsWith("--domain="));
+const customDomain = domainArg
+  ? domainArg.slice("--domain=".length).trim().toLowerCase()
+  : "techmorahsolution.dev";
+/**
+ * Asset prefix:
+ * - Custom domain / relative: "" (site is served at domain root)
+ * - Project Pages only: /TechMorah
+ * Override with --base=/TechMorah or --base=
+ */
 const baseArg = args.find((a) => a.startsWith("--base="));
 const sitePrefix = baseArg
   ? baseArg.slice("--base=".length).replace(/\/$/, "")
-  : standalone
+  : standalone || customDomain
     ? ""
     : "/TechMorah";
 
@@ -457,8 +467,11 @@ async function main() {
 
   await ensureImages();
   await fs.writeFile(path.join(docs, ".nojekyll"), "");
+  if (customDomain) {
+    await fs.writeFile(path.join(docs, "CNAME"), `${customDomain}\n`);
+  }
   const label = standalone ? "TechMorah-site (HTML/CSS/JS)" : "docs/ (GitHub Pages)";
-  console.log(`Done — ${label} at:\n  ${docs}\n  Live prefix: ${sitePrefix || "(relative)"}`);
+  console.log(`Done — ${label} at:\n  ${docs}\n  Live prefix: ${sitePrefix || "(root / relative)"}${customDomain ? `\n  Custom domain: https://${customDomain}` : ""}`);
 }
 
 async function ensureImages() {
