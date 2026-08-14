@@ -1,40 +1,75 @@
-# TechMorah Solution LTD (Laravel)
+# TechMorah Solution LTD
 
-AI & IT solutions company site — **Laravel** application (Blade, Vite, MySQL).
+**Corporate website** for TechMorah Solution LTD — an AI and IT solutions firm based in Dar es Salaam, Tanzania.
 
-## Live website (GitHub Pages)
+We design, build, and support production systems for SMEs and institutions: web platforms, payments, SMS, e-commerce, ISP operations, and brand-aligned digital products.
 
-The public **HTML / CSS / JavaScript** site is in [`docs/`](docs/).
+**Live website:** [https://sarahgordon895.github.io/TechMorah/](https://sarahgordon895.github.io/TechMorah/)
 
-### Enable Pages (required once)
+---
 
-1. Open **https://github.com/SarahGordon895/TechMorah/settings/pages**
-2. **Build and deployment** → Source: **Deploy from a branch**
-3. Branch: **`main`** → Folder: **`/docs`** → **Save**
-4. Wait 1–3 minutes, then open: **https://sarahgordon895.github.io/TechMorah/**
+## About the company
 
-If you see a 404 or only this README, the folder is still set to `/ (root)` — switch it to **`/docs`**.
+TechMorah Solution LTD delivers end-to-end technology: discovery, UI/UX and branding, engineering, deployment, handover, and ongoing support. Engagements are scoped to real operations — not slideware.
 
-## Local static preview
+**Founder / technical lead:** [Sarah George Gordon](https://sarahgordon895.github.io/sarahgordon.github.io/)
 
-`http://localhost/personal%20projects/_screenshot-cache/TechMorah/docs/`
+| | |
+|---|---|
+| Location | Dar es Salaam, Tanzania |
+| Focus | Full-stack delivery, implementation, and production support |
+| Public portfolio | [sarahgordon895.github.io/sarahgordon.github.io](https://sarahgordon895.github.io/sarahgordon.github.io/) |
 
-Rebuild after editing Blade views:
+---
 
-```bash
-node scripts/build-static-site.mjs --no-php
-```
+## Services
 
-## Standalone copy (optional)
+- Web and system design
+- Custom system development (Laravel, APIs, admin platforms)
+- Graphic design and UI/UX
+- IT support
+- Computerised accounting systems
+- Microfinance solutions
+- E-commerce (storefront, checkout, Filament admin)
+- ISP management platforms
+- Payment gateway integration (collections, airtime, disbursement, sandbox)
+- Enterprise SMS / WhatsApp listener desks
 
-A separate folder copy lives at `../TechMorah-site/` (sibling under `personal projects`). Rebuild with:
+---
 
-```bash
-node scripts/build-standalone.mjs
-```
+## Selected client work
 
-## Run Laravel locally
+| Client / product | Area |
+|---|---|
+| iMart Group — LipaPay | Collections, airtime, disbursement, developer sandbox |
+| iMart Group — SMS desk | Flutter listener + SMS portal |
+| Active Targets | Live Laravel + Filament e-commerce ([activetargets.org](https://activetargets.org/)) |
+| Savanna Fibre | ISP digital presence |
+| Victoria Lush Limited | Enterprise SMS portal, admin, and VPS delivery |
+| School fee systems | Tracking, receipts, parent reminders |
 
-1. Copy `.env.example` to `.env`
-2. `composer install`
-3. `php artisan serve`
+---
+
+## Website pages
+
+The public site includes:
+
+- Home — positioning, proof, and contact paths  
+- About — company, leadership, and delivery model  
+- Services — capability lines aligned to client work  
+- Case studies — selected platforms  
+- Contact and chat — enquiry and guided Q&A  
+
+---
+
+## Contact
+
+- **Website:** [sarahgordon895.github.io/TechMorah](https://sarahgordon895.github.io/TechMorah/)
+- **Founder portfolio:** [sarahgordon895.github.io/sarahgordon.github.io](https://sarahgordon895.github.io/sarahgordon.github.io/)
+- **GitHub:** [github.com/SarahGordon895](https://github.com/SarahGordon895)
+
+---
+
+## Repository note
+
+This repository holds the **Laravel** application and the **GitHub Pages** export in [`docs/`](docs/). The live corporate site is served from `docs/` on branch `main`.
