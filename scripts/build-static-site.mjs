@@ -36,9 +36,7 @@ const customDomain = domainArg ? domainArg.slice("--domain=".length).trim().toLo
 const baseArg = args.find((a) => a.startsWith("--base="));
 const sitePrefix = baseArg
   ? baseArg.slice("--base=".length).replace(/\/$/, "")
-  : standalone || customDomain
-    ? ""
-    : "/TechMorah";
+  : "";
 
 function asset(p) {
   if (!p || /^https?:/i.test(p) || p.startsWith("data:")) return p;
