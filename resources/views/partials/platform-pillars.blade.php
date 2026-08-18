@@ -7,9 +7,10 @@
         <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Platform stack</p>
             <h2 class="tm-title">Monitoring, profiling, and testing — built into delivery</h2>
-            <p class="tm-lead">TechMorah supports the full operational layer around the systems we build: from live traffic metrics and deep code profiles to continuous observability and performance testing in CI/CD.</p>
+            <p class="tm-lead">TechMorah supports the full operational layer around the systems we build: from live traffic metrics and deep code profiles to continuous observability and performance testing in CI/CD — across PHP, Python, Go, Node.js, Ruby, and Rust.</p>
         </div>
-        <div class="tm-pillar-stack">
+        @include('partials.delivery-loop')
+        <div class="tm-pillar-stack" style="margin-top:36px;">
             @foreach ($pillars as $i => $pillar)
             <article class="tm-pillar tm-reveal" id="{{ $pillar['id'] }}" @if($i % 2) data-delay="1" @endif>
                 <div class="tm-pillar__head">
@@ -50,6 +51,34 @@
                     <div class="tm-card__icon"><i class="fab fa-python"></i></div>
                     <h3>Python profiler &amp; observability</h3>
                     <p>Python services and APIs — continuous profiling, browser and CLI triggers, and staging-to-production observability with documented handover.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="2" id="go-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Go profiler &amp; observability</h3>
+                    <p>Go services — continuous profiling, runtime visibility, and production-safe inspection across staging and live traffic paths.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" id="node-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fab fa-node-js"></i></div>
+                    <h3>Node.js profiler &amp; observability</h3>
+                    <p>Node.js APIs and apps — tracing, continuous profiling, and CI/CD performance assertions before production release.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="1" id="ruby-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-gem"></i></div>
+                    <h3>Ruby profiler &amp; observability</h3>
+                    <p>Ruby and Rails workloads — monitoring, profiling, SQL and HTTP breakdowns, and sandbox-to-production validation.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="2" id="rust-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Rust profiler &amp; observability</h3>
+                    <p>Rust services — low-overhead continuous profiling, resource-hotspot analysis, and production-safe diagnostic workflows.</p>
                 </div>
             </div>
             <div class="col-lg-4 tm-reveal" data-delay="2" id="frontend-observability">

@@ -51,7 +51,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="css/style.css?v=20260818b" rel="stylesheet">
+<link href="css/style.css?v=20260818c" rel="stylesheet">
 
 </head>
 <body>
@@ -113,9 +113,40 @@
         <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Platform stack</p>
             <h2 class="tm-title">Monitoring, profiling, and testing — built into delivery</h2>
-            <p class="tm-lead">TechMorah supports the full operational layer around the systems we build: from live traffic metrics and deep code profiles to continuous observability and performance testing in CI/CD.</p>
+            <p class="tm-lead">TechMorah supports the full operational layer around the systems we build: from live traffic metrics and deep code profiles to continuous observability and performance testing in CI/CD — across PHP, Python, Go, Node.js, Ruby, and Rust.</p>
         </div>
-        <div class="tm-pillar-stack">
+        <div class="tm-loop tm-loop--navy" id="delivery-loop">
+    <div class="tm-loop__orbit" aria-hidden="true"></div>
+    <div class="tm-loop__mark">
+        <img src="img/techmorah-icon.png" alt="" width="72" height="72">
+        <span>TechMorah</span>
+    </div>
+    <article class="tm-loop__stage tm-loop__stage--dev" id="loop-dev">
+        <h3>Development</h3>
+        <p class="tm-loop__verbs">Debug · Improve · Validate</p>
+        <p class="tm-loop__copy">On development machines, unlock quicker experimentations and iterations — with profiling and observability available from the first build.</p>
+    </article>
+    <article class="tm-loop__stage tm-loop__stage--staging" id="loop-staging">
+        <h3>Testing / Staging</h3>
+        <p class="tm-loop__verbs">Test · Validate · Decide</p>
+        <p class="tm-loop__copy">In any testing pipeline, sandbox, and staging environment, make sure feature additions do not introduce performance regressions.</p>
+    </article>
+    <article class="tm-loop__stage tm-loop__stage--prod" id="loop-prod">
+        <h3>Production</h3>
+        <p class="tm-loop__verbs">Monitor · Identify · Understand</p>
+        <p class="tm-loop__copy">In production, with fine-grained insights and alerting, catch abnormal behaviour before it impacts users.</p>
+    </article>
+    <p class="tm-loop__langs" aria-label="Languages we observe and profile">
+        <span>PHP</span>
+        <span>Python</span>
+        <span>Go</span>
+        <span>Node.js</span>
+        <span>Ruby</span>
+        <span>Rust</span>
+    </p>
+</div>
+
+        <div class="tm-pillar-stack" style="margin-top:36px;">
             
                 </ul>
             </article>
@@ -146,6 +177,34 @@
                     <div class="tm-card__icon"><i class="fab fa-python"></i></div>
                     <h3>Python profiler &amp; observability</h3>
                     <p>Python services and APIs — continuous profiling, browser and CLI triggers, and staging-to-production observability with documented handover.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="2" id="go-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Go profiler &amp; observability</h3>
+                    <p>Go services — continuous profiling, runtime visibility, and production-safe inspection across staging and live traffic paths.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" id="node-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fab fa-node-js"></i></div>
+                    <h3>Node.js profiler &amp; observability</h3>
+                    <p>Node.js APIs and apps — tracing, continuous profiling, and CI/CD performance assertions before production release.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="1" id="ruby-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-gem"></i></div>
+                    <h3>Ruby profiler &amp; observability</h3>
+                    <p>Ruby and Rails workloads — monitoring, profiling, SQL and HTTP breakdowns, and sandbox-to-production validation.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 tm-reveal" data-delay="2" id="rust-observability">
+                <div class="tm-card h-100">
+                    <div class="tm-card__icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Rust profiler &amp; observability</h3>
+                    <p>Rust services — low-overhead continuous profiling, resource-hotspot analysis, and production-safe diagnostic workflows.</p>
                 </div>
             </div>
             <div class="col-lg-4 tm-reveal" data-delay="2" id="frontend-observability">
@@ -395,7 +454,7 @@
 </main>
 <footer class="footer tm-footer"><div class="container"><div class="row g-4">
 <div class="col-md-6 col-lg-3"><div class="footer-brand mb-3"><span class="brand-mark brand-mark--lg text-white"><span class="brand-mark__icon-slot"><img src="img/techmorah-icon.png" alt="TechMorah Solution LTD" class="brand-mark__logo-img" loading="lazy" decoding="async"></span><span class="brand-mark__wordmark d-none d-sm-inline">TechMorah <small class="brand-mark__tagline">Solution LTD</small></span><span class="visually-hidden">TechMorah Solution LTD</span></span></div><p class="text-white-50 small mb-2">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, monitoring, and East African delivery. Dar es Salaam Science Park, Tanzania.</p><p class="text-white-50 small mb-0"><a href="https://techmorahsolutionltd.org" class="text-white-50">techmorahsolutionltd.org</a> · <a href="https://sarah-gordon.org" target="_blank" rel="noopener" class="text-white-50">sarah-gordon.org</a></p></div>
-<div class="col-md-6 col-lg-3"><p class="tm-footer__col-label">Product</p><ul class="list-unstyled tm-footer__link-list"><li><a href="services.html#platform-stack">Features</a></li><li><a href="services.html#packages">Pricing & packages</a></li><li><a href="services.html#integrations">Integrations</a></li><li><a href="services.html#php-observability">PHP profiler & observability</a></li><li><a href="services.html#python-observability">Python profiler & observability</a></li><li><a href="case-studies.html">Documentation & handover</a></li><li><a href="services.html#sandbox">Configure sandbox</a></li><li><a href="contact.html">Subscribe / engage</a></li><li><a href="https://sandbox.lipapay.co.tz/" target="_blank" rel="noopener">Play with the demo</a></li></ul></div>
+<div class="col-md-6 col-lg-3"><p class="tm-footer__col-label">Product</p><ul class="list-unstyled tm-footer__link-list"><li><a href="services.html#platform-stack">Features</a></li><li><a href="services.html#packages">Pricing & packages</a></li><li><a href="services.html#integrations">Integrations</a></li><li><a href="services.html#php-observability">PHP profiler & observability</a></li><li><a href="services.html#python-observability">Python profiler & observability</a></li><li><a href="services.html#go-observability">Go, Node.js, Ruby & Rust</a></li><li><a href="case-studies.html">Documentation & handover</a></li><li><a href="services.html#sandbox">Configure sandbox</a></li><li><a href="contact.html">Subscribe / engage</a></li><li><a href="https://sandbox.lipapay.co.tz/" target="_blank" rel="noopener">Play with the demo</a></li></ul></div>
 <div class="col-md-6 col-lg-3"><p class="tm-footer__col-label">Solutions</p><ul class="list-unstyled tm-footer__link-list"><li><a href="services.html#monitoring">Performance monitoring</a></li><li><a href="services.html#continuous-profiling">Continuous profiling</a></li><li><a href="services.html#profiling">Code performance profiler</a></li><li><a href="services.html#frontend-observability">Front-end observability</a></li><li><a href="services.html#synthetic-monitoring">Synthetic user monitoring</a></li><li><a href="services.html#cicd-integration">CI/CD integration</a></li><li><a href="services.html#quality-recommendations">Code quality recommendations</a></li><li><a href="services.html#security-recommendations">Code security recommendations</a></li><li><a href="services.html#ecommerce">E-commerce & Laravel operations</a></li><li><a href="contact.html">Training & onboarding</a></li></ul></div>
 <div class="col-md-6 col-lg-3">
           <h5>Get In Touch</h5>

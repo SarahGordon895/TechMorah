@@ -238,7 +238,7 @@ ${seoHead(seo)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260818b" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260818c" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -396,7 +396,7 @@ async function expandIncludes(raw) {
   let prev;
   do {
     prev = s;
-    const matches = [...s.matchAll(/@include\(['"]([^'"]+)['"]\)/g)];
+    const matches = [...s.matchAll(/@include\(['"]([^'"]+)['"](?:,\s*\[[^\]]*\])?\)/g)];
     for (const m of matches) {
       const incPath = path.join(views, m[1].replace(/\./g, "/") + ".blade.php");
       const inc = await fs.readFile(incPath, "utf8");

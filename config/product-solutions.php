@@ -8,6 +8,7 @@ return [
         ['label' => 'Integrations', 'route' => 'services', 'anchor' => 'integrations'],
         ['label' => 'PHP profiler & observability', 'route' => 'services', 'anchor' => 'php-observability'],
         ['label' => 'Python profiler & observability', 'route' => 'services', 'anchor' => 'python-observability'],
+        ['label' => 'Go, Node.js, Ruby & Rust', 'route' => 'services', 'anchor' => 'go-observability'],
         ['label' => 'Documentation & handover', 'route' => 'case-studies'],
         ['label' => 'Configure sandbox', 'route' => 'services', 'anchor' => 'sandbox'],
         ['label' => 'Subscribe / engage', 'route' => 'contact'],
@@ -76,7 +77,7 @@ return [
 
     'blend' => [
         'title' => 'A unique blend of delivery capabilities',
-        'copy' => 'TechMorah combines monitoring, advanced profiling, continuous observability, and structured testing in one delivery stack. Instead of spending weeks finding issues, clients get actionable reports, sandbox validation, and production handover — so teams fix problems and ship with confidence.',
+        'copy' => 'TechMorah natively integrates monitoring, advanced deterministic and continuous profiling, and testing. Clients get actionable insights and reports so they can fix issues rather than spend time finding them — across PHP, Python, Go, Node.js, Ruby, and Rust, from development through sandbox to production.',
     ],
 
 ];

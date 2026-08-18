@@ -12,7 +12,7 @@
             <h1 class="tm-hero__brand">TechMorah</h1>
             <p class="tm-hero__lede">Innovative digital solutions that empower businesses and individuals to thrive in the digital era.</p>
             <p class="tm-hero__copy">
-                Web &amp; system design, UI/UX, IT support, computerised accounting, microfinance, e-commerce, ISP management, payment gateway integration, and production observability — delivered from Dar es Salaam Science Park with clear scope, sandbox planning, and release discipline.
+                Web &amp; system design, UI/UX, IT support, computerised accounting, microfinance, e-commerce, ISP management, payment gateway integration, and production observability — delivered from Dar es Salaam Science Park with clear scope, sandbox planning, and release discipline across PHP, Python, Go, Node.js, Ruby, and Rust.
             </p>
             <div class="tm-hero__actions">
                 <a href="{{ route('contact') }}" class="btn btn-secondary">Talk to TechMorah</a>
@@ -124,12 +124,33 @@
     </div>
 </section>
 
+<section class="tm-section tm-section--navy" id="how-we-operate">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-5">
+                <p class="tm-section-label">How TechMorah operates</p>
+                <h2 class="tm-title">Do not wait for users to be impacted</h2>
+                <p class="tm-lead">TechMorah continuous profiling, monitoring, and testing are built to avoid firefighting. We analyse application performance anywhere it is deployed — development, sandbox/staging, and production — the earlier, the better.</p>
+                <ul class="tm-feature-list tm-feature-list--light mb-4">
+                    <li><strong>Development:</strong> quicker experimentations and iterations with debug, improve, and validate loops.</li>
+                    <li><strong>Testing / staging:</strong> sandbox and pipeline checks so new features do not introduce regressions.</li>
+                    <li><strong>Production:</strong> fine-grained insights and alerting to catch abnormal behaviour.</li>
+                </ul>
+                <a href="{{ route('services') }}#platform-stack" class="btn btn-outline-light">Explore the TechMorah stack</a>
+            </div>
+            <div class="col-lg-7">
+                @include('partials.delivery-loop')
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="tm-section tm-section--paper">
     <div class="container">
         <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Operational visibility</p>
             <h2 class="tm-title">What we now also support across environments</h2>
-            <p class="tm-lead">The same production discipline behind our payment, ISP, and SMS work now extends to monitoring, profiling, continuous observability, performance testing, and sandbox environments.</p>
+            <p class="tm-lead">The same production discipline behind our payment, ISP, and SMS work now extends to monitoring, profiling, continuous observability, performance testing, and sandbox environments — across PHP, Python, Go, Node.js, Ruby, and Rust.</p>
             <a href="{{ route('services') }}#platform-stack" class="btn btn-outline-secondary btn-sm">Explore platform stack →</a>
         </div>
         <div class="tm-grid tm-grid--3">

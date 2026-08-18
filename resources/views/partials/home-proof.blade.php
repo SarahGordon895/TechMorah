@@ -92,6 +92,11 @@
         <div class="d-flex flex-wrap justify-content-center">
             <span class="tm-stack-pill">Laravel</span>
             <span class="tm-stack-pill">PHP</span>
+            <span class="tm-stack-pill">Python</span>
+            <span class="tm-stack-pill">Go</span>
+            <span class="tm-stack-pill">Node.js</span>
+            <span class="tm-stack-pill">Ruby</span>
+            <span class="tm-stack-pill">Rust</span>
             <span class="tm-stack-pill">React</span>
             <span class="tm-stack-pill">Flutter</span>
             <span class="tm-stack-pill">Filament</span>

@@ -57,7 +57,7 @@
                 TechMorah Solution LTD is a founder-led company that designs, builds, and supports production systems — from first workshop through launch and handover.
             </p>
             <p class="text-muted">
-                We bring product discovery, UX, full-stack engineering, integrations, hosting, training, and documentation into one accountable delivery flow. Based at Dar es Salaam Science Park, we serve East African businesses that need clarity, reliability, and systems that teams can actually run.
+                We bring product discovery, UX, full-stack engineering, integrations, hosting, training, and documentation into one accountable delivery flow — including monitoring, profiling, and sandbox validation from development through staging to production. Based at Dar es Salaam Science Park, we serve East African businesses that need clarity, reliability, and systems that teams can actually run.
             </p>
             <ul class="tm-about-checklist">
                 <li>Clear scope before build starts</li>
@@ -72,12 +72,33 @@
     </div>
 </section>
 
+<section class="tm-section tm-section--navy" id="how-we-operate">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-5">
+                <p class="tm-section-label">Delivery loop</p>
+                <h2 class="tm-title">Development, sandbox, and production — one TechMorah flow</h2>
+                <p class="tm-lead">Performance monitoring, continuous profiling, deterministic profiling, and testing are TechMorah services. We apply them on the platforms we build and on stacks clients already run.</p>
+                <ul class="tm-feature-list tm-feature-list--light">
+                    <li>Development: debug, improve, validate</li>
+                    <li>Testing / staging / sandbox: test, validate, decide</li>
+                    <li>Production: monitor, identify, understand</li>
+                    <li>Languages: PHP, Python, Go, Node.js, Ruby, Rust</li>
+                </ul>
+            </div>
+            <div class="col-lg-7">
+                @include('partials.delivery-loop')
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="tm-about-focus">
     <div class="container">
         <div class="tm-header text-center mx-auto" style="max-width:640px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">What we deliver</p>
             <h2 class="tm-title">Capabilities shaped for growth</h2>
-            <p class="tm-lead">Core digital services, plus specialised platforms for microfinance, e-commerce, ISP management, and payment gateway integration.</p>
+            <p class="tm-lead">Core digital services, plus specialised platforms for microfinance, e-commerce, ISP management, payment gateway integration, and observability across PHP, Python, Go, Node.js, Ruby, and Rust.</p>
         </div>
         <div class="tm-about-focus__list">
             <article class="tm-about-focus__item tm-reveal">
@@ -143,6 +164,13 @@
                     <p>Collections, disbursements, sandboxes, callbacks, and reconciliation-aware APIs.</p>
                 </div>
             </article>
+            <article class="tm-about-focus__item tm-reveal">
+                <span class="tm-about-focus__icon"><i class="fas fa-chart-line"></i></span>
+                <div>
+                    <h3>Monitoring, profiling &amp; observability</h3>
+                    <p>Continuous profiling, monitoring, and testing across development, sandbox, and production — PHP, Python, Go, Node.js, Ruby, and Rust.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
@@ -187,6 +215,12 @@
             </p>
             <div class="tm-about-leader__pills">
                 <span class="tm-stack-pill">Laravel</span>
+                <span class="tm-stack-pill">PHP</span>
+                <span class="tm-stack-pill">Python</span>
+                <span class="tm-stack-pill">Go</span>
+                <span class="tm-stack-pill">Node.js</span>
+                <span class="tm-stack-pill">Ruby</span>
+                <span class="tm-stack-pill">Rust</span>
                 <span class="tm-stack-pill">React</span>
                 <span class="tm-stack-pill">Flutter</span>
                 <span class="tm-stack-pill">Filament</span>
