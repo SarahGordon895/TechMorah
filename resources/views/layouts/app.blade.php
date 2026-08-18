@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>@yield('title', 'TechMorah Solution LTD — Fintech & Enterprise Technology')</title>
     <meta name="viewport" content="width=1280, user-scalable=yes, minimum-scale=0.25, maximum-scale=5, viewport-fit=cover">
-    <script src="{{ asset('js/fitstage.js') }}?v=20260818g" data-design="1280"></script>
+    <script src="{{ asset('js/fitstage.js') }}?v=20260818h" data-design="1280"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#050a18">
     <meta name="keywords" content="@yield('keywords', 'TechMorah Tanzania, digital solutions, microfinance, e-commerce, ISP management, payment gateway, monitoring, profiling, sandbox, web development')">
