@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title', 'TechMorah Solution LTD — Fintech & Enterprise Technology')</title>
-    <meta name="viewport" content="width=1280, user-scalable=yes, minimum-scale=0.25, maximum-scale=5, viewport-fit=cover">
-    <script src="{{ asset('js/fitstage.js') }}?v=20260818h" data-design="1280"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#050a18">
     <meta name="keywords" content="@yield('keywords', 'TechMorah Tanzania, digital solutions, microfinance, e-commerce, ISP management, payment gateway, monitoring, profiling, sandbox, web development')">
@@ -21,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}?v=20260818d" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}?v=20260818i" rel="stylesheet">
     @stack('styles')
 </head>
 <body>

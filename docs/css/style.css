@@ -36,6 +36,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 12px);
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1288,11 +1290,16 @@ section, .tm-section { position: relative; z-index: 1; }
 @media (max-width: 575px) {
   .tm-hero__actions .btn { width: 100%; }
   .col-6 { width: 100%; }
-  .tm-hero__visual { min-height: 180px; }
-  .tm-hero__brand { font-size: clamp(2.1rem, 12vw, 3rem); }
-  .tm-section { padding: 40px 0; }
+  .tm-hero__visual { min-height: 220px; }
+  .tm-hero__brand { font-size: 2.5rem; }
+  .tm-hero__lede { font-size: 1.25rem; }
+  .tm-hero__copy, .tm-lead, .tm-card p, .tm-client-card p, .service-card p, .tm-loop__copy {
+    font-size: 16px;
+  }
+  .tm-title { font-size: 1.85rem; }
+  .tm-section { padding: 48px 0; }
   .tm-pillar, .tm-card, .tm-client-card, .service-card, .consult-card {
-    padding: 16px 14px;
+    padding: 22px 18px;
   }
   .footer-legal { padding-left: 8px; padding-right: 8px; overflow-wrap: anywhere; }
   .chat-shell { min-height: min(62vh, 520px); }
