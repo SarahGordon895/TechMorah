@@ -32,4 +32,8 @@ return [
 
     'show_wordmark' => env('BRAND_SHOW_WORDMARK', true),
 
+    'company_url' => env('BRAND_COMPANY_URL', 'https://techmorahsolutionltd.org'),
+
+    'portfolio_url' => env('BRAND_PORTFOLIO_URL', 'https://sarah-gordon.org'),
+
 ];

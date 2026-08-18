@@ -66,7 +66,7 @@
             </ul>
             <div class="tm-about-story__actions">
                 <a href="{{ route('blog') }}" class="btn btn-outline-secondary">See case studies</a>
-                <a href="https://sarahgordon895.github.io/sarahgordon.github.io/" target="_blank" rel="noopener" class="btn btn-link">Founder portfolio →</a>
+                <a href="https://sarah-gordon.org/" target="_blank" rel="noopener" class="btn btn-link">Founder portfolio →</a>
             </div>
         </div>
     </div>

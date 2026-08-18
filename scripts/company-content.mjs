@@ -146,3 +146,32 @@ export const capabilities = [
     copy: "Sandbox environments, performance testing, build scenarios, assertions, and release-readiness support.",
   },
 ];
+
+export const companyUrl = "https://techmorahsolutionltd.org";
+
+export const portfolioUrl = "https://sarah-gordon.org";
+
+export const productNav = [
+  { label: "Features", href: "services.html#platform-stack" },
+  { label: "Pricing & packages", href: "services.html#packages" },
+  { label: "Integrations", href: "services.html#integrations" },
+  { label: "PHP profiler & observability", href: "services.html#php-observability" },
+  { label: "Python profiler & observability", href: "services.html#python-observability" },
+  { label: "Documentation & handover", href: "case-studies.html" },
+  { label: "Configure sandbox", href: "services.html#sandbox" },
+  { label: "Subscribe / engage", href: "contact.html" },
+  { label: "Play with the demo", href: "https://sandbox.lipapay.co.tz/", external: true },
+];
+
+export const solutionsNav = [
+  { label: "Performance monitoring", href: "services.html#monitoring" },
+  { label: "Continuous profiling", href: "services.html#continuous-profiling" },
+  { label: "Code performance profiler", href: "services.html#profiling" },
+  { label: "Front-end observability", href: "services.html#frontend-observability" },
+  { label: "Synthetic user monitoring", href: "services.html#synthetic-monitoring" },
+  { label: "CI/CD integration", href: "services.html#cicd-integration" },
+  { label: "Code quality recommendations", href: "services.html#quality-recommendations" },
+  { label: "Code security recommendations", href: "services.html#security-recommendations" },
+  { label: "E-commerce & Laravel operations", href: "services.html#ecommerce" },
+  { label: "Training & onboarding", href: "contact.html" },
+];

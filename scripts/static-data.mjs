@@ -158,7 +158,7 @@ export const solutionStories = [
     outcome: "Live commerce channel at activetargets.org with admin ops ready for daily sales.",
     services: ["Laravel", "Filament", "E-commerce", "Checkout"],
     cta_url: "services.html#ecommerce",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://activetargets.org/",
   },
   {
@@ -171,7 +171,7 @@ export const solutionStories = [
     outcome: "Production business desk app feeding the live portal workflow (same account as the web desk).",
     services: ["Flutter", "SMS/WhatsApp", "Laravel API"],
     cta_url: "services.html#sms",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://imartlistener.lipapay.co.tz/",
   },
   {
@@ -184,7 +184,7 @@ export const solutionStories = [
     outcome: "Logged-in business message desk live at imartlistener.lipapay.co.tz, paired with the Android Listener app.",
     services: ["PHP", "MySQL", "SMS ops", "Portal"],
     cta_url: "contact.html",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://imartlistener.lipapay.co.tz/",
   },
   {
@@ -197,7 +197,7 @@ export const solutionStories = [
     outcome: "Unified onboarding path for desk agents: web portal + Listener app from one branded flow.",
     services: ["Portal UX", "Android handoff", "SMS ops"],
     cta_url: "contact.html",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://imartlistener.lipapay.co.tz/",
   },
   {
@@ -210,7 +210,7 @@ export const solutionStories = [
     outcome: "Live collections portal at portal.lipapay.co.tz.",
     services: ["Laravel", "Payment gateway", "MNO"],
     cta_url: "services.html#payments",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://portal.lipapay.co.tz/",
   },
   {
@@ -223,7 +223,7 @@ export const solutionStories = [
     outcome: "Logged-in agent back office with live POS and activity visibility for payment operations.",
     services: ["Laravel", "Agent ops", "Payment gateway"],
     cta_url: "services.html#payments",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
   {
     client: "Lipa Airtime",
@@ -234,7 +234,7 @@ export const solutionStories = [
     outcome: "Live airtime operations at airtime.lipapay.co.tz.",
     services: ["Laravel", "Airtime API", "Callbacks"],
     cta_url: "services.html#payments",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://airtime.lipapay.co.tz/",
   },
   {
@@ -246,7 +246,7 @@ export const solutionStories = [
     outcome: "Live payout operations at disbursement.lipapay.co.tz.",
     services: ["Laravel", "Disbursement", "APIs"],
     cta_url: "services.html#payments",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://disbursement.lipapay.co.tz/",
   },
   {
@@ -258,7 +258,7 @@ export const solutionStories = [
     outcome: "Teams browse sandbox docs and sign in to the merchant workspace at sandbox.lipapay.co.tz before go-live.",
     services: ["Laravel", "REST APIs", "Shared hosting", "Sandbox"],
     cta_url: "services.html#payments",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://sandbox.lipapay.co.tz/",
   },
   {
@@ -271,7 +271,7 @@ export const solutionStories = [
     outcome: "Production admin used for daily SMS platform configuration and operations.",
     services: ["Laravel", "MySQL", "Blade", "Linux VPS"],
     cta_url: "contact.html",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
   {
     client: "VLL SMS — company portal",
@@ -283,7 +283,7 @@ export const solutionStories = [
     outcome: "Live customer-facing SMS portal supporting campaigns and delivery tracking.",
     services: ["Laravel", "Company portal", "Linux VPS"],
     cta_url: "contact.html",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
   {
     client: "SMS Ver 1 — administrator",
@@ -294,7 +294,7 @@ export const solutionStories = [
     outcome: "Reseller and credit workflows continue to run for production SMS operations.",
     services: ["PHP", "MySQL", "SMPP"],
     cta_url: "contact.html",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
   {
     client: "Savanna Fibre — ISP digital",
@@ -306,7 +306,7 @@ export const solutionStories = [
     outcome: "Live ISP front door at savannafibre.co.tz with local Laravel management stack under development.",
     services: ["ISP management", "Laravel", "Lead forms"],
     cta_url: "services.html#isp",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://www.savannafibre.co.tz/",
   },
   {
@@ -318,7 +318,7 @@ export const solutionStories = [
     outcome: "Production leave workflow at leave.imartgroup.co.tz.",
     services: ["Laravel", "Blade", "HR workflow"],
     cta_url: "services.html#systems",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
     live_url: "https://leave.imartgroup.co.tz/",
   },
   {
@@ -330,7 +330,7 @@ export const solutionStories = [
     outcome: "Clearer fee visibility and parent communication from one secure system.",
     services: ["Laravel", "Accounting ops", "Reminders"],
     cta_url: "services.html#accounting",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
   {
     client: "CakeZone — bakery admin",
@@ -341,6 +341,6 @@ export const solutionStories = [
     outcome: "Demonstrates Filament admin patterns reusable for retail and SMB operations systems.",
     services: ["Laravel", "Filament", "MySQL"],
     cta_url: "services.html#systems",
-    portfolio_url: "https://sarahgordon895.github.io/sarahgordon.github.io/",
+    portfolio_url: "https://sarah-gordon.org/",
   },
 ];

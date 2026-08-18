@@ -129,7 +129,8 @@
         <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
             <p class="tm-section-label">Operational visibility</p>
             <h2 class="tm-title">What we now also support across environments</h2>
-            <p class="tm-lead">The same production discipline behind our payment, ISP, and SMS work now extends to monitoring, profiling, performance testing, sandbox environments, and packaged rollout support.</p>
+            <p class="tm-lead">The same production discipline behind our payment, ISP, and SMS work now extends to monitoring, profiling, continuous observability, performance testing, and sandbox environments.</p>
+            <a href="{{ route('services') }}#platform-stack" class="btn btn-outline-secondary btn-sm">Explore platform stack →</a>
         </div>
         <div class="tm-grid tm-grid--3">
             <article class="tm-card tm-reveal">
@@ -151,13 +152,14 @@
     </div>
 </section>
 
-<section class="tm-section">
+<section class="tm-section" id="packages">
     <div class="container">
         <div class="row g-4 align-items-start">
             <div class="col-lg-5">
                 <p class="tm-section-label">Packages</p>
                 <h2 class="tm-title">How we package this work for clients</h2>
                 <p class="tm-lead">We can scope observability and performance as a standalone package or add it on top of a new build, migration, payment rollout, or enterprise operations platform.</p>
+                <a href="{{ route('services') }}#packages" class="btn btn-outline-secondary btn-sm mt-3">View pricing &amp; packages →</a>
             </div>
             <div class="col-lg-7">
                 <div class="tm-grid tm-grid--3">

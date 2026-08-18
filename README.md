@@ -4,7 +4,9 @@
 
 We design, build, and support production systems for SMEs and institutions: web platforms, payments, SMS, e-commerce, ISP operations, and brand-aligned digital products.
 
-**Live website:** [https://sarahgordon895.github.io/TechMorah/](https://sarahgordon895.github.io/TechMorah/)
+**Live website:** [https://techmorahsolutionltd.org](https://techmorahsolutionltd.org)
+
+**GitHub Pages mirror:** [https://sarahgordon895.github.io/TechMorah/](https://sarahgordon895.github.io/TechMorah/)
 
 ---
 
@@ -12,13 +14,13 @@ We design, build, and support production systems for SMEs and institutions: web 
 
 TechMorah Solution LTD delivers end-to-end technology: discovery, UI/UX and branding, engineering, deployment, handover, and ongoing support. Engagements are scoped to real operations — not slideware.
 
-**Founder / technical lead:** [Sarah George Gordon](https://sarahgordon895.github.io/sarahgordon.github.io/)
+**Founder / technical lead:** [Sarah George Gordon](https://sarah-gordon.org/)
 
 | | |
 |---|---|
 | Location | Dar es Salaam, Tanzania |
 | Focus | Full-stack delivery, implementation, and production support |
-| Public portfolio | [sarahgordon895.github.io/sarahgordon.github.io](https://sarahgordon895.github.io/sarahgordon.github.io/) |
+| Public portfolio | [sarah-gordon.org](https://sarah-gordon.org/) |
 
 ---
 
@@ -64,8 +66,8 @@ The public site includes:
 
 ## Contact
 
-- **Website:** [sarahgordon895.github.io/TechMorah](https://sarahgordon895.github.io/TechMorah/)
-- **Founder portfolio:** [sarahgordon895.github.io/sarahgordon.github.io](https://sarahgordon895.github.io/sarahgordon.github.io/)
+- **Website:** [techmorahsolutionltd.org](https://techmorahsolutionltd.org)
+- **Founder portfolio:** [sarah-gordon.org](https://sarah-gordon.org/)
 - **GitHub:** [github.com/SarahGordon895](https://github.com/SarahGordon895)
 
 ---

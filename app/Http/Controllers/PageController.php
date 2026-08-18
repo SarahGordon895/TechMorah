@@ -16,7 +16,7 @@ class PageController extends Controller
             ['value' => '15', 'label' => 'Featured builds'],
         ];
 
-        $portfolio = 'https://sarahgordon895.github.io/sarahgordon.github.io/';
+        $portfolio = 'https://sarah-gordon.org/';
         $img = fn (string $file) => asset('img/case-studies/' . $file);
 
         $solutionStories = [

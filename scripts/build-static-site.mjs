@@ -14,6 +14,7 @@ import {
   serviceSpotlights,
   solutionStories,
 } from "./static-data.mjs";
+import { productNav, solutionsNav, companyUrl, portfolioUrl } from "./company-content.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -121,7 +122,90 @@ function nav(active) {
   ].join("\n          ");
 }
 
-function shell({ title, active, body, headExtra = "", footExtra = "", hideFooterContact = false, skipChrome = false }) {
+function footerNavColumn(label, items) {
+  const links = items
+    .map((item) => {
+      const href = item.external ? item.href : asset(item.href);
+      const ext = item.external ? ' target="_blank" rel="noopener"' : "";
+      return `<li><a href="${href}"${ext}>${item.label}</a></li>`;
+    })
+    .join("");
+  return `<div class="col-md-6 col-lg-3"><p class="tm-footer__col-label">${label}</p><ul class="list-unstyled tm-footer__link-list">${links}</ul></div>`;
+}
+
+const defaultDescription =
+  "TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery.";
+
+function organizationSchema() {
+  if (!customDomain) return "";
+  return `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "TechMorah Solution LTD",
+  "alternateName": ["TechMorah", "TechMorah Solution"],
+  "url": "https://${customDomain}/",
+  "logo": "https://${customDomain}/img/techmorah-icon.png",
+  "description": "Digital solutions partner in Dar es Salaam: web and systems, microfinance, e-commerce, ISP management, payment gateways, monitoring, and sandbox delivery.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dar es Salaam Science Park",
+    "addressLocality": "Dar es Salaam",
+    "addressCountry": "TZ"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Sarah George Gordon",
+    "alternateName": "Sarah Gordon",
+    "url": "${portfolioUrl}/"
+  },
+  "sameAs": [
+    "https://github.com/SarahGordon895/TechMorah",
+    "${portfolioUrl}/"
+  ]
+}
+</script>`;
+}
+
+function seoHead(seo = {}) {
+  if (!customDomain) {
+    return `<meta name="description" content="${seo.description || defaultDescription}">`;
+  }
+  const pageTitle = seo.title || "TechMorah Solution LTD";
+  const description = seo.description || defaultDescription;
+  const path = seo.path || "";
+  const url = `https://${customDomain}/${path}`;
+  const image = `https://${customDomain}/img/techmorah-icon.png`;
+  const websiteSchema =
+    path === ""
+      ? `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "TechMorah Solution LTD",
+  "alternateName": ["TechMorah", "TechMorah Solution"],
+  "url": "https://${customDomain}/",
+  "inLanguage": "en"
+}
+</script>`
+      : "";
+  return `<meta name="description" content="${description}">
+<link rel="canonical" href="${url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TechMorah Solution LTD">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="${pageTitle}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${image}">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${pageTitle}">
+<meta name="twitter:description" content="${description}">
+${organizationSchema()}
+${websiteSchema}`;
+}
+
+function shell({ title, seo, body, headExtra = "", footExtra = "", hideFooterContact = false, skipChrome = false, active = "" }) {
   const chrome = skipChrome
     ? ""
     : `<nav class="navbar tm-nav" id="navbar" aria-label="Primary"><div class="container">
@@ -134,7 +218,7 @@ ${nav(active)}
 </div></div></nav>`;
   const footerCol = hideFooterContact
     ? ""
-    : `<div class="col-md-4">
+    : `<div class="col-md-6 col-lg-3">
           <h5>Get In Touch</h5>
           <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Dar es Salaam Science Park</p>
           <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
@@ -144,17 +228,17 @@ ${nav(active)}
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>${title}</title>
+<title>${seo?.title || title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050a18">
-<meta name="description" content="TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery.">
+${seoHead(seo)}
 <link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
 <link rel="apple-touch-icon" href="${asset("img/techmorah-icon.png")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260818a" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260818b" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -164,14 +248,9 @@ ${chrome}
 ${body}
 </main>
 <footer class="footer tm-footer"><div class="container"><div class="row g-4">
-<div class="col-md-4"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, and East African delivery. Dar es Salaam Science Park, Tanzania.</p></div>
-<div class="col-md-4"><h5>Quick Links</h5><ul class="list-unstyled">
-<li><a href="${asset("about.html")}">About</a></li>
-<li><a href="${asset("services.html")}">Services</a></li>
-<li><a href="${asset("case-studies.html")}">Case Studies</a></li>
-<li><a href="${asset("contact.html")}">Contact</a></li>
-<li><a href="${asset("chat.html")}">AI Chatbot</a></li>
-</ul></div>
+<div class="col-md-6 col-lg-3"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small mb-2">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, monitoring, and East African delivery. Dar es Salaam Science Park, Tanzania.</p><p class="text-white-50 small mb-0"><a href="${companyUrl}" class="text-white-50">techmorahsolutionltd.org</a> · <a href="${portfolioUrl}" target="_blank" rel="noopener" class="text-white-50">sarah-gordon.org</a></p></div>
+${footerNavColumn("Product", productNav)}
+${footerNavColumn("Solutions", solutionsNav)}
 ${footerCol}
 </div><p class="footer-legal text-center small text-white-50 mb-0">© ${new Date().getFullYear()} TechMorah Solution LTD. All rights reserved. · Dar es Salaam Science Park · INNOVATE · INTEGRATE · IMPLEMENT · EMPOWER</p></div>
 <div class="tm-footer__band">Enterprise systems · Integrations · Implementation · Support</div>
@@ -389,19 +468,59 @@ async function main() {
   await copyPublic();
 
   const pages = [
-    { blade: "home.blade.php", out: "index.html", title: "TechMorah Solution LTD — Fintech & Enterprise Technology Partner", active: "home" },
-    { blade: "pages/about.blade.php", out: "about.html", title: "About | TechMorah Solution LTD", active: "about" },
+    {
+      blade: "home.blade.php",
+      out: "index.html",
+      title: "TechMorah Solution LTD — Fintech & Enterprise Technology Partner",
+      active: "home",
+      seo: {
+        title: "TechMorah Solution LTD — Digital Solutions Partner in Dar es Salaam",
+        description:
+          "Official site of TechMorah Solution LTD (TechMorah Solution): web and system design, microfinance, e-commerce, ISP management, payment gateways, monitoring, profiling, testing, and sandbox delivery in Dar es Salaam, Tanzania. Founded by Sarah George Gordon.",
+        path: "",
+      },
+    },
+    {
+      blade: "pages/about.blade.php",
+      out: "about.html",
+      title: "About | TechMorah Solution LTD",
+      active: "about",
+      seo: {
+        title: "About TechMorah Solution LTD — Innovate, Integrate, Implement",
+        description:
+          "About TechMorah Solution LTD: digital solutions partner at Dar es Salaam Science Park. Web systems, microfinance, e-commerce, ISP, payments, monitoring, and sandbox delivery. Founded by Sarah George Gordon.",
+        path: "about.html",
+      },
+    },
     {
       blade: "contacts.blade.php",
       out: "contact.html",
       title: "Contact | TechMorah Solution LTD",
       active: "contact",
+      seo: {
+        title: "Contact TechMorah Solution LTD — Dar es Salaam",
+        description:
+          "Contact TechMorah Solution LTD in Dar es Salaam Science Park. Discuss microfinance, e-commerce, ISP, payments, monitoring, sandbox delivery, or a custom platform.",
+        path: "contact.html",
+      },
       foot: `<script src="${asset("js/contact-form.js")}"></script>\n<script src="${asset("js/contact-whatsapp.js")}"></script>\n<script src="${asset("js/contact-page.js")}"></script>`,
       hideFooterContact: false,
       skipChrome: false,
       patch: patchContact,
     },
-    { blade: "chat.blade.php", out: "chat.html", title: "AI Copilot | TechMorah", active: "chat", foot: `<script src="${asset("js/chat-script.js")}?v=20260812j"></script>\n<script src="${asset("js/chat-bot.js")}?v=20260812j"></script>` },
+    {
+      blade: "chat.blade.php",
+      out: "chat.html",
+      title: "AI Copilot | TechMorah",
+      active: "chat",
+      seo: {
+        title: "AI Chatbot | TechMorah Solution LTD",
+        description:
+          "Talk to TechMorah Solution LTD about digital solutions, microfinance, e-commerce, ISP management, payment gateways, monitoring, and sandbox delivery.",
+        path: "chat.html",
+      },
+      foot: `<script src="${asset("js/chat-script.js")}?v=20260812j"></script>\n<script src="${asset("js/chat-bot.js")}?v=20260812j"></script>`,
+    },
   ];
 
   for (const p of pages) {
@@ -412,6 +531,7 @@ async function main() {
       path.join(docs, p.out),
       shell({
         title: p.title,
+        seo: p.seo,
         active: p.active,
         body: fixHtml(body),
         headExtra: parts.style,
@@ -423,14 +543,20 @@ async function main() {
     console.log("✓", p.out);
   }
 
-  const servicesStyle = await extractStyles("pages/services.blade.php");
+  const servicesParts = stripBlade(await readBlade("pages/services.blade.php"));
   await fs.writeFile(
     path.join(docs, "services.html"),
     shell({
       title: "Services | TechMorah Solution LTD",
       active: "services",
-      body: buildServicesBody(),
-      headExtra: servicesStyle,
+      seo: {
+        title: "Services | TechMorah Solution LTD",
+        description:
+          "TechMorah Solution LTD services: web and system design, UI/UX, microfinance systems, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, sandbox delivery, and IT support in Tanzania.",
+        path: "services.html",
+      },
+      body: fixHtml(servicesParts.body),
+      headExtra: servicesParts.style,
       footExtra: `<script src="${asset("js/contact-form.js")}"></script>`,
     })
   );
@@ -442,6 +568,12 @@ async function main() {
     shell({
       title: "Case Studies | TechMorah Solution LTD",
       active: "case-studies",
+      seo: {
+        title: "Case Studies | TechMorah Solution LTD",
+        description:
+          "TechMorah Solution LTD case studies: production platforms for e-commerce, SMS, payments, and ISP delivery in East Africa.",
+        path: "case-studies.html",
+      },
       body: buildBlogBody(),
       headExtra: caseStudiesExtra,
       footExtra: `<script src="${asset("js/blog-newsletter.js")}"></script>`,

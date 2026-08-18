@@ -75,6 +75,8 @@
     </div>
 </section>
 
+@include('partials.platform-pillars')
+
 <section class="tm-section tm-section--paper">
     <div class="container">
         <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
@@ -138,7 +140,7 @@
                     <li>Synthetic monitoring paths</li>
                 </ul>
             </article>
-            <article class="tm-card tm-reveal" data-delay="2">
+            <article class="tm-card tm-reveal" data-delay="2" id="sandbox">
                 <div class="tm-card__icon"><i class="fas fa-box-open"></i></div>
                 <h3>Packages &amp; sandbox delivery</h3>
                 <ul class="tm-feature-list">
@@ -149,6 +151,49 @@
                     <li>Ongoing support packages</li>
                 </ul>
             </article>
+        </div>
+    </div>
+</section>
+
+<section class="tm-section" id="packages">
+    <div class="container">
+        <div class="row g-4 align-items-start">
+            <div class="col-lg-5">
+                <p class="tm-section-label">Pricing &amp; packages</p>
+                <h2 class="tm-title">Scoped for production delivery</h2>
+                <p class="tm-lead">Starter, growth, and enterprise packages — or observability layered onto payment, ISP, SMS, and custom platform work.</p>
+            </div>
+            <div class="col-lg-7">
+                <div class="tm-grid tm-grid--3">
+                    <article class="tm-card tm-reveal">
+                        <h3>Starter</h3>
+                        <p class="mb-2">Development + staging</p>
+                        <ul class="tm-feature-list">
+                            <li>Core monitoring</li>
+                            <li>Browser observability</li>
+                            <li>Basic alert routing</li>
+                        </ul>
+                    </article>
+                    <article class="tm-card tm-reveal" data-delay="1">
+                        <h3>Growth</h3>
+                        <p class="mb-2">Production visibility</p>
+                        <ul class="tm-feature-list">
+                            <li>Continuous profiling</li>
+                            <li>Performance tests</li>
+                            <li>Recommendations + tuning</li>
+                        </ul>
+                    </article>
+                    <article class="tm-card tm-reveal" data-delay="2">
+                        <h3>Enterprise</h3>
+                        <p class="mb-2">Full sandbox package</p>
+                        <ul class="tm-feature-list">
+                            <li>Sandbox environment</li>
+                            <li>SDK / CLI / integrations</li>
+                            <li>Handover + support</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
         </div>
     </div>
 </section>
