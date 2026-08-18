@@ -130,7 +130,7 @@ function footerNavColumn(label, items) {
       return `<li><a href="${href}"${ext}>${item.label}</a></li>`;
     })
     .join("");
-  return `<div class="col-md-6 col-lg-3"><p class="tm-footer__col-label">${label}</p><ul class="list-unstyled tm-footer__link-list">${links}</ul></div>`;
+  return `<div class="col-12 col-md-6 col-lg-3"><p class="tm-footer__col-label">${label}</p><ul class="list-unstyled tm-footer__link-list">${links}</ul></div>`;
 }
 
 const defaultDescription =
@@ -218,7 +218,7 @@ ${nav(active)}
 </div></div></nav>`;
   const footerCol = hideFooterContact
     ? ""
-    : `<div class="col-md-6 col-lg-3">
+    : `<div class="col-12 col-md-6 col-lg-3">
           <h5>Get In Touch</h5>
           <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Dar es Salaam Science Park</p>
           <p><i class="fas fa-phone-alt me-2 text-secondary"></i> +255 655 139 724</p>
@@ -238,7 +238,7 @@ ${seoHead(seo)}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260818c" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260818d" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -248,7 +248,7 @@ ${chrome}
 ${body}
 </main>
 <footer class="footer tm-footer"><div class="container"><div class="row g-4">
-<div class="col-md-6 col-lg-3"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small mb-2">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, monitoring, and East African delivery. Dar es Salaam Science Park, Tanzania.</p><p class="text-white-50 small mb-0"><a href="${companyUrl}" class="text-white-50">techmorahsolutionltd.org</a> · <a href="${portfolioUrl}" target="_blank" rel="noopener" class="text-white-50">sarah-gordon.org</a></p></div>
+<div class="col-12 col-md-6 col-lg-3"><div class="footer-brand mb-3">${brandLg()}</div><p class="text-white-50 small mb-2">Innovative digital solutions — web &amp; systems, microfinance, e-commerce, ISP management, payment gateways, monitoring, and East African delivery. Dar es Salaam Science Park, Tanzania.</p><p class="text-white-50 small mb-0"><a href="${companyUrl}" class="text-white-50">techmorahsolutionltd.org</a> · <a href="${portfolioUrl}" target="_blank" rel="noopener" class="text-white-50">sarah-gordon.org</a></p></div>
 ${footerNavColumn("Product", productNav)}
 ${footerNavColumn("Solutions", solutionsNav)}
 ${footerCol}

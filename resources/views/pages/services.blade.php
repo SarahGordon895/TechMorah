@@ -20,19 +20,30 @@
             </div>
             <div class="col-lg-5">
                 <div class="row g-3">
-                    @foreach ([
-                        ['value' => '4+', 'label' => 'Years leadership'],
-                        ['value' => '10+', 'label' => 'Relationships'],
-                        ['value' => '25+', 'label' => 'Platforms'],
-                        ['value' => '12', 'label' => 'Service lines'],
-                    ] as $stat)
                     <div class="col-6">
                         <div class="stats-card text-center h-100">
-                            <h3 class="fw-bold mb-1">{{ $stat['value'] }}</h3>
-                            <p class="small text-white-50 mb-0">{{ $stat['label'] }}</p>
+                            <h3 class="fw-bold mb-1">4+</h3>
+                            <p class="small text-white-50 mb-0">Years leadership</p>
                         </div>
                     </div>
-                    @endforeach
+                    <div class="col-6">
+                        <div class="stats-card text-center h-100">
+                            <h3 class="fw-bold mb-1">10+</h3>
+                            <p class="small text-white-50 mb-0">Relationships</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center h-100">
+                            <h3 class="fw-bold mb-1">25+</h3>
+                            <p class="small text-white-50 mb-0">Platforms</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center h-100">
+                            <h3 class="fw-bold mb-1">12</h3>
+                            <p class="small text-white-50 mb-0">Service lines</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,30 +58,78 @@
             <p class="tm-lead">Aligned with the TechMorah 2026 company profile — and the same capabilities demonstrated across the founder’s live portfolio.</p>
         </div>
         <div class="tm-grid tm-grid--3">
-            @php
-                $services = [
-                    ['icon' => 'fas fa-laptop-code', 'id' => 'web', 'title' => 'Web & System Design & Development', 'copy' => 'User-friendly, secure, and scalable systems and websites.'],
-                    ['icon' => 'fas fa-cogs', 'id' => 'systems', 'title' => 'System Design & Development', 'copy' => 'Customised solutions tailored to optimise business processes and efficiency.'],
-                    ['icon' => 'fas fa-paint-brush', 'id' => 'uiux', 'title' => 'Graphic Design & UI/UX Design', 'copy' => 'Creative visuals and intuitive interfaces to enhance brand impact.'],
-                    ['icon' => 'fas fa-headset', 'id' => 'support', 'title' => 'IT Support Services', 'copy' => 'Reliable technical support for smooth and efficient operations.'],
-                    ['icon' => 'fas fa-file-invoice-dollar', 'id' => 'accounting', 'title' => 'Computerised Accounting Solutions', 'copy' => 'Streamlined financial management for accurate and efficient reporting.'],
-                    ['icon' => 'fas fa-hand-holding-usd', 'id' => 'microfinance', 'title' => 'Microfinance Solutions', 'copy' => 'Loan, savings, and member workflows for MFIs and community lenders.'],
-                    ['icon' => 'fas fa-shopping-cart', 'id' => 'ecommerce', 'title' => 'E-Commerce Solutions', 'copy' => 'Storefronts, inventory, cart, checkout, and catalogue operations for digital sales.'],
-                    ['icon' => 'fas fa-wifi', 'id' => 'isp', 'title' => 'ISP Management', 'copy' => 'Subscriber, billing, support, and payment flows for internet service providers.'],
-                    ['icon' => 'fas fa-credit-card', 'id' => 'payments', 'title' => 'Payment Gateway & Integration', 'copy' => 'Collections, disbursements, sandboxes, callbacks, and reconciliation-aware APIs.'],
-                    ['icon' => 'fas fa-sms', 'id' => 'sms', 'title' => 'Enterprise SMS Platforms', 'copy' => 'Admin consoles, reseller portals, bulk messaging, and API layers.'],
-                    ['icon' => 'fas fa-chart-line', 'id' => 'observability', 'title' => 'Monitoring, Profiling & Observability', 'copy' => 'Application monitoring, browser observability, analytics, alerts, and profiling across development, staging, and production.'],
-                    ['icon' => 'fas fa-flask', 'id' => 'sandbox', 'title' => 'Testing, Sandbox & Release Engineering', 'copy' => 'Sandbox environments, performance testing, build scenarios, custom assertions, and release-readiness support.'],
-                ];
-            @endphp
-            @foreach ($services as $i => $service)
-            <article class="tm-card tm-reveal" id="{{ $service['id'] }}" @if($i % 3) data-delay="{{ $i % 3 }}" @endif>
-                <div class="tm-card__icon"><i class="{{ $service['icon'] }}"></i></div>
-                <h3>{{ $service['title'] }}</h3>
-                <p class="mb-3">{{ $service['copy'] }}</p>
+            <article class="tm-card tm-reveal" id="web">
+                <div class="tm-card__icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Web &amp; System Design &amp; Development</h3>
+                <p class="mb-3">User-friendly, secure, and scalable systems and websites.</p>
                 <a href="#consult" class="btn btn-link p-0">Explore →</a>
             </article>
-            @endforeach
+            <article class="tm-card tm-reveal" id="systems" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-cogs"></i></div>
+                <h3>System Design &amp; Development</h3>
+                <p class="mb-3">Customised solutions tailored to optimise business processes and efficiency.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="uiux" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Graphic Design &amp; UI/UX Design</h3>
+                <p class="mb-3">Creative visuals and intuitive interfaces to enhance brand impact.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="support">
+                <div class="tm-card__icon"><i class="fas fa-headset"></i></div>
+                <h3>IT Support Services</h3>
+                <p class="mb-3">Reliable technical support for smooth and efficient operations.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="accounting" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3>Computerised Accounting Solutions</h3>
+                <p class="mb-3">Streamlined financial management for accurate and efficient reporting.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="microfinance" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-hand-holding-usd"></i></div>
+                <h3>Microfinance Solutions</h3>
+                <p class="mb-3">Loan, savings, and member workflows for MFIs and community lenders.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="ecommerce">
+                <div class="tm-card__icon"><i class="fas fa-shopping-cart"></i></div>
+                <h3>E-Commerce Solutions</h3>
+                <p class="mb-3">Storefronts, inventory, cart, checkout, and catalogue operations for digital sales.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="isp" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-wifi"></i></div>
+                <h3>ISP Management</h3>
+                <p class="mb-3">Subscriber, billing, support, and payment flows for internet service providers.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="payments" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-credit-card"></i></div>
+                <h3>Payment Gateway &amp; Integration</h3>
+                <p class="mb-3">Collections, disbursements, sandboxes, callbacks, and reconciliation-aware APIs.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="sms">
+                <div class="tm-card__icon"><i class="fas fa-sms"></i></div>
+                <h3>Enterprise SMS Platforms</h3>
+                <p class="mb-3">Admin consoles, reseller portals, bulk messaging, and API layers.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="observability" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Monitoring, Profiling &amp; Observability</h3>
+                <p class="mb-3">Application monitoring, browser observability, analytics, alerts, and profiling across development, staging, and production.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
+            <article class="tm-card tm-reveal" id="sandbox" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-flask"></i></div>
+                <h3>Testing, Sandbox &amp; Release Engineering</h3>
+                <p class="mb-3">Sandbox environments, performance testing, build scenarios, custom assertions, and release-readiness support.</p>
+                <a href="#consult" class="btn btn-link p-0">Explore →</a>
+            </article>
         </div>
     </div>
 </section>
@@ -208,19 +267,31 @@
             </div>
             <div class="col-lg-7">
                 <div class="tm-workflow">
-                    @foreach ([
-                        ['n' => '01', 'title' => 'Discover & align', 'copy' => 'Workshops to map workflows, compliance, and success metrics before build starts.'],
-                        ['n' => '02', 'title' => 'Design the experience', 'copy' => 'Wireframes, UI systems, and branded assets as the single source of truth.'],
-                        ['n' => '03', 'title' => 'Build & integrate', 'copy' => 'Laravel, React, REST APIs, SMS/WhatsApp/payment hooks tested on real workflows.'],
-                        ['n' => '04', 'title' => 'Test, sandbox & validate', 'copy' => 'Staging, sandbox environments, performance scenarios, assertions, and release checks before launch.'],
-                        ['n' => '05', 'title' => 'Launch & support', 'copy' => 'VPS or shared hosting, monitoring, alerts, training, runbooks, and production iteration.'],
-                    ] as $step)
                     <article class="tm-workflow-step tm-reveal">
-                        <div class="tm-workflow-step__num">{{ $step['n'] }}</div>
-                        <h4 class="h6 fw-bold">{{ $step['title'] }}</h4>
-                        <p class="text-muted small mb-0">{{ $step['copy'] }}</p>
+                        <div class="tm-workflow-step__num">01</div>
+                        <h4 class="h6 fw-bold">Discover &amp; align</h4>
+                        <p class="text-muted small mb-0">Workshops to map workflows, compliance, and success metrics before build starts.</p>
                     </article>
-                    @endforeach
+                    <article class="tm-workflow-step tm-reveal">
+                        <div class="tm-workflow-step__num">02</div>
+                        <h4 class="h6 fw-bold">Design the experience</h4>
+                        <p class="text-muted small mb-0">Wireframes, UI systems, and branded assets as the single source of truth.</p>
+                    </article>
+                    <article class="tm-workflow-step tm-reveal">
+                        <div class="tm-workflow-step__num">03</div>
+                        <h4 class="h6 fw-bold">Build &amp; integrate</h4>
+                        <p class="text-muted small mb-0">Laravel, React, REST APIs, SMS/WhatsApp/payment hooks tested on real workflows.</p>
+                    </article>
+                    <article class="tm-workflow-step tm-reveal">
+                        <div class="tm-workflow-step__num">04</div>
+                        <h4 class="h6 fw-bold">Test, sandbox &amp; validate</h4>
+                        <p class="text-muted small mb-0">Staging, sandbox environments, performance scenarios, assertions, and release checks before launch.</p>
+                    </article>
+                    <article class="tm-workflow-step tm-reveal">
+                        <div class="tm-workflow-step__num">05</div>
+                        <h4 class="h6 fw-bold">Launch &amp; support</h4>
+                        <p class="text-muted small mb-0">VPS or shared hosting, monitoring, alerts, training, runbooks, and production iteration.</p>
+                    </article>
                 </div>
             </div>
         </div>

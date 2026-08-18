@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}?v=20260818c" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}?v=20260818d" rel="stylesheet">
     @stack('styles')
 </head>
 <body>
@@ -59,7 +59,7 @@
     <footer class="footer tm-footer">
         <div class="container">
             <div class="row g-4">
-                <div class="col-md-4">
+                    <div class="col-12 col-md-6 col-lg-3">
                     <div class="footer-brand mb-3">
                         <x-brand-mark size="lg" class="text-white">TechMorah Solution LTD</x-brand-mark>
                     </div>
@@ -72,7 +72,7 @@
                 </div>
                 @include('partials.footer-product-solutions')
                 @unless (request()->routeIs('contact'))
-                <div class="col-md-6 col-lg-3">
+                <div class="col-12 col-md-6 col-lg-3">
                     <h5>Get In Touch</h5>
                     <p><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Dar es Salaam Science Park</p>
                     <p><i class="fas fa-phone-alt me-2 text-secondary"></i> <a href="tel:+255655139724">+255 655 139 724</a></p>

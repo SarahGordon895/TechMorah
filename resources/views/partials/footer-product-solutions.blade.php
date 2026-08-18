@@ -12,7 +12,7 @@
         return $href;
     };
 @endphp
-<div class="col-md-6 col-lg-3">
+<div class="col-12 col-md-6 col-lg-3">
     <p class="tm-footer__col-label">Product</p>
     <ul class="list-unstyled tm-footer__link-list">
         @foreach ($productLinks as $item)
@@ -22,7 +22,7 @@
         @endforeach
     </ul>
 </div>
-<div class="col-md-6 col-lg-3">
+<div class="col-12 col-md-6 col-lg-3">
     <p class="tm-footer__col-label">Solutions</p>
     <ul class="list-unstyled tm-footer__link-list">
         @foreach ($solutionLinks as $item)
