@@ -1,10 +1,6 @@
 /**
  * FitStage — keep the desktop layout on every device.
  * TechMorah Solution LTD (https://techmorahsolutionltd.org)
- *
- * Default mode "canvas": the page is laid out at the PC design width,
- * then scaled to the phone/tablet screen so placement matches the computer.
- * Optional mode "reflow": classic stacked mobile layout.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) {
@@ -18,11 +14,10 @@
   var STORAGE = "fitstage-mode";
   var DEFAULTS = {
     design: 1280,
-    minScale: 0.28,
-    maxScale: 1,
+    minScale: 0.25,
     mode: "canvas",
-    labelCanvas: "PC layout",
-    labelReflow: "Readable",
+    labelCanvas: "PC view",
+    labelReflow: "Phone view",
     hint: "Same placement as desktop"
   };
 
@@ -54,20 +49,28 @@
       meta.setAttribute("name", "viewport");
       document.head.insertBefore(meta, document.head.firstChild);
     }
-    if (!meta.getAttribute("data-fitstage-origin")) {
-      meta.setAttribute("data-fitstage-origin", meta.getAttribute("content") || "width=device-width, initial-scale=1");
-    }
     return meta;
   }
 
-  function screenCssWidth() {
+  function deviceWidth() {
     var w = window.screen && window.screen.width ? window.screen.width : 0;
-    var iw = window.innerWidth || w;
-    if (!w) return iw;
-    return Math.min(w, iw) || w;
+    var h = window.screen && window.screen.height ? window.screen.height : 0;
+    var shortest = w && h ? Math.min(w, h) : w || window.innerWidth || 1280;
+    return shortest;
+  }
+
+  function queryMode() {
+    try {
+      var v = new URLSearchParams(window.location.search).get("view");
+      if (v === "pc" || v === "canvas") return "canvas";
+      if (v === "phone" || v === "reflow") return "reflow";
+    } catch (e) {}
+    return null;
   }
 
   function storedMode(fallback) {
+    var q = queryMode();
+    if (q) return q;
     try {
       var v = localStorage.getItem(STORAGE);
       if (v === "canvas" || v === "reflow") return v;
@@ -81,43 +84,41 @@
     } catch (e) {}
   }
 
+  function canvasContent(design, minScale) {
+    return (
+      "width=" +
+      design +
+      ", user-scalable=yes, minimum-scale=" +
+      minScale +
+      ", maximum-scale=5, viewport-fit=cover"
+    );
+  }
+
+  function reflowContent() {
+    return "width=device-width, initial-scale=1, viewport-fit=cover";
+  }
+
   function applyViewport(opts) {
     var meta = viewportMeta();
     var mode = storedMode(opts.mode);
     var html = document.documentElement;
+    var narrow = deviceWidth() < opts.design;
     html.setAttribute("data-fitstage", mode);
-    html.classList.toggle("fitstage-canvas", mode === "canvas");
+    html.classList.toggle("fitstage-canvas", mode === "canvas" && narrow);
     html.classList.toggle("fitstage-reflow", mode === "reflow");
 
-    if (mode !== "canvas") {
-      meta.setAttribute("content", meta.getAttribute("data-fitstage-origin"));
+    if (mode !== "canvas" || !narrow) {
+      meta.setAttribute("content", reflowContent());
       html.style.removeProperty("--fitstage-scale");
-      html.style.removeProperty("--fitstage-ui");
+      html.style.setProperty("--fitstage-ui", "1");
+      if (mode === "canvas" && !narrow) html.classList.remove("fitstage-canvas");
       return { mode: mode, scale: 1, active: false };
     }
 
-    var view = screenCssWidth();
-    if (view >= opts.design) {
-      meta.setAttribute("content", meta.getAttribute("data-fitstage-origin"));
-      html.style.removeProperty("--fitstage-scale");
-      html.style.removeProperty("--fitstage-ui");
-      html.classList.remove("fitstage-canvas");
-      return { mode: mode, scale: 1, active: false };
-    }
-
-    var scale = Math.max(opts.minScale, Math.min(opts.maxScale, view / opts.design));
+    var scale = Math.max(opts.minScale, deviceWidth() / opts.design);
     html.style.setProperty("--fitstage-scale", String(scale));
     html.style.setProperty("--fitstage-ui", String(1 / scale));
-    meta.setAttribute(
-      "content",
-      "width=" +
-        opts.design +
-        ", initial-scale=" +
-        scale.toFixed(4) +
-        ", minimum-scale=" +
-        opts.minScale +
-        ", maximum-scale=5, user-scalable=yes, viewport-fit=cover"
-    );
+    meta.setAttribute("content", canvasContent(opts.design, opts.minScale));
     return { mode: mode, scale: scale, active: true };
   }
 
@@ -141,7 +142,6 @@
     var dock = document.createElement("div");
     dock.id = "fitstage-dock";
     dock.className = "fitstage-dock";
-    dock.setAttribute("data-fitstage-chrome", "true");
     dock.innerHTML =
       '<button type="button" data-mode="canvas">' +
       opts.labelCanvas +
@@ -160,21 +160,18 @@
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.toggle("is-on", buttons[i].getAttribute("data-mode") === mode);
       }
-      dock.hidden = screenCssWidth() >= opts.design && mode === "canvas";
+      dock.hidden = deviceWidth() >= opts.design;
     }
 
     dock.addEventListener("click", function (e) {
       var btn = e.target.closest("button[data-mode]");
       if (!btn) return;
-      var next = btn.getAttribute("data-mode");
-      storeMode(next);
-      applyViewport(opts);
-      paint();
+      storeMode(btn.getAttribute("data-mode"));
       window.location.reload();
     });
 
     paint();
-    if (!state.active && storedMode(opts.mode) === "canvas") dock.hidden = true;
+    if (!state.active) dock.hidden = deviceWidth() >= opts.design;
   }
 
   function boot(user) {
@@ -187,21 +184,13 @@
     } else {
       mountDock(opts, state);
     }
-    window.addEventListener("orientationchange", function () {
-      setTimeout(function () {
-        applyViewport(opts);
-        window.location.reload();
-      }, 250);
-    });
     return state;
   }
-
-  var auto = boot();
 
   return {
     boot: boot,
     apply: applyViewport,
     defaults: DEFAULTS,
-    state: auto
+    state: boot()
   };
 });

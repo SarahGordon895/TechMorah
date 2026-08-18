@@ -229,8 +229,8 @@ ${nav(active)}
 <head>
 <meta charset="utf-8">
 <title>${seo?.title || title}</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="${asset("js/fitstage.js")}?v=20260818f" data-design="1280"></script>
+<meta name="viewport" content="width=1280, user-scalable=yes, minimum-scale=0.25, maximum-scale=5, viewport-fit=cover">
+<script src="${asset("js/fitstage.js")}?v=20260818g" data-design="1280"></script>
 <meta name="theme-color" content="#050a18">
 ${seoHead(seo)}
 <link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
