@@ -72,6 +72,8 @@
                                 <option>Graphic design &amp; UI/UX</option>
                                 <option>IT support</option>
                                 <option>Enterprise SMS</option>
+                                <option>Monitoring, profiling &amp; observability</option>
+                                <option>Testing, sandbox &amp; release engineering</option>
                                 <option>Other</option>
                             </select>
                         </div>

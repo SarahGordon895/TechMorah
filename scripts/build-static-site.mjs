@@ -147,14 +147,14 @@ ${nav(active)}
 <title>${title}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050a18">
-<meta name="description" content="TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, and payment gateway integration.">
+<meta name="description" content="TechMorah Solution LTD — innovative digital solutions for web & system design, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery.">
 <link rel="icon" type="image/png" href="${asset("img/techmorah-icon.png")}">
 <link rel="apple-touch-icon" href="${asset("img/techmorah-icon.png")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="${asset("css/style.css")}?v=20260812j" rel="stylesheet">
+<link href="${asset("css/style.css")}?v=20260818a" rel="stylesheet">
 ${headExtra}
 </head>
 <body>
@@ -212,16 +212,27 @@ function buildServicesBody() {
     .join("");
   return fixHtml(`
 <section class="services-hero tm-page-hero py-5"><div class="container py-4"><div class="row g-4 align-items-center">
-<div class="col-lg-7"><span class="badge bg-secondary text-uppercase mb-3">TechMorah Services</span>
+<div class="col-lg-7"><span class="badge bg-secondary text-uppercase mb-3">Platform, observability &amp; delivery services</span>
 <h1 class="display-5 fw-bold mb-3">Digital solutions. Production delivery.</h1>
-<p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, and payment gateway integration — scoped for East African businesses.</p>
+<p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery — scoped for East African businesses.</p>
 <div class="d-flex flex-wrap gap-3"><a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
 <a href="https://wa.me/255655139724" target="_blank" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a></div></div>
 <div class="col-lg-5"><div class="row g-3">${stats}</div></div></div></div></section>
 <section class="py-5"><div class="container py-4"><div class="text-center mb-5"><h5 class="text-primary">What we build</h5>
-<h2 class="fw-bold">Ten technology service lines</h2>
-<p class="text-muted mb-0">From web &amp; systems to microfinance, e-commerce, ISP, and payment gateways.</p></div>
+<h2 class="fw-bold">Twelve service and delivery lines</h2>
+<p class="text-muted mb-0">From web &amp; systems to microfinance, e-commerce, ISP, payment gateways, monitoring, and sandbox delivery.</p></div>
 <div class="row g-4">${grid}</div></div></section>
+<section class="bg-light py-5"><div class="container py-4"><div class="text-center mb-5"><h5 class="text-primary">Capability expansion</h5>
+<h2 class="fw-bold">Performance, observability, and sandbox services</h2>
+<p class="text-muted mb-0">We also support the delivery layer around applications: how they are tested, monitored, profiled, packaged, and operated after launch.</p></div>
+<div class="row g-4">
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-layer-group"></i></div><h4 class="fw-semibold">Environment coverage</h4><p class="text-muted">Development, testing / staging, and production support across Windows and Linux delivery paths.</p></div></div>
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-binoculars"></i></div><h4 class="fw-semibold">Monitoring &amp; browser observability</h4><p class="text-muted">Tracing, browser monitoring, front-end observability, analytics, notifications, and alerting support.</p></div></div>
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-microscope"></i></div><h4 class="fw-semibold">Profiling &amp; distributed analysis</h4><p class="text-muted">Continuous profiling, wall-time / CPU / IO / memory analysis, distributed profiling, and browser or CLI inspection.</p></div></div>
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-vial"></i></div><h4 class="fw-semibold">Performance testing</h4><p class="text-muted">Build verification, scenarios, custom assertions, custom metrics, and performance recommendations.</p></div></div>
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-toolbox"></i></div><h4 class="fw-semibold">Tooling &amp; integrations</h4><p class="text-muted">SDK, CLI, integration setup, automatic profiling, and synthetic monitoring workflows.</p></div></div>
+<div class="col-md-6 col-lg-4"><div class="service-card h-100 p-4 shadow-sm"><div class="service-icon"><i class="fas fa-box-open"></i></div><h4 class="fw-semibold">Packages &amp; sandbox delivery</h4><p class="text-muted">Starter, growth, and enterprise packages with sandbox environments, support layers, and handover.</p></div></div>
+</div></div></section>
 <section class="bg-light py-5"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-5"><h5 class="text-primary">How we deliver</h5><h2 class="fw-bold">Clear scope from workshop to production</h2>
 <p class="text-muted">Documented milestones, integration tests, and handover runbooks.</p></div>
@@ -229,7 +240,7 @@ function buildServicesBody() {
 <section class="consult-section py-5" id="consult"><div class="container py-4"><div class="row g-4 align-items-center">
 <div class="col-lg-5"><span class="badge bg-secondary text-uppercase mb-3">Book a consult</span>
 <h2 class="fw-bold mb-3">Match with a TechMorah consultant</h2>
-<p class="text-muted">Tell us what you need — we typically reply within one business day.</p></div>
+<p class="text-muted">Tell us what you need — microfinance, e-commerce, ISP management, payments, SMS, monitoring, profiling, sandbox work, or a custom platform. We typically reply within one business day.</p></div>
 <div class="col-lg-7"><div class="consult-card p-4 p-md-5 shadow-sm">
 <h4 class="fw-semibold mb-3">Tell us about your project</h4>
 <div class="alert d-none" id="consultAlert" role="alert"></div>
@@ -243,7 +254,7 @@ function buildServicesBody() {
 <select name="focus" class="form-control" required><option value="" disabled selected>Select one</option>
 <option>Web & system design</option><option>Microfinance solutions</option><option>E-commerce</option>
 <option>ISP management</option><option>Payment gateway & integration</option><option>Computerised accounting</option>
-<option>Graphic design & UI/UX</option><option>IT support</option><option>Enterprise SMS</option><option>Other</option></select></div>
+<option>Graphic design & UI/UX</option><option>IT support</option><option>Enterprise SMS</option><option>Monitoring, profiling & observability</option><option>Testing, sandbox & release engineering</option><option>Other</option></select></div>
 <div class="col-12"><label class="form-label small text-uppercase text-muted">Project details *</label>
 <textarea name="message" class="form-control" rows="4" required></textarea></div>
 <div class="col-12"><button type="submit" class="btn btn-secondary px-4" id="consultSubmit">Book consult</button>

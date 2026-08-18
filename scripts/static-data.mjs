@@ -3,7 +3,7 @@ export const serviceStats = [
   { value: "4+", label: "Years leadership" },
   { value: "10+", label: "Relationships" },
   { value: "25+", label: "Platforms" },
-  { value: "10", label: "Service lines" },
+  { value: "12", label: "Service lines" },
 ];
 
 export const services = [
@@ -77,13 +77,28 @@ export const services = [
     copy: "Admin consoles, reseller portals, bulk messaging, and API layers.",
     cta: "#consult",
   },
+  {
+    id: "observability",
+    icon: "fas fa-chart-line",
+    title: "Monitoring, Profiling & Observability",
+    copy: "Application monitoring, browser observability, analytics, alerts, and profiling across development, staging, and production.",
+    cta: "#consult",
+  },
+  {
+    id: "sandbox",
+    icon: "fas fa-flask",
+    title: "Testing, Sandbox & Release Engineering",
+    copy: "Sandbox environments, performance testing, build scenarios, custom assertions, and release-readiness support.",
+    cta: "#consult",
+  },
 ];
 
 export const approachSteps = [
   { title: "Discover & align", copy: "Workshops to map workflows, compliance, and success metrics before build starts." },
   { title: "Design the experience", copy: "Wireframes, UI systems, and branded assets as the single source of truth." },
   { title: "Build & integrate", copy: "Laravel, React, REST APIs, SMS/WhatsApp/payment hooks tested on real workflows." },
-  { title: "Launch & support", copy: "VPS or shared hosting, training, runbooks, and production iteration." },
+  { title: "Test, sandbox & validate", copy: "Staging, sandbox environments, performance scenarios, assertions, and release checks before launch." },
+  { title: "Launch & support", copy: "VPS or shared hosting, monitoring, alerts, training, runbooks, and production iteration." },
 ];
 
 export const blogStats = [

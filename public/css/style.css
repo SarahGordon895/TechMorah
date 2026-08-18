@@ -827,6 +827,30 @@ section, .tm-section { position: relative; z-index: 1; }
   border: 1px solid var(--line);
   padding: 20px;
 }
+.tm-feature-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.tm-feature-list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.tm-feature-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--grad);
+  transform: translateY(-50%);
+}
 .form-control, .consult-card select, .consult-card textarea {
   width: 100%;
   border: 1px solid var(--line);

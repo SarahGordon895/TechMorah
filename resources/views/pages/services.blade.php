@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('title', 'Services | TechMorah Solution LTD')
-@section('keywords', 'TechMorah services, web development, microfinance, e-commerce, ISP management, payment gateway Tanzania')
-@section('description', 'TechMorah Solution LTD services: web & system design, UI/UX, IT support, accounting, microfinance, e-commerce, ISP management, and payment gateway integration.')
+@section('keywords', 'TechMorah services, web development, microfinance, e-commerce, ISP management, payment gateway, monitoring, profiling, sandbox, performance testing Tanzania')
+@section('description', 'TechMorah Solution LTD services: web & system design, UI/UX, IT support, accounting, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery.')
 
 @section('content')
 
@@ -10,9 +10,9 @@
     <div class="container py-4">
         <div class="row g-4 align-items-center">
             <div class="col-lg-7">
-                <span class="badge bg-secondary text-uppercase mb-3">Ten technology service lines</span>
+                <span class="badge bg-secondary text-uppercase mb-3">Platform, observability & delivery services</span>
                 <h1 class="display-5 fw-bold mb-3">Digital solutions. Production delivery.</h1>
-                <p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, and payment gateway integration — scoped for East African businesses.</p>
+                <p class="lead text-white-50 mb-4">Web &amp; system design, UI/UX, IT support, accounting systems, microfinance, e-commerce, ISP management, payment gateway integration, monitoring, profiling, testing, and sandbox delivery — scoped for East African businesses.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="#consult" class="btn btn-secondary px-4 py-2">Book a consult</a>
                     <a href="https://wa.me/255655139724" target="_blank" rel="noopener" class="btn btn-outline-light px-4 py-2">WhatsApp TechMorah</a>
@@ -24,7 +24,7 @@
                         ['value' => '4+', 'label' => 'Years leadership'],
                         ['value' => '10+', 'label' => 'Relationships'],
                         ['value' => '25+', 'label' => 'Platforms'],
-                        ['value' => '10', 'label' => 'Service lines'],
+                        ['value' => '12', 'label' => 'Service lines'],
                     ] as $stat)
                     <div class="col-6">
                         <div class="stats-card text-center h-100">
@@ -59,6 +59,8 @@
                     ['icon' => 'fas fa-wifi', 'id' => 'isp', 'title' => 'ISP Management', 'copy' => 'Subscriber, billing, support, and payment flows for internet service providers.'],
                     ['icon' => 'fas fa-credit-card', 'id' => 'payments', 'title' => 'Payment Gateway & Integration', 'copy' => 'Collections, disbursements, sandboxes, callbacks, and reconciliation-aware APIs.'],
                     ['icon' => 'fas fa-sms', 'id' => 'sms', 'title' => 'Enterprise SMS Platforms', 'copy' => 'Admin consoles, reseller portals, bulk messaging, and API layers.'],
+                    ['icon' => 'fas fa-chart-line', 'id' => 'observability', 'title' => 'Monitoring, Profiling & Observability', 'copy' => 'Application monitoring, browser observability, analytics, alerts, and profiling across development, staging, and production.'],
+                    ['icon' => 'fas fa-flask', 'id' => 'sandbox', 'title' => 'Testing, Sandbox & Release Engineering', 'copy' => 'Sandbox environments, performance testing, build scenarios, custom assertions, and release-readiness support.'],
                 ];
             @endphp
             @foreach ($services as $i => $service)
@@ -69,6 +71,84 @@
                 <a href="#consult" class="btn btn-link p-0">Explore →</a>
             </article>
             @endforeach
+        </div>
+    </div>
+</section>
+
+<section class="tm-section tm-section--paper">
+    <div class="container">
+        <div class="tm-header text-center mx-auto" style="max-width:760px;margin-left:auto;margin-right:auto;">
+            <p class="tm-section-label">Capability expansion</p>
+            <h2 class="tm-title">Performance, observability, and sandbox services</h2>
+            <p class="tm-lead">Based on the current company direction, we also support the delivery layer around applications: how they are tested, monitored, profiled, packaged, and operated after launch.</p>
+        </div>
+        <div class="tm-grid tm-grid--3">
+            <article class="tm-card tm-reveal">
+                <div class="tm-card__icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Environment coverage</h3>
+                <p class="mb-2">Support across the full delivery loop:</p>
+                <ul class="tm-feature-list">
+                    <li>Development</li>
+                    <li>Testing / staging</li>
+                    <li>Production</li>
+                    <li>Windows + Linux support</li>
+                </ul>
+            </article>
+            <article class="tm-card tm-reveal" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-binoculars"></i></div>
+                <h3>Monitoring &amp; browser observability</h3>
+                <ul class="tm-feature-list">
+                    <li>Monitoring traces</li>
+                    <li>Front-end observability</li>
+                    <li>Browser monitoring</li>
+                    <li>Analytics and notifications</li>
+                    <li>Alerting support</li>
+                </ul>
+            </article>
+            <article class="tm-card tm-reveal" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-microscope"></i></div>
+                <h3>Profiling &amp; distributed analysis</h3>
+                <ul class="tm-feature-list">
+                    <li>Continuous profiling</li>
+                    <li>Wall-time, CPU, IO, memory analysis</li>
+                    <li>Network, SQL, and HTTP visibility</li>
+                    <li>Distributed profiling / subprofiles</li>
+                    <li>Browser or CLI-driven profiling</li>
+                </ul>
+            </article>
+            <article class="tm-card tm-reveal">
+                <div class="tm-card__icon"><i class="fas fa-vial"></i></div>
+                <h3>Performance testing</h3>
+                <ul class="tm-feature-list">
+                    <li>Build verification</li>
+                    <li>Scenario-based testing</li>
+                    <li>Custom assertions</li>
+                    <li>Custom metrics</li>
+                    <li>Performance recommendations</li>
+                </ul>
+            </article>
+            <article class="tm-card tm-reveal" data-delay="1">
+                <div class="tm-card__icon"><i class="fas fa-toolbox"></i></div>
+                <h3>Tooling &amp; integrations</h3>
+                <ul class="tm-feature-list">
+                    <li>SDK support</li>
+                    <li>CLI workflows</li>
+                    <li>Integration setup</li>
+                    <li>Automatic profiling</li>
+                    <li>Synthetic monitoring paths</li>
+                </ul>
+            </article>
+            <article class="tm-card tm-reveal" data-delay="2">
+                <div class="tm-card__icon"><i class="fas fa-box-open"></i></div>
+                <h3>Packages &amp; sandbox delivery</h3>
+                <ul class="tm-feature-list">
+                    <li>Sandbox environments</li>
+                    <li>Starter / growth / enterprise packages</li>
+                    <li>Security / quality / debug add-on planning</li>
+                    <li>Handover and documentation</li>
+                    <li>Ongoing support packages</li>
+                </ul>
+            </article>
         </div>
     </div>
 </section>
@@ -87,7 +167,8 @@
                         ['n' => '01', 'title' => 'Discover & align', 'copy' => 'Workshops to map workflows, compliance, and success metrics before build starts.'],
                         ['n' => '02', 'title' => 'Design the experience', 'copy' => 'Wireframes, UI systems, and branded assets as the single source of truth.'],
                         ['n' => '03', 'title' => 'Build & integrate', 'copy' => 'Laravel, React, REST APIs, SMS/WhatsApp/payment hooks tested on real workflows.'],
-                        ['n' => '04', 'title' => 'Launch & support', 'copy' => 'VPS or shared hosting, training, runbooks, and production iteration.'],
+                        ['n' => '04', 'title' => 'Test, sandbox & validate', 'copy' => 'Staging, sandbox environments, performance scenarios, assertions, and release checks before launch.'],
+                        ['n' => '05', 'title' => 'Launch & support', 'copy' => 'VPS or shared hosting, monitoring, alerts, training, runbooks, and production iteration.'],
                     ] as $step)
                     <article class="tm-workflow-step tm-reveal">
                         <div class="tm-workflow-step__num">{{ $step['n'] }}</div>
@@ -107,7 +188,7 @@
             <div class="col-lg-5">
                 <span class="badge bg-secondary text-uppercase mb-3">Book a consult</span>
                 <h2 class="tm-title">Match with a TechMorah consultant</h2>
-                <p class="text-muted">Tell us what you need — microfinance, e-commerce, ISP management, payments, SMS, or a custom platform. We typically reply within one business day.</p>
+                <p class="text-muted">Tell us what you need — microfinance, e-commerce, ISP management, payments, SMS, monitoring, profiling, sandbox work, or a custom platform. We typically reply within one business day.</p>
                 <ul class="list-unstyled text-muted small">
                     <li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>WhatsApp + email follow-up with full context</li>
                     <li class="mb-2"><i class="fas fa-check me-2 text-primary"></i>Honest scope and attribution on every engagement</li>
@@ -152,6 +233,8 @@
                                     <option>Graphic design &amp; UI/UX</option>
                                     <option>IT support</option>
                                     <option>Enterprise SMS</option>
+                                    <option>Monitoring, profiling &amp; observability</option>
+                                    <option>Testing, sandbox &amp; release engineering</option>
                                     <option>Other</option>
                                 </select>
                             </div>

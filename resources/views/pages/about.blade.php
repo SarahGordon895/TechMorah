@@ -37,7 +37,7 @@
             <div class="tm-reveal"><p class="tm-trust__value" data-count="4" data-suffix="+">4+</p><p class="tm-trust__label">Years leadership</p></div>
             <div class="tm-reveal" data-delay="1"><p class="tm-trust__value" data-count="10" data-suffix="+">10+</p><p class="tm-trust__label">Client relationships</p></div>
             <div class="tm-reveal" data-delay="2"><p class="tm-trust__value" data-count="25" data-suffix="+">25+</p><p class="tm-trust__label">Platforms delivered</p></div>
-            <div class="tm-reveal" data-delay="3"><p class="tm-trust__value" data-count="10" data-suffix="">10</p><p class="tm-trust__label">Service lines</p></div>
+            <div class="tm-reveal" data-delay="3"><p class="tm-trust__value" data-count="12" data-suffix="">12</p><p class="tm-trust__label">Service lines</p></div>
         </div>
     </div>
 </section>

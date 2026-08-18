@@ -4,7 +4,7 @@ export const trustMetrics = [
   { value: "4+", label: "Years technical leadership" },
   { value: "10+", label: "Client relationships" },
   { value: "25+", label: "Platforms delivered" },
-  { value: "10", label: "Core technology lines" },
+  { value: "12", label: "Core technology lines" },
 ];
 
 export const clientProjects = [
@@ -134,5 +134,15 @@ export const capabilities = [
     icon: "fas fa-sms",
     title: "Enterprise SMS platforms",
     copy: "Admin consoles, reseller portals, bulk messaging, and API layers.",
+  },
+  {
+    icon: "fas fa-chart-line",
+    title: "Monitoring, profiling & observability",
+    copy: "Application monitoring, browser observability, analytics, alerts, and profiling across development, staging, and production.",
+  },
+  {
+    icon: "fas fa-flask",
+    title: "Testing, sandbox & release engineering",
+    copy: "Sandbox environments, performance testing, build scenarios, assertions, and release-readiness support.",
   },
 ];
